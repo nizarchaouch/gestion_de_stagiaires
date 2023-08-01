@@ -1,11 +1,40 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-
+import Stat from "@/views/page/HomeView.vue";
+import Admin from "@/views/page/AdminView.vue";
+import Encadrant from "@/views/page/EncadrantView.vue";
+import Stagiaire from "@/views/page/StagiaireView.vue";
+import Formulaire from "@/views/page/FormulaireView.vue";
+import Demande from "@/views/page/DemandeView.vue";
 const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView,
+    component: Stat,
+  },
+  {
+    path: "/admin",
+    name: "admin",
+    component: Admin,
+  },
+  {
+    path: "/demande",
+    name: "demande",
+    component: Demande,
+  },
+  {
+    path: "/encadrant",
+    name: "encadrant",
+    component: Encadrant,
+  },
+  {
+    path: "/stagiaire",
+    name: "stagiaire",
+    component: Stagiaire,
+  },
+  {
+    path: "/formulaire",
+    name: "formulaire",
+    component: Formulaire,
   },
   {
     path: "/about",
