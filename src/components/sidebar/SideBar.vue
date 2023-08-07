@@ -29,7 +29,6 @@ export default {
       Stagiaires</SidebarLink
     >
     <SidebarLink to="/formulaire" icon="fas fa-file">Formulaires</SidebarLink>
-    <hr />
     <span
       class="collapse-icon"
       :class="{ 'rotate-180': collapsed }"
@@ -42,9 +41,9 @@ export default {
 
 <style>
 :root {
-  --sidebar-bg-color: #0984e3;
-  --sidebar-item-hover: #74b9ff;
-  --sidebar-item-active: #6c5ce7;
+  --sidebar-bg-color: #5041bc;
+  --sidebar-item-hover: #fff;
+  --sidebar-item-active: #e5e5e5;
 }
 </style>
 <style lang="scss" scoped>
@@ -75,6 +74,7 @@ export default {
   h1 img {
     height: 3em;
     width: 3em;
+    margin-top: 10px;
   }
   #logocoll {
     height: 1em;
@@ -84,6 +84,7 @@ export default {
     width: 100%;
     border: solid 1.5px;
     color: var(--sidebar-item-hover);
+    margin-bottom: 2em;
   }
 }
 </style>

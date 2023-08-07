@@ -54,13 +54,35 @@ export default {
 
   color: white;
   text-decoration: none;
+
+  width: 95%;
+  height: 40px;
+  flex-shrink: 0;
 }
 .link:hover {
   background-color: var(--sidebar-item-hover);
+  color: #5041bc;
+  font-family: Nunito;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  border-radius: 10px;
 }
 
 .link:active {
   background-color: var(--sidebar-item-active);
+  border-radius: 10px;
+}
+.link:focus {
+  background-color: var(--sidebar-item-hover);
+  color: #5041bc;
+  font-family: Nunito;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  border-radius: 10px;
 }
 .link .icon {
   flex-shrink: 0;
