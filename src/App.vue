@@ -1,8 +1,10 @@
 <script>
 import SideBar from "@/components/sidebar/SideBar";
 import { sidebarWidth } from "@/components/sidebar/stat";
+import Search from "@/components/searchbar/SearchBar";
+import Profil from "@/components/profil/ProfilIcon";
 export default {
-  components: { SideBar },
+  components: { SideBar, Search, Profil },
   setup() {
     return { sidebarWidth };
   },
@@ -12,6 +14,7 @@ export default {
 <template>
   <SideBar />
   <div :style="{ 'margin-left': sidebarWidth }">
+    <div class="navbar"><Search /> <Profil /></div>
     <router-view />
   </div>
 </template>
@@ -34,6 +37,9 @@ nav {
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+  .navbar {
+    display: inline-block;
   }
 }
 </style>
