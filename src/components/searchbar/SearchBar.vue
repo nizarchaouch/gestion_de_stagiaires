@@ -41,6 +41,6 @@
   border-right: #5041bc solid 1px;
 }
 form {
-  width: 80%;
+  width: 65%;
 }
 </style>
