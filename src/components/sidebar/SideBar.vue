@@ -86,5 +86,8 @@ export default {
     color: var(--sidebar-item-hover);
     margin-bottom: 2em;
   }
+  @media (max-width: 768px) {
+    width: 50px;
+  }
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-  <div class="pos">
+  <div class="pos col-4 col-lg-1 col-md-2">
     <button type="button" style="border: none">
       <svg
         class="profil"
         xmlns="http://www.w3.org/2000/svg"
-        width="17"
+        width="15"
         height="20"
         viewBox="0 0 17 20"
         fill="none"
@@ -15,7 +15,7 @@
         />
       </svg>
     </button>
-    <div class="dropdown profil">
+    <div class="dropdown dropstart profil">
       <button
         class="btn dropdown-toggle"
         type="button"
@@ -29,10 +29,7 @@
           alt=""
         />
       </button>
-      <ul
-        class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start"
-        aria-labelledby="dropdownMenuButton1"
-      >
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="#">Profil</a></li>
         <li><a class="dropdown-item" href="#">Déconnexion</a></li>
       </ul>
@@ -41,13 +38,10 @@
 </template>
 <style>
 img {
-  height: 45.75px;
+  height: 30px;
   border-radius: 50em;
 }
 .profil {
   display: inline-block;
-}
-.pos {
-  margin-right: 6%;
 }
 </style>

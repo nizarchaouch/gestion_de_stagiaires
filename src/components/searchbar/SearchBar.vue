@@ -1,12 +1,7 @@
 <template>
-  <form class="m-3">
-    <input
-      class="p-2 inp"
-      type="search"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <button type="button" class="p-2 bt but">
+  <form class="m-3 col-8 col-lg-11 col-md-10">
+    <input class="p-2" type="search" placeholder="Search" aria-label="Search" />
+    <button type="button" class="p-2 bt">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="15"
@@ -22,25 +17,25 @@
   </form>
 </template>
 <style scoped>
-.inp {
+input {
   border-radius: 50rem 0 0 50rem;
   background-color: #f5f3ff;
   border: none;
-  width: 30%;
+  width: 45%;
   border-bottom: #5041bc solid 1px;
   border-top: #5041bc solid 1px;
   border-left: #5041bc solid 1px;
 }
-.but {
+button {
   border-radius: 0 50rem 50rem 0;
   background-color: #f5f3ff;
   border: none;
-  width: 10%;
   border-bottom: #5041bc solid 1px;
   border-top: #5041bc solid 1px;
   border-right: #5041bc solid 1px;
 }
 form {
-  width: 65%;
+  width: 50%;
+  text-align: center;
 }
 </style>
