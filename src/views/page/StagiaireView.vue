@@ -1,12 +1,12 @@
 <template>
   <btnA />
-  <div></div>
+  <modalA></modalA>
 </template>
 
 <script>
-import btnA from "@/components/BtnAjout.vue";
+import modalA from "@/components/ModalAjoutStag.vue";
 export default {
-  components: { btnA },
+  components: { modalA },
   setup() {},
 };
 </script>

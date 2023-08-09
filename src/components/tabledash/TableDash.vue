@@ -27,13 +27,4 @@ export default {
 .table {
   margin-top: 60px;
 }
-img {
-  width: 37.6px;
-  height: 37.6px;
-  border-radius: 60px;
-  background-color: black;
-}
-a {
-  margin-right: 15px;
-}
 </style>

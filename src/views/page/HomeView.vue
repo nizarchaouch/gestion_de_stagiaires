@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss" scoped>
 .contianer {
-  margin-top: 15px;
+  margin-top: 10px;
   .row {
     justify-content: space-evenly;
   }

@@ -48,3 +48,14 @@ export default {
     </td>
   </tr>
 </template>
+<style scoped>
+img {
+  width: 37.6px;
+  height: 37.6px;
+  border-radius: 60px;
+  background-color: black;
+}
+a {
+  margin-right: 15px;
+}
+</style>
