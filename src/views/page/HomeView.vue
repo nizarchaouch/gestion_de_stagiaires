@@ -1,9 +1,10 @@
 <script>
 import Card from "@/components/carddash/CardDash";
+import Table from "@/components/table/TableDash.vue";
 export default {
   name: "HomeView",
 
-  components: { Card },
+  components: { Card, Table },
 };
 </script>
 
@@ -18,6 +19,7 @@ export default {
       </div>
     </div>
   </div>
+  <Table />
 </template>
 
 <style lang="scss" scoped>

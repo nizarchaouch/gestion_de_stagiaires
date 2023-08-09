@@ -11,7 +11,6 @@ export default {
   },
 };
 </script>
-
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
     <h1>
