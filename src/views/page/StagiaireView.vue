@@ -1,11 +1,14 @@
 <template>
+  <btnA />
   <div>
-    <p>stagiaire</p>
+    
   </div>
 </template>
 
 <script>
+import btnA from "@/components/BtnAjout.vue";
 export default {
+  components: { btnA },
   setup() {},
 };
 </script>
