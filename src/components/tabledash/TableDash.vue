@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <table class="table container">
+  <table class="container table">
     <thead>
       <tr>
         <th>Image</th>
@@ -24,7 +24,7 @@ export default {
   </table>
 </template>
 <style scoped>
-.table {
+table {
   margin-top: 60px;
 }
 </style>
