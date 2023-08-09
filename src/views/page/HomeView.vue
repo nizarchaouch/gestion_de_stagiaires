@@ -1,6 +1,6 @@
 <script>
 import Card from "@/components/carddash/CardDash";
-import Table from "@/components/table/TableDash.vue";
+import Table from "@/components/tabledash/TableDash.vue";
 export default {
   name: "HomeView",
 

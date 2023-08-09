@@ -1,8 +1,6 @@
 <template>
   <btnA />
-  <div>
-    
-  </div>
+  <div></div>
 </template>
 
 <script>
