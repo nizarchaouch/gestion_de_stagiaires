@@ -33,7 +33,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ajouté Stagiaire</h5>
+          <h5 class="modal-title">Ajouté Stagiaire</h5>
           <button
             type="button"
             class="btn-close"
@@ -44,7 +44,7 @@
         <div class="modal-body">
           <form>
             <div class="mb-3">
-              <label for="nom&prenom-name" class="col-form-label"
+              <label for="nom&prenom-name" class="col-lg-12"
                 >Nom Prenom :</label
               >
               <input type="text" class="form-control" id="nom&prenom-name" />

@@ -3,13 +3,13 @@ import TableRow from "./TableRow.vue";
 export default {
   components: { TableRow },
   setup() {
-    return { name: "nizar" };
+    return {};
   },
 };
 </script>
 
 <template>
-  <table class="container table">
+  <table class="table container">
     <thead>
       <tr>
         <th>Image</th>

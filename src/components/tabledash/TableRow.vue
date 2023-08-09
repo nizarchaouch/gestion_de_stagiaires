@@ -9,13 +9,9 @@ export default {
 <!-- "../../assets/logo.png" -->
 <template>
   <tr v-for="(data, i) in data" :key="i">
-    <th>
-      <img
-        src="../../assets/logo.png"
-        alt="image"
-        style="background-color: black"
-      />
-    </th>
+    <td>
+      <img :src="data.img" alt="image" />
+    </td>
     <td>{{ data.nom }}</td>
     <td>{{ data.role }}</td>
     <td>
