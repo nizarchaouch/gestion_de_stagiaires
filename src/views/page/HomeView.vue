@@ -12,10 +12,10 @@ export default {
   <div class="contianer">
     <div class="container-fluid">
       <div class="row">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card title="Demande stage" number="25" />
+        <Card title="Stagiares en cours" number="15" />
+        <Card title="STAGIAIRES REFUSES" number="5" />
+        <Card title="DEMANDE EN ATTENTES" number="5" />
       </div>
     </div>
   </div>

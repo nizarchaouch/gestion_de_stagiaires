@@ -1,7 +1,15 @@
+<script>
+export default {
+  props: {
+    title: String,
+    number: Int8Array,
+  },
+};
+</script>
 <template>
   <div class="card col-md-2 col-10 col-sm-5">
     <div class="row">
-      <p class="card-title col-md-9 col-7">Demande stage</p>
+      <p class="card-title col-md-9 col-7">{{ title }}</p>
       <p class="icon col-md-2 col-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +27,7 @@
     </div>
 
     <div class="row">
-      <p class="card-text col-md-6 col-6">25</p>
+      <p class="card-text col-md-6 col-6">{{ number }}</p>
       <a href="#" class="col-md-6 col-6">Voir Plus</a>
     </div>
   </div>
