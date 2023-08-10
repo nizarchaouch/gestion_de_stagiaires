@@ -1,12 +1,15 @@
 <script>
 import { data } from "./stat";
+import Modal from "@/components/ModalDemande.vue";
 export default {
+  components: { Modal },
   setup() {
     return { data };
   },
 };
 </script>
 <template>
+  <Modal />
   <div class="card col-lg-2" v-for="(data, i) in data" :key="i">
     <div class="card-body">
       <img class="card-title" :src="data.img" alt="image" />
