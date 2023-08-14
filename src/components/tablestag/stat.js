@@ -1,4 +1,3 @@
-export const nom = ["nizar", "mouhamed", "aymen"];
 export const data = [
   {
     img: "@/assets/logo.png",

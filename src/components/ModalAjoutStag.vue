@@ -1,3 +1,18 @@
+<script>
+export default {
+  data() {
+    return {
+      imageUrl: "https://2cm.es/tLVi",
+    };
+  },
+  methods: {
+    handleFileChange(event) {
+      const selectedFile = event.target.files[0];
+      this.imageUrl = URL.createObjectURL(selectedFile);
+    },
+  },
+};
+</script>
 <template>
   <button
     type="button"
@@ -30,10 +45,10 @@
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
   >
-    <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Ajouté Stagiaire</h5>
+          <h5 class="modal-title title">Ajouté Stagiaire</h5>
           <button
             type="button"
             class="btn-close"
@@ -42,61 +57,101 @@
           ></button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="nom&prenom-name" class="col-lg-12"
-                >Nom Prenom :</label
-              >
-              <input type="text" class="form-control" id="nom&prenom-name" />
+          <div class="container-fluid">
+            <div class="row">
+              <label for="file">
+                <img :src="imageUrl" alt="Image" />
+              </label>
+              <input
+                type="file"
+                id="file"
+                @change="handleFileChange"
+                style="display: none"
+              />
             </div>
-            <div class="mb-3">
-              <label for="gmail-name" class="col-form-label">Gmail :</label>
-              <input type="email" class="form-control" id="gmail-name" />
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Nom"
+                />
+                <label for="floatingInput">Nom</label>
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Prenom"
+                />
+                <label for="floatingInput">Prenom</label>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="tel-name" class="col-form-label">Telephone :</label>
-              <input type="number" class="form-control" id="tel-name" />
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Gmail"
+                />
+                <label for="floatingInput">Gmail</label>
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="numero"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Telephone"
+                />
+                <label for="floatingInput">Telephone</label>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="dated-name" class="col-form-label"
-                >Date de debuit :</label
-              >
-              <input type="date" class="form-control" id="dated-name" />
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="date debuit"
+                />
+                <label for="floatingInput">Date de debuit</label>
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="date de fin"
+                />
+                <label for="floatingInput">Date de fin</label>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="datef-name" class="col-form-label"
-                >Date de fin :</label
-              >
-              <input type="date" class="form-control" id="datef-name" />
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="encadrant"
+                />
+                <label for="floatingInput">Encadrant</label>
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="type de stage"
+                />
+                <label for="floatingInput">Type de stage</label>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="encadrant-name" class="col-form-label"
-                >Encadrant :</label
-              >
-              <input type="text" class="form-control" id="encadrant-name" />
-            </div>
-            <div class="mb-3">
-              <label for="typestage-name" class="col-form-label"
-                >Type de stage :</label
-              >
-              <input type="text" class="form-control" id="typestage-name" />
-            </div>
-            <fieldset class="mb-3">
-              <legend for="message-text" class="col-form-label">
-                Message:
-              </legend>
-              <textarea class="form-control" id="message-text"></textarea>
-            </fieldset>
-          </form>
+          </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Ferme
-          </button>
           <button type="button" class="btn btn-primary">Ajouter</button>
         </div>
       </div>
@@ -125,5 +180,32 @@
   line-height: normal;
 
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+}
+.title::before {
+  content: " ";
+  background-color: #233eae;
+  width: 6px;
+  height: 30px;
+  position: absolute;
+  left: 5px;
+  border-radius: 15px;
+}
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #dfdfdf;
+}
+label {
+  position: relative;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+input {
+  border-radius: 5px;
+  border: rgba(128, 128, 128, 0.511) solid 1px;
+  margin-bottom: 20px;
 }
 </style>
