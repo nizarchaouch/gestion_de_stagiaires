@@ -166,19 +166,24 @@
                 <span>lettre</span>
               </div>
               <div class="col-md-4">
-                <input type="text" />
+                <textarea
+                  type="text"
+                  placeholder="  Ajouter un commentaire..."
+                ></textarea>
               </div>
             </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="margin-right: 70px">
             <button
               type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
+              class="btn btn-success rounded-pill"
+              style="margin-right: 60px"
             >
-              Close
+              Accepter
             </button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-danger rounded-pill">
+              Refuser
+            </button>
           </div>
         </div>
       </div>
@@ -238,5 +243,13 @@ h2 {
   align-self: stretch;
   background: #5932ea;
   margin: 0 30px 0 60px;
+}
+textarea {
+  width: 308px;
+  height: 54px;
+  background-color: rgba(217, 217, 217, 0.29);
+  border-radius: 15px;
+  border: none;
+  color: gray;
 }
 </style>

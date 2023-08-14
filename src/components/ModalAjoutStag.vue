@@ -81,10 +81,12 @@
               >
               <input type="text" class="form-control" id="typestage-name" />
             </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Message:</label>
+            <fieldset class="mb-3">
+              <legend for="message-text" class="col-form-label">
+                Message:
+              </legend>
               <textarea class="form-control" id="message-text"></textarea>
-            </div>
+            </fieldset>
           </form>
         </div>
         <div class="modal-footer">
