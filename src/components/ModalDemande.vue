@@ -27,6 +27,7 @@
               class="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
+              style="margin-right: 2px"
             ></button>
           </div>
           <div class="modal-body">
@@ -44,60 +45,128 @@
                 <p>Nizar Chaouch</p>
                 <hr />
               </div>
-              <div class="col-md-3" style="margin-left: 50px">
+              <div class="col-md-5">
                 <p>Informations universitaires</p>
-                <hr style="width: 320px" />
+                <hr />
+              </div>
+              <div class="col-md-5">
+                <p>Compétences informatiques</p>
+                <hr />
               </div>
             </div>
             <div class="row">
-              <div class="col-md-1">
+              <div class="col-md-3">
                 <h6>Gmail</h6>
+              </div>
+              <div class="col-md-5">
+                <h6>Nom de l'établissement d'enseignement</h6>
+              </div>
+              <div class="col-md-4">
+                <h6>Langages de programmation maîtrisés</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
                 <span>chaouchnizar@gmail.com</span>
               </div>
-              <div class="col-md-4" style="margin-left: 150px">
-                <h6>Nom de l'établissement d'enseignement</h6>
+              <div class="col-md-5">
                 <span>EPI DIGITAL SCHOOL</span>
               </div>
+              <div class="col-md-4">
+                <span>NY</span>
+              </div>
             </div>
             <div class="row">
-              <div class="col-md-1">
+              <div class="col-md-3">
                 <h6>Téléphone</h6>
+              </div>
+              <div class="col-md-5">
+                <h6>Intitulé de la formation / spécialité</h6>
+              </div>
+              <div class="col-md-4">
+                <h6>Outils de développement utilisés</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
                 <span>52641659</span>
               </div>
-              <div class="col-md-3" style="margin-left: 150px">
-                <h6>Intitulé de la formation / spécialité</h6>
+              <div class="col-md-5">
                 <span>Génie Logiciel</span>
               </div>
+              <div class="col-md-4">
+                <span>NY</span>
+              </div>
             </div>
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <h6>Date de naissance</h6>
+              </div>
+              <div class="col-md-5">
+                <h6>Niveau d'études / année en cours</h6>
+              </div>
+              <div class="col-md-4">
+                <h6>Expérience avec les bases de données (précisez)</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
                 <span>20/06/1999</span>
               </div>
-              <div class="col-md-3" style="margin-left: 53px">
-                <h6>Niveau d'études / année en cours</h6>
+              <div class="col-md-5">
                 <span>4eme année</span>
               </div>
+              <div class="col-md-4">
+                <span>NY</span>
+              </div>
             </div>
             <div class="row">
-              <div class="col-md-2">
+              <div class="col-md-3">
                 <h6>Address</h6>
-                <span>Tarek ben zied,Moknine</span>
               </div>
-              <div class="col-md-2" style="margin-left: 53px">
+              <div class="col-md-5">
                 <h6>Durée du stage prévue</h6>
+              </div>
+              <div class="col-md-4">
+                <h6>Autres compétences informatiques pertinentes</h6>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <span>Tarek ben zied, Moknine</span>
+              </div>
+              <div class="col-md-5">
                 <span>deux mois</span>
               </div>
+              <div class="col-md-4">
+                <span>NY</span>
+              </div>
             </div>
             <div class="row">
-              <div class="col-md-1">
+              <div class="col-md-3">
                 <h6>Sexe</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
                 <span>Homme</span>
               </div>
-              <div class="col-md-2" style="margin-left: 146px">
-                <hr style="width: 320px" />
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-5">
+                <hr />
                 <h6>Intérêts et motivations</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-5">
                 <span>lettre</span>
+              </div>
+              <div class="col-md-4">
+                <input type="text" />
               </div>
             </div>
           </div>
@@ -117,6 +186,9 @@
   </div>
 </template>
 <style scoped>
+.modal-content {
+  border-radius: 40px;
+}
 img {
   width: 120px;
   height: 128px;
