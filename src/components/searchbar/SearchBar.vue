@@ -1,7 +1,7 @@
 <template>
   <form class="m-3 col-8 col-lg-11 col-md-10">
     <input class="p-2" type="search" placeholder="Search" aria-label="Search" />
-    <button type="button" class="p-2 bt">
+    <!-- <button type="button" class="p-2 bt">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="15"
@@ -13,18 +13,16 @@
           fill="#5041bc"
         />
       </svg>
-    </button>
+    </button> -->
   </form>
 </template>
 <style scoped>
 input {
-  border-radius: 50rem 0 0 50rem;
+  border-radius: 50rem;
   background-color: #f5f3ff;
   border: none;
   width: 45%;
-  border-bottom: #5041bc solid 1px;
-  border-top: #5041bc solid 1px;
-  border-left: #5041bc solid 1px;
+  border: #5041bc solid 1px;
 }
 button {
   border-radius: 0 50rem 50rem 0;
