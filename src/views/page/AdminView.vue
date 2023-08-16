@@ -12,12 +12,14 @@ export default {
 </script> -->
 <template>
   <ModalA />
+  <ModalM />
 </template>
 
 <script>
 import ModalA from "@/components/modala/ModalA.vue";
+import ModalM from "@/components/Modal/ModalM.vue";
 export default {
-  components: { ModalA },
+  components: { ModalA, ModalM },
   setup() {},
 };
 </script>

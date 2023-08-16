@@ -1,6 +1,6 @@
 <script>
 import { data } from "./stat";
-import Modal from "@/components/ModalDemande.vue";
+import Modal from "@/components/Modal/ModalM.vue";
 export default {
   components: { Modal },
   setup() {
