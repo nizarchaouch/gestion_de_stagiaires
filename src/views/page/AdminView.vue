@@ -11,15 +11,14 @@ export default {
 };
 </script> -->
 <template>
-  <ModalA />
-  <ModalM />
+  <div class="float-start ms-5"><h4>Liste Admins</h4></div>
+  <div class="float-end me-5"><ModalA /></div>
 </template>
 
 <script>
 import ModalA from "@/components/modala/ModalA.vue";
-import ModalM from "@/components/Modal/ModalM.vue";
 export default {
-  components: { ModalA, ModalM },
+  components: { ModalA },
   setup() {},
 };
 </script>

@@ -1,5 +1,8 @@
 <template>
-  <modalA />
+  <h4 class="float-start ms-5">Liste Stagiaires</h4>
+  <div class="float-end me-5">
+    <modalA />
+  </div>
   <tableS></tableS>
   <pagination />
 </template>

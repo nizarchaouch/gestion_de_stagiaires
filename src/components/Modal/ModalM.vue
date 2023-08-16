@@ -1,6 +1,9 @@
 <script>
 import MM from "./MM.vue";
 export default {
+  props: {
+    obj: String,
+  },
   components: { MM },
 };
 </script>
@@ -12,7 +15,7 @@ export default {
       data-bs-toggle="modal"
       data-bs-target="#staticBackdrop"
     >
-      nom
+      {{ obj.nom }}
     </button>
 
     <!-- Modal -->
@@ -49,11 +52,11 @@ export default {
             <div class="row">
               <div class="container col-lg-4">
                 <div class="row">
-                  <p>Nizar Chaouch</p>
+                  <p>{{ obj.nom }}</p>
                   <hr />
                 </div>
-                <MM h="Gmail" s="chaouchnizar1@gmail.com" />
-                <MM h="Téléphone" s="52641659" />
+                <MM h="Gmail" :s="obj.gmail" />
+                <MM h="Téléphone" :s="obj.tel" />
                 <MM h="Date de naissance" s="20/06/1999" />
                 <MM h="Address" s="Tarek ben zied,Moknine" />
                 <MM h="Sexe" s="Homme" />
