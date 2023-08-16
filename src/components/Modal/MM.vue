@@ -26,19 +26,19 @@ p {
   text-align: left;
 }
 span {
-  color: #1a4f6e;
+  color: #292d32;
   font-family: Poppins;
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 500;
   text-align: left;
   margin-bottom: 20px;
 }
 h6 {
-  color: #292d32;
+  color: #1a4f6e;
   font-family: Poppins;
   font-size: 17px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 800;
   line-height: normal;
   text-align: left;
 }
