@@ -1,6 +1,9 @@
 <template>
   <div class="pos col-4 col-lg-1 col-md-2">
-    <button type="button" style="border: none">
+    <button
+      type="button"
+      style="border: none; background-color: rgba(255, 255, 255, 0)"
+    >
       <svg
         class="profil"
         xmlns="http://www.w3.org/2000/svg"

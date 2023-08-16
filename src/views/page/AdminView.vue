@@ -11,13 +11,13 @@ export default {
 };
 </script> -->
 <template>
-  <div>
-    <p>admin</p>
-  </div>
+  <ModalA />
 </template>
 
 <script>
+import ModalA from "@/components/modala/ModalA.vue";
 export default {
+  components: { ModalA },
   setup() {},
 };
 </script>

@@ -48,7 +48,7 @@ export default {
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title title">Ajouter Stagiaire</h5>
+          <h5 class="modal-title title">Ajouter Admin</h5>
           <button
             type="button"
             class="btn-close"
@@ -112,41 +112,35 @@ export default {
             <div class="row">
               <div class="form-floating col-md-6 col-6">
                 <input
-                  type="date"
+                  type="email"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="date debuit"
+                  placeholder="Gmail"
                 />
-                <label for="floatingInput">Date de debuit</label>
+                <label for="floatingInput">Mot de passe</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
-                  type="date"
+                  type="numero"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="date de fin"
+                  placeholder="Telephone"
                 />
-                <label for="floatingInput">Date de fin</label>
+                <label for="floatingInput">Confirme mot de passe</label>
               </div>
             </div>
             <div class="row">
-              <div class="form-floating col-md-6 col-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInput"
-                  placeholder="encadrant"
-                />
-                <label for="floatingInput">Encadrant</label>
-              </div>
-              <div class="form-floating col-md-6 col-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInput"
-                  placeholder="type de stage"
-                />
-                <label for="floatingInput">Type de stage</label>
+              <div class="form-floating col-md-12 col-12">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="superadmin"
+                  />
+                  <label class="form-check-label" for="superadmin"
+                    >Super Admin</label
+                  >
+                </div>
               </div>
             </div>
           </div>
