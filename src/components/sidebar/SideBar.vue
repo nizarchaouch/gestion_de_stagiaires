@@ -21,7 +21,6 @@ export default {
     </h1>
     <hr />
     <SidebarLink to="/" icon="fas fa-chart-column">Statistiques</SidebarLink>
-    <SidebarLink to="/admin" icon="fas fa-user-tie">Admins</SidebarLink>
     <SidebarLink to="/demande" icon="fas fa-file-invoice">Demandes</SidebarLink>
     <SidebarLink to="/encadrant" icon="fas fa-users">Encadrants</SidebarLink>
     <SidebarLink to="/stagiaire" icon="fas fa-user-graduate">
@@ -71,8 +70,8 @@ export default {
     transition: 0.2s linear;
   }
   h1 img {
-    height: 3em;
-    width: 3em;
+    height: 3.5em;
+    width: 3.5em;
     margin-top: 10px;
   }
   #logocoll {
@@ -81,7 +80,7 @@ export default {
   }
   hr {
     width: 100%;
-    border: solid 1.5px;
+    border: solid 2px;
     color: var(--sidebar-item-hover);
     margin-bottom: 2em;
   }

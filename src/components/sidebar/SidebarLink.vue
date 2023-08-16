@@ -44,26 +44,26 @@ export default {
 
   cursor: pointer;
   position: relative;
-  font-weight: 400;
+  font-weight: 600;
   user-select: none;
 
   margin: 0.8em 0;
   padding: 0.2em;
   border-radius: 0.25em;
-  height: 1.5em;
+  height: 2em;
 
   color: white;
   text-decoration: none;
 
-  width: 95%;
-  height: 40px;
+  width: 97%;
+  height: 50px;
   flex-shrink: 0;
 }
 .link:hover {
   background-color: var(--sidebar-item-hover);
   color: #5041bc;
   font-family: Nunito;
-  font-size: 15px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -76,7 +76,7 @@ export default {
 }
 .link .icon {
   flex-shrink: 0;
-  width: 25px;
+  width: 40px;
   margin-right: 20px;
 }
 </style>

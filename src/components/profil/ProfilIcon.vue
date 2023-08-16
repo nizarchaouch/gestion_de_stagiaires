@@ -34,6 +34,7 @@
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="#">Profil</a></li>
+        <li><a class="dropdown-item" href="#/admin">Gere Admin</a></li>
         <li><a class="dropdown-item" href="#">Déconnexion</a></li>
       </ul>
     </div>
