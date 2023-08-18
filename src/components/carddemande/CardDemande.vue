@@ -8,7 +8,7 @@ export default {
   },
   data() {
     return {
-      selectedOBJ: "nizar",
+      selectedOBJ: "null",
     };
   },
   methods: {

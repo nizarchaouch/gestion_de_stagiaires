@@ -4,15 +4,15 @@
     <modalA />
   </div>
   <tableS></tableS>
-  <pagination />
+  <!-- <pagination /> -->
 </template>
 
 <script>
 import modalA from "@/components/ModalAjoutStag.vue";
 import tableS from "@/components/tablestag/TableStag.vue";
-import pagination from "@/components/pagination/PaginationD.vue";
+// import pagination from "@/components/pagination/PaginationD.vue";
 export default {
-  components: { modalA, tableS, pagination },
+  components: { modalA, tableS },
   setup() {},
 };
 </script>

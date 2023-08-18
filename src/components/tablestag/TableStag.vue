@@ -15,10 +15,8 @@ export default {
         <th>Image</th>
         <th>Nom et Prenom</th>
         <th>E-mail</th>
-        <th>Telephone</th>
         <th>Durée du stage</th>
         <th>Encadrant</th>
-        <th>Type de stage</th>
         <th>status</th>
         <th>Action</th>
       </tr>
