@@ -9,23 +9,13 @@ export default {
 </script>
 <template>
   <div>
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop"
-    >
-      {{ obj.nom }}
-    </button>
-
-    <!-- Modal -->
     <div
       class="modal fade"
-      id="staticBackdrop"
+      id="modaldemande"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabindex="-1"
-      aria-labelledby="staticBackdropLabel"
+      aria-labelledby="modaldemande"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-xl">

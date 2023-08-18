@@ -23,7 +23,12 @@ export default {
 <template>
   <Modal :obj="selectedOBJ" />
   <div class="card col-lg-2" v-for="(data, i) in data" :key="i">
-    <div class="card-body" @click="setSelectedOBJ(data)">
+    <div
+      class="card-body"
+      @click="setSelectedOBJ(data)"
+      data-bs-toggle="modal"
+      data-bs-target="#modaldemande"
+    >
       <img class="card-title" :src="data.img" alt="image" />
       <h6 class="card-text">{{ data.nom }}</h6>
       <h6 class="card-subtitle m-2 text-muted">Epi Sousse</h6>
