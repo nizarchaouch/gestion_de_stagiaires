@@ -13,12 +13,14 @@ export default {
 <template>
   <div class="float-start ms-5"><h4>Liste Admins</h4></div>
   <div class="float-end me-5"><ModalA /></div>
+  <TableA />
 </template>
 
 <script>
 import ModalA from "@/components/modala/ModalA.vue";
+import TableA from "@/components/tableadmin/TableAdmin.vue";
 export default {
-  components: { ModalA },
+  components: { ModalA, TableA },
   setup() {},
 };
 </script>

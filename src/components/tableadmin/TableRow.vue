@@ -41,8 +41,8 @@ export default {
 </template>
 <style scoped>
 img {
-  width: 37.6px;
-  height: 37.6px;
+  width: 60px;
+  height: 60px;
   border-radius: 60px;
   background-color: black;
 }
