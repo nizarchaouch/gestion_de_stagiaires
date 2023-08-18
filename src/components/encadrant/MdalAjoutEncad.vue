@@ -48,7 +48,7 @@ export default {
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title title">Ajouter Admin</h5>
+          <h5 class="modal-title title">Ajouter Encadrant</h5>
           <button
             type="button"
             class="btn-close"
@@ -95,7 +95,7 @@ export default {
                   type="mail"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="Gmail"
+                  placeholder="mE-mail"
                 />
                 <label for="floatingInput">E-mail</label>
               </div>
@@ -112,35 +112,21 @@ export default {
             <div class="row">
               <div class="form-floating col-md-6 col-6">
                 <input
-                  type="email"
+                  type="text"
                   class="form-control"
                   id="floatingInput"
                   placeholder="Gmail"
                 />
-                <label for="floatingInput">Mot de passe</label>
+                <label for="floatingInput">Spécialité</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
-                  type="numero"
+                  type="text"
                   class="form-control"
                   id="floatingInput"
                   placeholder="Telephone"
                 />
-                <label for="floatingInput">Confirme mot de passe</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-floating col-md-12 col-12">
-                <div class="form-check form-switch">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id="superadmin"
-                  />
-                  <label class="form-check-label" for="superadmin"
-                    >Super Admin</label
-                  >
-                </div>
+                <label for="floatingInput">Stagiaire</label>
               </div>
             </div>
           </div>

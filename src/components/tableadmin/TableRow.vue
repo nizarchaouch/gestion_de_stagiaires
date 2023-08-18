@@ -13,6 +13,7 @@ export default {
       <img :src="data.img" alt="image" />
     </td>
     <td>{{ data.nom }}</td>
+    <td>{{ data.prenom }}</td>
     <td>{{ data.mail }}</td>
     <td>{{ data.role }}</td>
     <td>

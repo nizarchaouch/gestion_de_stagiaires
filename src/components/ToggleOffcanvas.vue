@@ -64,4 +64,9 @@ p {
 .row {
   margin-left: 25px;
 }
+h5 {
+  color: #2073a3;
+  font-family: Poppins;
+  font-weight: 600;
+}
 </style>

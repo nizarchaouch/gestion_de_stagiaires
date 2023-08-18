@@ -11,7 +11,7 @@ export default {
 };
 </script> -->
 <template>
-  <div class="float-start ms-5"><h4>Liste Admins</h4></div>
+  <div class="float-start ms-5"><h4>Liste Admin</h4></div>
   <div class="float-end me-5"><ModalA /></div>
   <TableA />
 </template>

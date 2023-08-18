@@ -149,9 +149,7 @@ h6 {
   color: #292d32;
   font-family: Poppins;
   font-size: 17px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
   float: left;
 }
 .row {
