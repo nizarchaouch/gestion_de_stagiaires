@@ -13,7 +13,8 @@ export default {
     <thead>
       <tr>
         <th>Image</th>
-        <th>Nom & Prenom</th>
+        <th>Nom et Prenom</th>
+        <th>E-mail</th>
         <th>RÔLE</th>
         <th>Action</th>
       </tr>

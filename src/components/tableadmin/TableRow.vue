@@ -13,6 +13,7 @@ export default {
       <img :src="data.img" alt="image" />
     </td>
     <td>{{ data.nom }}</td>
+    <td>{{ data.mail }}</td>
     <td>{{ data.role }}</td>
     <td>
       <div class="dropdown dropstart profil">
