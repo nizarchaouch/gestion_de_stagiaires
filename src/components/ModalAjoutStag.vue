@@ -77,16 +77,16 @@ export default {
                   id="floatingInput"
                   placeholder="Nom"
                 />
-                <label for="floatingInput">Nom</label>
+                <label for="floatingInput">Nom et Prenom</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
-                  type="text"
+                  type="number"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="Prenom"
+                  placeholder="telephone"
                 />
-                <label for="floatingInput">Prenom</label>
+                <label for="floatingInput">Telephone</label>
               </div>
             </div>
             <div class="row">
@@ -95,18 +95,18 @@ export default {
                   type="email"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="Gmail"
+                  placeholder="e-mail"
                 />
-                <label for="floatingInput">Gmail</label>
+                <label for="floatingInput">E-mail</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
-                  type="numero"
+                  type="text"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="Telephone"
+                  placeholder="dureestage"
                 />
-                <label for="floatingInput">Telephone</label>
+                <label for="floatingInput">Durée du stage</label>
               </div>
             </div>
             <div class="row">
@@ -127,6 +127,28 @@ export default {
                   placeholder="date de fin"
                 />
                 <label for="floatingInput">Date de fin</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="encadrant"
+                />
+                <label for="floatingInput"
+                  >Nom de l'établissement d'enseignement</label
+                >
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="type de stage"
+                />
+                <label for="floatingInput">Niveau</label>
               </div>
             </div>
             <div class="row">

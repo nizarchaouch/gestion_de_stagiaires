@@ -18,21 +18,19 @@ export default {
     </th>
     <td>{{ data.nom }}</td>
     <td>{{ data.gmail }}</td>
-    <td>{{ data.dated }}</td>
-    <td>{{ data.datef }}</td>
+    <td>{{ data.tel }}</td>
+    <td>{{ data.dureestage }}</td>
     <td>{{ data.encadrant }}</td>
     <td>{{ data.type }}</td>
     <td>
-      <p
-        v-if="data.status == 'active'"
-        class="status"
-        style="background-color: rgb(3, 181, 3); color: white"
-      >
-        {{ data.status }}
-      </p>
-      <p v-else class="status" style="background-color: red; color: white">
-        {{ data.status }}
-      </p>
+      <div class="form-check form-switch" style="margin-left: 35%">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="ActiveDesactive"
+          checked
+        />
+      </div>
     </td>
     <td>
       <div class="dropdown dropstart profil">
@@ -59,9 +57,13 @@ export default {
           </svg>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">Active ou Desactive</a></li>
-          <li><a class="dropdown-item" href="#">Modifier</a></li>
-          <li><a class="dropdown-item" href="#">Supprime</a></li>
+          <a class="dropdown-item d-inline p-1 m-4" href="#"
+            ><i class="fa-solid fa-sliders fa-lg"></i
+          ></a>
+
+          <a class="dropdown-item d-inline p-1 m-4" href="#"
+            ><i class="fa-solid fa-trash fa-lg" style="color: #de1b1b"></i
+          ></a>
         </ul>
       </div>
     </td>
