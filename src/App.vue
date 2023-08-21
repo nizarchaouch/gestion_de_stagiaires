@@ -1,10 +1,9 @@
 <script>
 import SideBar from "@/components/sidebar/SideBar";
 import { sidebarWidth } from "@/components/sidebar/stat";
-import Search from "@/components/searchbar/SearchBar";
-import Profil from "@/components/profil/ProfilIcon";
+import NavBar from "@/components/NavBar.vue";
 export default {
-  components: { SideBar, Search, Profil },
+  components: { SideBar, NavBar },
   setup() {
     return { sidebarWidth };
   },
@@ -14,7 +13,7 @@ export default {
 <template>
   <SideBar />
   <div :style="{ 'margin-left': sidebarWidth }">
-    <div class="navbar"><Search /> <Profil /></div>
+    <NavBar />
     <router-view />
   </div>
 </template>
