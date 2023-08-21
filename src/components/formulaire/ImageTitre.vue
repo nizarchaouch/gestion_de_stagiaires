@@ -25,7 +25,7 @@ export default {
   </div>
   <div class="title">
     <input type="text" id="title" class="fs-1 fw-bold" value="Formulaire " />
-    <input type="textarea " value="description" />
+    <textarea type="text" placeholder="description"></textarea>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -44,11 +44,12 @@ img {
   margin-left: 22.6%;
   background-color: white;
   border-top: 12px solid blue;
-  input {
+  input,
+  textarea {
     display: block;
     border: none;
     margin: 20px;
-    width: 90%;
+    width: 95%;
   }
 }
 </style>

@@ -7,7 +7,7 @@
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        style="border: none"
+        style="border: none; background-color: transparent"
       >
         <span
           class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
