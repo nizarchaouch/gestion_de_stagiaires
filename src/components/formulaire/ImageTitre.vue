@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="img">
     <input
       type="file"
       id="file"
@@ -23,8 +23,8 @@ export default {
     />
     <label for="file"><img :src="imageUrl" alt="Image" /></label>
   </div>
-  <div class="title">
-    <input type="text" id="title" class="fs-1 fw-bold" value="Formulaire " />
+  <div class="titre">
+    <input type="text" id="titre" class="fs-1 fw-bold" value="Formulaire " />
     <textarea type="text" placeholder="description"></textarea>
   </div>
 </template>
@@ -36,7 +36,7 @@ img {
   margin-top: 20px;
   cursor: pointer;
 }
-.title {
+.titre {
   height: 200px;
   width: 800px;
   border-radius: 8px;
@@ -51,5 +51,14 @@ img {
     margin: 20px;
     width: 95%;
   }
+}
+.img {
+  height: 200px;
+  width: 800px;
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-left: 22.6%;
+  background-color: white;
 }
 </style>

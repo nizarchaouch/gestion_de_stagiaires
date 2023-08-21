@@ -29,13 +29,13 @@
     <label class="btn btn-outline-primary" for="btnradio2"
       >Formulaire de stage
     </label>
-
-    <div v-if="selectedRadio === 'radio1'">Contenu de la radio 1</div>
-    <div v-else-if="selectedRadio === 'radio2'">Contenu de la radio 2</div>
   </div>
+  <FormDemande v-if="selectedRadio === 'radio1'" />
 </template>
 <script>
+import FormDemande from "./FormDemande.vue";
 export default {
+  components: { FormDemande },
   data() {
     return {
       selectedRadio: "radio1",
