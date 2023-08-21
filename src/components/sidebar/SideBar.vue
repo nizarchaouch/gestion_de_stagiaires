@@ -21,7 +21,7 @@ export default {
     </h1>
     <hr />
     <SidebarLink to="/" icon="fas fa-chart-column">Statistiques</SidebarLink>
-    <SidebarLink to="/demande" icon="fas fa-file-invoice">Demandes</SidebarLink>
+    <SidebarLink to="/demande" icon="fa-solid fa-id-card">Demandes</SidebarLink>
     <SidebarLink to="/encadrant" icon="fas fa-users">Encadrants</SidebarLink>
     <SidebarLink to="/stagiaire" icon="fas fa-user-graduate">
       Stagiaires</SidebarLink

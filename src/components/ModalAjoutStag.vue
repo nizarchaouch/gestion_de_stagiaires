@@ -81,10 +81,11 @@ export default {
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
-                  type="number"
+                  type="tel"
                   class="form-control"
                   id="floatingInput"
                   placeholder="telephone"
+                  pattern="[0-9]{2}[0-9]{3}[0-9]{3}"
                 />
                 <label for="floatingInput">Telephone</label>
               </div>
