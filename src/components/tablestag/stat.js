@@ -2,6 +2,7 @@ export const data = [
   {
     img: "@/assets/logo.png",
     nom: "chaouch nizar",
+    projet: "web",
     mail: "gmail@gmail.com",
     tel: 52641659,
     dated: "20/06/2023",
@@ -15,6 +16,7 @@ export const data = [
   {
     img: "@/assets/logo.png",
     nom: "nizar",
+    projet: "web",
     mail: "gmail@gmail.com",
     tel: 52641659,
     dated: "20/06/2023",
@@ -28,6 +30,7 @@ export const data = [
   {
     img: "@/assets/logo.png",
     nom: "nizar",
+    projet: "mobile",
     mail: "gmail@gmail.com",
     tel: 52641659,
     dated: "20/06/2023",
@@ -41,6 +44,7 @@ export const data = [
   {
     img: "@/assets/logo.png",
     nom: "nizar",
+    projet: "mobile",
     mail: "gmail@gmail.com",
     tel: 52641659,
     dated: "20/06/2023",
@@ -54,6 +58,7 @@ export const data = [
   {
     img: "@/assets/logo.png",
     nom: "nizar",
+    projet: "web",
     mail: "gmail@gmail.com",
     tel: 52641659,
     dated: "20/06/2023",

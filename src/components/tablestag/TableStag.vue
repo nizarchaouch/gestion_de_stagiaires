@@ -14,7 +14,7 @@ export default {
       <tr>
         <th>Image</th>
         <th>Nom et Prenom</th>
-        <th>E-mail</th>
+        <th>Projet</th>
         <th>Durée du stage</th>
         <th>Encadrant</th>
         <th>status</th>

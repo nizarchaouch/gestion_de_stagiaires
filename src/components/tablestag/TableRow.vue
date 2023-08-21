@@ -50,7 +50,7 @@ export default {
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
     >
-      {{ data.mail }}
+      {{ data.projet }}
     </td>
     <td
       @click="setSelectedOBJ(data)"
