@@ -1,20 +1,16 @@
 <script>
 import ImageTitle from "./ImageTitre.vue";
+import ChoixMultiple from "./ChoixMultiple.vue";
 export default {
-  components: { ImageTitle },
+  components: { ImageTitle, ChoixMultiple },
   data() {
     return {
-      index: 0,
       sections: [],
     };
   },
   methods: {
     addSection() {
       this.sections.push({ selectedValue: "reponse", inputText: "" });
-    },
-    saveIndex() {
-      this.index = this.paragraphes.length;
-      console.log("index: " + this.index);
     },
     handleSelectChange(index, event) {
       this.sections[index].selectedValue = event.target.value;
@@ -35,6 +31,7 @@ export default {
 </script>
 <template>
   <ImageTitle />
+  <ChoixMultiple />
   <button
     @click="addSection()"
     data-bs-toggle="tooltip"
