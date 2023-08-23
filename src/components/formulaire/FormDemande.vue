@@ -26,13 +26,6 @@ export default {
       this.sections.push(sectionToDuplicate);
       console.log("Duplicated section:", sectionToDuplicate);
     },
-    handelSelectDuplicates(index) {
-      const sectionToDuplicate = JSON.parse(
-        JSON.stringify(this.choixMultiples[index])
-      );
-      this.choixMultiples.push(sectionToDuplicate);
-      console.log("Duplicated choix:", sectionToDuplicate);
-    },
   },
 };
 </script>
@@ -177,9 +170,9 @@ export default {
           <input
             class="form-check-input"
             type="checkbox"
-            id="flexSwitchCheckDefault"
+            :id="'switch-' + index"
           />
-          <label class="form-check-label" for="flexSwitchCheckDefault"
+          <label class="form-check-label" :for="'switch-' + index"
             >Obligatoire</label
           >
         </div>

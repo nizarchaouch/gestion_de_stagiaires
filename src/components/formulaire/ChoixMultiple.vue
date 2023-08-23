@@ -62,7 +62,7 @@ export default {
           type="text"
           :name="'option-' + choixMultiples.length"
           :id="'option-' + choixMultiples.length"
-          placeholder="ajouter une option"
+          placeholder="Double-cliquez pour ajouter une option"
           value=""
           style="border: none"
         />
