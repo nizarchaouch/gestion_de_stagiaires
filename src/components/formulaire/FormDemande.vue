@@ -26,12 +26,18 @@ export default {
       this.sections.push(sectionToDuplicate);
       console.log("Duplicated section:", sectionToDuplicate);
     },
+    handelSelectDuplicates(index) {
+      const sectionToDuplicate = JSON.parse(
+        JSON.stringify(this.choixMultiples[index])
+      );
+      this.choixMultiples.push(sectionToDuplicate);
+      console.log("Duplicated choix:", sectionToDuplicate);
+    },
   },
 };
 </script>
 <template>
   <ImageTitle />
-  <ChoixMultiple />
   <button
     @click="addSection()"
     data-bs-toggle="tooltip"
@@ -131,6 +137,12 @@ export default {
           class="text-lead input"
           placeholder="Voter reponse "
         />
+      </div>
+      <div v-else-if="section.selectedValue === 'multiples'">
+        <ChoixMultiple choix="radio" />
+      </div>
+      <div v-else-if="section.selectedValue === 'cocher'">
+        <ChoixMultiple choix="checkbox" />
       </div>
 
       <div class="float-end me-5">

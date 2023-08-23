@@ -1,8 +1,10 @@
 <script>
 export default {
+  props: {
+    choix: String,
+  },
   data() {
     return {
-      choix: "radio",
       choixMultiples: [{ inputText: "" }],
     };
   },
@@ -39,7 +41,7 @@ export default {
         />
       </label>
     </div>
-    <div v-for="(choixMultiple, id) in choixMultiples" :key="id">
+    <div v-for="(choixMultiple, index) in choixMultiples" :key="index">
       <div class="form-check inputc" @click="addChoixMultiple()">
         <input
           class="form-check-input"
@@ -66,7 +68,6 @@ export default {
   width: 800px;
   border-radius: 8px;
   margin: 25px 0;
-  margin-left: 22.6%;
   background-color: white;
   padding-top: 20px;
   .inputc {
