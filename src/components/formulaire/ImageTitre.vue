@@ -33,7 +33,6 @@ img {
   height: 200px;
   width: 800px;
   border-radius: 8px;
-  margin-top: 20px;
   cursor: pointer;
 }
 .titre {
@@ -54,7 +53,7 @@ img {
   }
 }
 .img {
-  height: 200px;
+  height: auto;
   width: 800px;
   border-radius: 8px;
   margin-top: 20px;

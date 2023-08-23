@@ -13,6 +13,9 @@ export default {
       this.choixMultiples.push({ inputText: "" });
       console.log(this.choixMultiples);
     },
+    handelSelectDelete(index) {
+      this.choixMultiples.splice(index, 1);
+    },
   },
 };
 </script>
@@ -24,41 +27,46 @@ export default {
       class="fs-5 fw-bold input inputc"
       placeholder="Question "
     />
-    <div class="form-check inputc">
+    <div v-for="(choixMultiple, index) in choixMultiples" :key="index">
+      <div>
+        <i class="fa-solid fa-x btn" @click="handelSelectDelete(index)"></i>
+        <div class="form-check inputc">
+          <input
+            class="form-check-input"
+            :type="choix"
+            :name="'flexDefault' + (index + 1)"
+            :id="'option-' + index"
+          />
+          <label class="form-check-label" :for="'option-' + index">
+            <input
+              type="text"
+              :name="'option-' + index"
+              :id="'option-' + index"
+              :placeholder="'Option ' + (index + 1)"
+              value=""
+              style="border: none"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-check inputc" @click="addChoixMultiple()">
       <input
         class="form-check-input"
         :type="choix"
-        name="flexRadioDefault"
-        id="flexRadioDefault1"
+        :name="'flexDefault' + (choixMultiples.length + 1)"
+        :id="'option-' + choixMultiples.length"
       />
-      <label class="form-check-label" for="flexRadioDefault1">
+      <label class="form-check-label" :for="'option-' + choixMultiples.length">
         <input
           type="text"
-          name=""
-          id=""
-          placeholder="option 1"
+          :name="'option-' + choixMultiples.length"
+          :id="'option-' + choixMultiples.length"
+          placeholder="ajouter une option"
+          value=""
           style="border: none"
         />
       </label>
-    </div>
-    <div v-for="(choixMultiple, index) in choixMultiples" :key="index">
-      <div class="form-check inputc" @click="addChoixMultiple()">
-        <input
-          class="form-check-input"
-          :type="choix"
-          name="flexDefault1"
-          id="flexDefault1"
-        />
-        <label class="form-check-label" for="flexDefault1">
-          <input
-            type="text"
-            name=""
-            id=""
-            placeholder="Ajouter une option"
-            style="border: none"
-          />
-        </label>
-      </div>
     </div>
   </div>
 </template>
@@ -76,5 +84,8 @@ export default {
     margin: 20px;
     width: 30%;
   }
+}
+i {
+  position: absolute;
 }
 </style>

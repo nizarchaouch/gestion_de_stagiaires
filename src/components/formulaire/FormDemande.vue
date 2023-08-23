@@ -5,7 +5,7 @@ export default {
   components: { ImageTitle, ChoixMultiple },
   data() {
     return {
-      sections: [],
+      sections: [{ selectedValue: "reponse", inputText: "" }],
     };
   },
   methods: {
@@ -53,7 +53,7 @@ export default {
         <div class="form-floating select">
           <select
             class="form-select"
-            id="floatingSelectGrid"
+            :id="'section-' + index"
             aria-label="Floating label select example"
             @change="handleSelectChange(index, $event)"
           >
@@ -66,13 +66,13 @@ export default {
             <option value="deroulante">Liste déroulante</option>
             <option value="titre">Titre</option>
           </select>
-          <label for="floatingSelectGrid">choix multiple</label>
+          <label :for="'section-' + index">choix multiple</label>
         </div>
       </div>
       <div v-if="section.selectedValue === 'titre'">
         <input
           type="text"
-          id="titre"
+          :id="'titre-' + index"
           class="fs-1 fw-bold"
           placeholder="Formulaire "
           style="border: none"
@@ -82,14 +82,14 @@ export default {
       <div v-else-if="section.selectedValue === 'reponse'">
         <input
           type="text"
-          id="title"
+          :id="'question-' + index"
           class="fs-5 fw-bold input"
           placeholder="Question "
           v-model="section.inputText"
         />
         <input
           type="text"
-          id="title"
+          :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
         />
@@ -97,14 +97,14 @@ export default {
       <div v-else-if="section.selectedValue === 'paragraphe'">
         <input
           type="text"
-          id="title"
+          :id="'question-' + index"
           class="fs-5 fw-bold input"
           placeholder="Question "
           v-model="section.inputText"
         />
         <textarea
           type="text"
-          id="title"
+          :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
           style="width: 50%; height: 44px"
@@ -113,13 +113,13 @@ export default {
       <div v-else-if="section.selectedValue === 'date'">
         <input
           type="text"
-          id="title"
+          :id="'question-' + index"
           class="fs-5 fw-bold input"
           placeholder="Question "
         />
         <input
           type="date"
-          id="title"
+          :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
         />
@@ -127,13 +127,13 @@ export default {
       <div v-else-if="section.selectedValue === 'importer'">
         <input
           type="text"
-          id="title"
+          :id="'question-' + index"
           class="fs-5 fw-bold input"
           placeholder="Question "
         />
         <input
           type="date"
-          id="title"
+          :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
         />
