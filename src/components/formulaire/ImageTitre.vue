@@ -1,5 +1,8 @@
 <script>
 export default {
+  props: {
+    TitreForm: String,
+  },
   data() {
     return {
       imageUrl: "https://2cm.es/stay",
@@ -24,7 +27,7 @@ export default {
     <label for="file"><img :src="imageUrl" alt="Image" /></label>
   </div>
   <div class="titre">
-    <input type="text" id="titre" class="fs-1 fw-bold" value="Formulaire " />
+    <input type="text" id="titre" class="fs-1 fw-bold" :value="TitreForm" />
     <textarea type="text" placeholder="description"></textarea>
   </div>
 </template>

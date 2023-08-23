@@ -32,7 +32,7 @@ export default {
 };
 </script>
 <template>
-  <ImageTitle />
+  <ImageTitle TitreForm="Formulaire Stage" />
   <button
     @click="addSection()"
     data-bs-toggle="tooltip"
