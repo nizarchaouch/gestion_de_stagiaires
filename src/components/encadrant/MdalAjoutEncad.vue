@@ -74,19 +74,19 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
+                  id="nom"
                   placeholder="Nom"
                 />
-                <label for="floatingInput">Nom</label>
+                <label for="nom">Nom</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
+                  id="prenom"
                   placeholder="Prenom"
                 />
-                <label for="floatingInput">Prenom</label>
+                <label for="prenom">Prenom</label>
               </div>
             </div>
             <div class="row">
@@ -94,19 +94,19 @@ export default {
                 <input
                   type="mail"
                   class="form-control"
-                  id="floatingInput"
-                  placeholder="mE-mail"
+                  id="mail"
+                  placeholder="E-mail"
                 />
-                <label for="floatingInput">E-mail</label>
+                <label for="mail">E-mail</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="number"
                   class="form-control"
-                  id="floatingInput"
+                  id="tel"
                   placeholder="Telephone"
                 />
-                <label for="floatingInput">Telephone</label>
+                <label for="tel">Telephone</label>
               </div>
             </div>
             <div class="row">
@@ -114,19 +114,19 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
-                  placeholder="Gmail"
+                  id="specialite"
+                  placeholder="spécialité"
                 />
-                <label for="floatingInput">Spécialité</label>
+                <label for="specialite">Spécialité</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
+                  id="stagiaire"
                   placeholder="Telephone"
                 />
-                <label for="floatingInput">Stagiaire</label>
+                <label for="stagiaire">Stagiaire</label>
               </div>
             </div>
           </div>
