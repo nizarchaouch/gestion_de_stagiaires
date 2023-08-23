@@ -34,13 +34,13 @@ export default {
           <input
             class="form-check-input"
             :type="choix"
-            :name="'flexDefault' + (index + 1)"
+            name="flexDefault1"
             :id="'option-' + index"
           />
           <label class="form-check-label" :for="'option-' + index">
             <input
               type="text"
-              :name="'option-' + index"
+              name="flexDefault1"
               :id="'option-' + index"
               :placeholder="'Option ' + (index + 1)"
               value=""
@@ -50,20 +50,21 @@ export default {
         </div>
       </div>
     </div>
-    <div class="form-check inputc" @click="addChoixMultiple()">
+    <div class="form-check inputc">
       <input
         class="form-check-input"
         :type="choix"
-        :name="'flexDefault' + (choixMultiples.length + 1)"
+        name="flexDefault1"
         :id="'option-' + choixMultiples.length"
+        disabled
       />
       <label class="form-check-label" :for="'option-' + choixMultiples.length">
         <input
+          @click="addChoixMultiple()"
           type="text"
-          :name="'option-' + choixMultiples.length"
+          name="flexDefault1"
           :id="'option-' + choixMultiples.length"
           placeholder="Double-cliquez pour ajouter une option"
-          value=""
           style="border: none"
         />
       </label>

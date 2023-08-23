@@ -31,11 +31,13 @@
     </label>
   </div>
   <FormDemande v-if="selectedRadio === 'radio1'" />
+  <FormStage v-if="selectedRadio === 'radio2'" />
 </template>
 <script>
 import FormDemande from "./FormDemande.vue";
+import FormStage from "./FormStage.vue";
 export default {
-  components: { FormDemande },
+  components: { FormDemande, FormStage },
   data() {
     return {
       selectedRadio: "radio1",

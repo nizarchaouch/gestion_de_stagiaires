@@ -5,12 +5,13 @@ export default {
   components: { ImageTitle, ChoixMultiple },
   data() {
     return {
-      sections: [{ selectedValue: "reponse", inputText: "" }],
+      sections: [{ selectedValue: "reponse" }],
     };
   },
   methods: {
     addSection() {
-      this.sections.push({ selectedValue: "reponse", inputText: "" });
+      this.sections.push({ selectedValue: "reponse" });
+      console.log(this.sections);
     },
     handleSelectChange(index, event) {
       this.sections[index].selectedValue = event.target.value;
@@ -19,12 +20,13 @@ export default {
     handelSelectDelete(index) {
       this.sections.splice(index, 1);
     },
-    handelSelectDuplicate(index) {
+    handelSelectDuplicate(index, len) {
       const sectionToDuplicate = JSON.parse(
         JSON.stringify(this.sections[index])
       );
       this.sections.push(sectionToDuplicate);
       console.log("Duplicated section:", sectionToDuplicate);
+      console.log("len:", len);
     },
   },
 };
@@ -69,7 +71,7 @@ export default {
           class="fs-1 fw-bold"
           placeholder="Formulaire "
           style="border: none"
-          v-model="section.inputText"
+          v-model="section.inputQuestion"
         />
       </div>
       <div v-else-if="section.selectedValue === 'reponse'">
@@ -78,13 +80,14 @@ export default {
           :id="'question-' + index"
           class="fs-5 fw-bold input"
           placeholder="Question "
-          v-model="section.inputText"
+          v-model="section.inputQuestion"
         />
         <input
           type="text"
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
+          v-model="section.inputReponse"
         />
       </div>
       <div v-else-if="section.selectedValue === 'paragraphe'">
@@ -93,7 +96,7 @@ export default {
           :id="'question-' + index"
           class="fs-5 fw-bold input"
           placeholder="Question "
-          v-model="section.inputText"
+          v-model="section.inputQuestion"
         />
         <textarea
           type="text"
@@ -101,6 +104,7 @@ export default {
           class="text-lead input"
           placeholder="Voter reponse "
           style="width: 50%; height: 44px"
+          v-model="section.inputReponse"
         ></textarea>
       </div>
       <div v-else-if="section.selectedValue === 'date'">
@@ -115,6 +119,7 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
+          v-model="section.inputReponse"
         />
       </div>
       <div v-else-if="section.selectedValue === 'importer'">
@@ -129,6 +134,7 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
+          v-model="section.inputReponse"
         />
       </div>
       <div v-else-if="section.selectedValue === 'multiples'">
@@ -145,7 +151,7 @@ export default {
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="dupliquer"
-          @click="handelSelectDuplicate(index)"
+          @click="handelSelectDuplicate(index, sections.length)"
         >
           <i class="fa-regular fa-clone"></i>
         </button>
