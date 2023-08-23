@@ -1,9 +1,7 @@
 <script>
 export default {
   data() {
-    return {
-      imageUrl: "https://2cm.es/stay",
-    };
+    return {};
   },
   methods: {
     handleFileChange(event) {
@@ -14,28 +12,12 @@ export default {
 };
 </script>
 <template>
-  <div class="img">
-    <input
-      type="file"
-      id="file"
-      @change="handleFileChange"
-      style="display: none"
-    />
-    <label for="file"><img :src="imageUrl" alt="Image" /></label>
-  </div>
   <div class="titre">
     <input type="text" id="titre" class="fs-1 fw-bold" value="Formulaire " />
     <textarea type="text" placeholder="description"></textarea>
   </div>
 </template>
 <style lang="scss" scoped>
-img {
-  height: 200px;
-  width: 800px;
-  border-radius: 8px;
-  margin-top: 20px;
-  cursor: pointer;
-}
 .titre {
   height: auto;
   width: 800px;
@@ -52,14 +34,5 @@ img {
     margin: 20px;
     width: 95%;
   }
-}
-.img {
-  height: 200px;
-  width: 800px;
-  border-radius: 8px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  margin-left: 22.6%;
-  background-color: white;
 }
 </style>

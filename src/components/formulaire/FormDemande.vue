@@ -5,45 +5,30 @@ export default {
   data() {
     return {
       index: 0,
-      selectedOption: "reponse",
       sections: [],
-      paragraphes: [],
     };
-  },
-  watch: {
-    selectedOption(newVal) {
-      this.checkOption(newVal);
-    },
   },
   methods: {
     addSection() {
-      this.sections.push({});
-    },
-    addParagraphe() {
-      this.paragraphes.push({});
-      console.log(this.paragraphes.length + " nizar");
-      this.saveIndex();
+      this.sections.push({ selectedValue: "reponse", inputText: "" });
     },
     saveIndex() {
       this.index = this.paragraphes.length;
       console.log("index: " + this.index);
     },
-    checkOption(selectedValue) {
-      if (selectedValue === "reponse") {
-        this.addSection();
-      } else if (selectedValue === "paragraphe") {
-        this.addParagraphe();
-      } else if (selectedValue === "date") {
-        console.log("Option 'Date' sélectionnée.");
-      } else if (selectedValue === "importer") {
-        console.log("Option 'Image' sélectionnée.");
-      } else if (selectedValue === "multiples") {
-        console.log("Option 'Autre option' sélectionnée.");
-      } else if (selectedValue === "cocher") {
-        console.log("Option 'Autre option' sélectionnée.");
-      } else if (selectedValue === "deroulante") {
-        console.log("Option 'Autre option' sélectionnée.");
-      }
+    handleSelectChange(index, event) {
+      this.sections[index].selectedValue = event.target.value;
+      console.log("Selected value:", this.sections[index].selectedValue);
+    },
+    handelSelectDelete(index) {
+      this.sections.splice(index, 1);
+    },
+    handelSelectDuplicate(index) {
+      const sectionToDuplicate = JSON.parse(
+        JSON.stringify(this.sections[index])
+      );
+      this.sections.push(sectionToDuplicate);
+      console.log("Duplicated section:", sectionToDuplicate);
     },
   },
 };
@@ -67,31 +52,90 @@ export default {
             class="form-select"
             id="floatingSelectGrid"
             aria-label="Floating label select example"
+            @change="handleSelectChange(index, $event)"
           >
-            <option value="reponse">Reponse</option>
-            <option value="paragraphe">Paragraphe</option>
+            <option value="reponse">Reponse courte</option>
+            <option value="paragraphe">Reponse longue</option>
             <option value="date">Date</option>
             <option value="importer">Importer ficher</option>
             <option value="multiples">Choix multiples</option>
             <option value="cocher">Cases a cocher</option>
             <option value="deroulante">Liste déroulante</option>
+            <option value="titre">Titre</option>
           </select>
           <label for="floatingSelectGrid">choix multiple</label>
         </div>
       </div>
-      <div v-if="OptionHTMLAttributes.value === 'paragraphe'">hello</div>
-      <input
-        type="text"
-        id="title"
-        class="fs-5 fw-bold input"
-        value="Question "
-      />
-      <input
-        type="text"
-        id="title"
-        class="text-lead input"
-        placeholder="Voter reponse "
-      />
+      <div v-if="section.selectedValue === 'titre'">
+        <input
+          type="text"
+          id="titre"
+          class="fs-1 fw-bold"
+          placeholder="Formulaire "
+          style="border: none"
+          v-model="section.inputText"
+        />
+      </div>
+      <div v-else-if="section.selectedValue === 'reponse'">
+        <input
+          type="text"
+          id="title"
+          class="fs-5 fw-bold input"
+          placeholder="Question "
+          v-model="section.inputText"
+        />
+        <input
+          type="text"
+          id="title"
+          class="text-lead input"
+          placeholder="Voter reponse "
+        />
+      </div>
+      <div v-else-if="section.selectedValue === 'paragraphe'">
+        <input
+          type="text"
+          id="title"
+          class="fs-5 fw-bold input"
+          placeholder="Question "
+          v-model="section.inputText"
+        />
+        <textarea
+          type="text"
+          id="title"
+          class="text-lead input"
+          placeholder="Voter reponse "
+          style="width: 50%; height: 44px"
+        ></textarea>
+      </div>
+      <div v-else-if="section.selectedValue === 'date'">
+        <input
+          type="text"
+          id="title"
+          class="fs-5 fw-bold input"
+          placeholder="Question "
+        />
+        <input
+          type="date"
+          id="title"
+          class="text-lead input"
+          placeholder="Voter reponse "
+        />
+      </div>
+      <div v-else-if="section.selectedValue === 'importer'">
+        <input
+          type="text"
+          id="title"
+          class="fs-5 fw-bold input"
+          placeholder="Question "
+        />
+        <input
+          type="date"
+          id="title"
+          class="text-lead input"
+          placeholder="Voter reponse "
+        />
+      </div>
+
       <div class="float-end me-5">
         <button
           type="button"
@@ -99,7 +143,7 @@ export default {
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="dupliquer"
-          @click="console.log(index)"
+          @click="handelSelectDuplicate(index)"
         >
           <i class="fa-regular fa-clone"></i>
         </button>
@@ -109,11 +153,18 @@ export default {
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="supprimer"
+          @click="handelSelectDelete(index)"
         >
           <i class="fa-solid fa-trash"></i>
         </button>
-        <i class="fa-solid fa-minus fa-rotate-90 fa-2xl"></i>
-        <div class="form-check form-switch float-end mt-2">
+        <i
+          v-if="section.selectedValue != 'titre'"
+          class="fa-solid fa-minus fa-rotate-90 fa-2xl"
+        ></i>
+        <div
+          v-if="section.selectedValue != 'titre'"
+          class="form-check form-switch float-end mt-2"
+        >
           <input
             class="form-check-input"
             type="checkbox"
@@ -124,74 +175,8 @@ export default {
           >
         </div>
       </div>
-    </div>
-  </div>
-  <div v-for="(paragraphe, index) in paragraphes" :key="index">
-    <div class="title col-lg-5">
-      <div class="float-end me-3">
-        <div class="form-floating select">
-          <select
-            class="form-select"
-            id="floatingSelectGrid"
-            aria-label="Floating label select example"
-            v-model="selectedOption"
-          >
-            <option value="reponse">Reponse</option>
-            <option value="paragraphe" selected>Paragraphe</option>
-            <option value="date">Date</option>
-            <option value="importer">Importer ficher</option>
-            <option value="multiples">Choix multiples</option>
-            <option value="cocher">Cases a cocher</option>
-            <option value="deroulante">Liste déroulante</option>
-          </select>
-          <label for="floatingSelectGrid">choix multiple</label>
-        </div>
-      </div>
-      <input
-        type="text"
-        id="title"
-        class="fs-5 fw-bold input"
-        value="Question "
-      />
-      <textarea
-        name="voter reponse"
-        id="reponse"
-        cols="1"
-        rows="2"
-        placeholder="Voter reponse"
-      ></textarea>
-      <div class="float-end me-5">
-        <button
-          type="button"
-          class="btn"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="dupliquer"
-          @click="console.log(index)"
-        >
-          <i class="fa-regular fa-clone"></i>
-        </button>
-        <button
-          type="button"
-          class="btn"
-          data-bs-toggle="tooltip"
-          data-bs-placement="top"
-          title="supprimer"
-        >
-          <i class="fa-solid fa-trash"></i>
-        </button>
-        <i class="fa-solid fa-minus fa-rotate-90 fa-2xl"></i>
-        <div class="form-check form-switch float-end mt-2">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-          <label class="form-check-label" for="flexSwitchCheckDefault"
-            >Obligatoire</label
-          >
-        </div>
-      </div>
+      <p>&thinsp;</p>
+      <p>&thinsp;</p>
     </div>
   </div>
 </template>
@@ -206,7 +191,7 @@ export default {
   z-index: 100;
 }
 .title {
-  height: 200px;
+  height: auto;
   width: 800px;
   border-radius: 8px;
   margin: 25px 0;
