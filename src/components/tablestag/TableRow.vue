@@ -30,11 +30,7 @@ export default {
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
     >
-      <img
-        src="../../assets/logo.png"
-        alt="image"
-        style="background-color: black"
-      />
+      <img :src="data.img" alt="image" />
     </th>
     <td
       @click="setSelectedOBJ(data)"

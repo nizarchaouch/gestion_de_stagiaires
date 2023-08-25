@@ -28,7 +28,7 @@ export default {
       placeholder="Question "
     />
     <div v-for="(choixMultiple, index) in choixMultiples" :key="index">
-      <div>
+      <div v-if="choix != 'deroulante'">
         <i class="fa-solid fa-x btn" @click="handelSelectDelete(index)"></i>
         <div class="form-check inputc">
           <input
@@ -47,6 +47,20 @@ export default {
               style="border: none"
             />
           </label>
+        </div>
+      </div>
+      <div v-else>
+        <i class="fa-solid fa-x btn" @click="handelSelectDelete(index)"></i>
+        <div class="inputc">
+          <label class="form-check-label">{{ index + 1 }}. </label>
+          <input
+            type="text"
+            name="flexDefault2"
+            :id="'option-' + index"
+            :placeholder="'Option ' + (index + 1)"
+            value=""
+            style="border: none"
+          />
         </div>
       </div>
     </div>

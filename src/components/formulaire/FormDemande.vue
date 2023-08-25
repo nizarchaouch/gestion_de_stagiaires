@@ -129,13 +129,12 @@ export default {
           class="fs-5 fw-bold input"
           placeholder="Question "
         />
-        <input
-          type="date"
-          :id="'reponse-' + index"
-          class="text-lead input"
-          placeholder="Voter reponse "
-          v-model="section.inputReponse"
-        />
+        <div style="float: left; margin-left: 20px">
+          <input type="file" id="file" style="display: none" />
+          <label for="file" class="btn" style="background-color: aliceblue"
+            ><i class="fa-solid fa-upload"></i>&thinsp; Ajouter un ficher</label
+          >
+        </div>
       </div>
       <div v-else-if="section.selectedValue === 'multiples'">
         <ChoixMultiple choix="radio" />
@@ -143,7 +142,9 @@ export default {
       <div v-else-if="section.selectedValue === 'cocher'">
         <ChoixMultiple choix="checkbox" />
       </div>
-
+      <div v-else-if="section.selectedValue === 'deroulante'">
+        <ChoixMultiple choix="deroulante" />
+      </div>
       <div class="float-end me-5">
         <button
           type="button"

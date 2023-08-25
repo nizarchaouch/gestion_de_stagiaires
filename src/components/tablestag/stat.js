@@ -1,6 +1,20 @@
 export const data = [
+  // {
+  //   img: "https://2cm.es/sujL",
+  //   nom: "Eya triki",
+  //   projet: "Back-end",
+  //   mail: "eya@gmail.com",
+  //   tel: 52641659,
+  //   dated: "1/07/2023",
+  //   datef: "5/09/2023",
+  //   dureestage: "deux mois",
+  //   encadrant: "Loulou",
+  //   type: "type de stage",
+  //   status: "desactive",
+  //   niveau: "4eme genie logiciel",
+  // },
   {
-    img: "@/assets/logo.png",
+    img: "https://2cm.es/tPEt",
     nom: "chaouch nizar",
     projet: "web",
     mail: "gmail@gmail.com",
@@ -14,7 +28,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
-    img: "@/assets/logo.png",
+    img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "web",
     mail: "gmail@gmail.com",
@@ -28,7 +42,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
-    img: "@/assets/logo.png",
+    img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "mobile",
     mail: "gmail@gmail.com",
@@ -42,7 +56,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
-    img: "@/assets/logo.png",
+    img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "mobile",
     mail: "gmail@gmail.com",
@@ -56,7 +70,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
-    img: "@/assets/logo.png",
+    img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "web",
     mail: "gmail@gmail.com",
