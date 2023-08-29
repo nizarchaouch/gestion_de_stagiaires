@@ -10,7 +10,9 @@ export default {
   },
   methods: {
     addSection() {
-      this.sections.push({ selectedValue: "reponse" });
+      this.sections.push({
+        selectedValue: "reponse",
+      });
       console.log(this.sections);
     },
     handleSelectChange(index, event) {
@@ -20,19 +22,18 @@ export default {
     handelSelectDelete(index) {
       this.sections.splice(index, 1);
     },
-    handelSelectDuplicate(index, len) {
+    handelSelectDuplicate(index) {
       const sectionToDuplicate = JSON.parse(
         JSON.stringify(this.sections[index])
       );
       this.sections.push(sectionToDuplicate);
       console.log("Duplicated section:", sectionToDuplicate);
-      console.log("len:", len);
     },
   },
 };
 </script>
 <template>
-  <ImageTitle TitreForm="Formulaire Stage" />
+  <ImageTitle TitreForm="Formulaire Demande Stage" />
   <button
     @click="addSection()"
     data-bs-toggle="tooltip"
@@ -87,7 +88,8 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
-          v-model="section.inputReponse"
+          disabled
+          style="background-color: transparent"
         />
       </div>
       <div v-else-if="section.selectedValue === 'paragraphe'">
@@ -103,8 +105,8 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
-          style="width: 50%; height: 44px"
-          v-model="section.inputReponse"
+          style="width: 50%; height: 44px; background-color: transparent"
+          disabled
         ></textarea>
       </div>
       <div v-else-if="section.selectedValue === 'date'">
@@ -119,7 +121,8 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
-          v-model="section.inputReponse"
+          disabled
+          style="background-color: transparent"
         />
       </div>
       <div v-else-if="section.selectedValue === 'importer'">
@@ -142,7 +145,9 @@ export default {
       <div v-else-if="section.selectedValue === 'cocher'">
         <ChoixMultiple choix="checkbox" />
       </div>
-
+      <div v-else-if="section.selectedValue === 'deroulante'">
+        <ChoixMultiple choix="deroulante" />
+      </div>
       <div class="float-end me-5">
         <button
           type="button"
@@ -150,7 +155,7 @@ export default {
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="dupliquer"
-          @click="handelSelectDuplicate(index, sections.length)"
+          @click="handelSelectDuplicate(index)"
         >
           <i class="fa-regular fa-clone"></i>
         </button>

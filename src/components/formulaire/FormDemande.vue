@@ -5,13 +5,19 @@ export default {
   components: { ImageTitle, ChoixMultiple },
   data() {
     return {
-      sections: [{ selectedValue: "reponse" }],
+      sections: [{ selectedValue: "reponse", id: 1 }],
     };
   },
   methods: {
     addSection() {
-      this.sections.push({ selectedValue: "reponse" });
+      this.sections.push({
+        selectedValue: "reponse",
+        id: this.sections.length + 1,
+      });
       console.log(this.sections);
+    },
+    updateType(id, type) {
+      this.sections[id - 1].selectedValue = type;
     },
     handleSelectChange(index, event) {
       this.sections[index].selectedValue = event.target.value;
@@ -20,13 +26,12 @@ export default {
     handelSelectDelete(index) {
       this.sections.splice(index, 1);
     },
-    handelSelectDuplicate(index, len) {
+    handelSelectDuplicate(index) {
       const sectionToDuplicate = JSON.parse(
         JSON.stringify(this.sections[index])
       );
       this.sections.push(sectionToDuplicate);
       console.log("Duplicated section:", sectionToDuplicate);
-      console.log("len:", len);
     },
   },
 };
@@ -50,7 +55,8 @@ export default {
             class="form-select"
             :id="'section-' + index"
             aria-label="Floating label select example"
-            @change="handleSelectChange(index, $event)"
+            v-model="section.selectedValue"
+            @change="updateType(section.id, $event.target.value)"
           >
             <option value="reponse">Reponse courte</option>
             <option value="paragraphe">Reponse longue</option>
@@ -87,7 +93,8 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
-          v-model="section.inputReponse"
+          disabled
+          style="background-color: transparent"
         />
       </div>
       <div v-else-if="section.selectedValue === 'paragraphe'">
@@ -103,8 +110,8 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
-          style="width: 50%; height: 44px"
-          v-model="section.inputReponse"
+          style="width: 50%; height: 44px; background-color: transparent"
+          disabled
         ></textarea>
       </div>
       <div v-else-if="section.selectedValue === 'date'">
@@ -119,7 +126,8 @@ export default {
           :id="'reponse-' + index"
           class="text-lead input"
           placeholder="Voter reponse "
-          v-model="section.inputReponse"
+          disabled
+          style="background-color: transparent"
         />
       </div>
       <div v-else-if="section.selectedValue === 'importer'">
@@ -152,7 +160,7 @@ export default {
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           title="dupliquer"
-          @click="handelSelectDuplicate(index, sections.length)"
+          @click="handelSelectDuplicate(index)"
         >
           <i class="fa-regular fa-clone"></i>
         </button>

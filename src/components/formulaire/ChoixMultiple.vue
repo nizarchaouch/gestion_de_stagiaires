@@ -16,6 +16,13 @@ export default {
     handelSelectDelete(index) {
       this.choixMultiples.splice(index, 1);
     },
+    handelSelectDuplicate(index) {
+      const sectionToDuplicate = JSON.parse(
+        JSON.stringify(this.choixMultiples[index])
+      );
+      this.choixMultiples.push(sectionToDuplicate);
+      console.log("Duplicated choix:", sectionToDuplicate);
+    },
   },
 };
 </script>
@@ -58,7 +65,6 @@ export default {
             name="flexDefault2"
             :id="'option-' + index"
             :placeholder="'Option ' + (index + 1)"
-            value=""
             style="border: none"
           />
         </div>
