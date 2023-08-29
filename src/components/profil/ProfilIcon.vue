@@ -58,8 +58,12 @@ export default {
         />
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Profil</a></li>
-        <li><a class="dropdown-item" href="#/admin">Gere Admin</a></li>
+        <router-link to="adminProfil" class="dropdown-item">
+          <li>Profil</li>
+        </router-link>
+        <router-link to="admin" class="dropdown-item">
+          <li>Gere Admin</li>
+        </router-link>
         <li><a class="dropdown-item" href="#">Déconnexion</a></li>
       </ul>
     </div>
@@ -72,5 +76,8 @@ img {
 }
 .profil {
   display: inline-block;
+}
+li {
+  text-decoration: none;
 }
 </style>

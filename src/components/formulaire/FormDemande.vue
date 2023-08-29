@@ -37,7 +37,7 @@ export default {
 };
 </script>
 <template>
-  <ImageTitle TitreForm="Formulaire Demande Stage" />
+  <ImageTitle TitreForm="Formulaire Demande" />
   <button
     @click="addSection()"
     data-bs-toggle="tooltip"

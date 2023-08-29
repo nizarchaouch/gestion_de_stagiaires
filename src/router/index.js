@@ -5,6 +5,7 @@ import Encadrant from "@/views/page/EncadrantView.vue";
 import Stagiaire from "@/views/page/StagiaireView.vue";
 import Formulaire from "@/views/page/FormulaireView.vue";
 import Demande from "@/views/page/DemandeView.vue";
+import AdminProfil from "@/components/admin/AdminProfil.vue";
 const routes = [
   {
     path: "/",
@@ -35,6 +36,11 @@ const routes = [
     path: "/formulaire",
     name: "formulaire",
     component: Formulaire,
+  },
+  {
+    path: "/adminProfil",
+    name: "adminProfil",
+    component: AdminProfil,
   },
   {
     path: "/about",
