@@ -77,7 +77,27 @@ export default {
                   id="nom"
                   placeholder="Nom"
                 />
-                <label for="nom">Nom et Prenom</label>
+                <label for="nom">Nom</label>
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="prenom"
+                  placeholder="prenom"
+                />
+                <label for="prenom">Prenom</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="projet"
+                  placeholder="projet"
+                />
+                <label for="projet">Projet</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
