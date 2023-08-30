@@ -28,7 +28,7 @@ export default {
   </div>
   <div class="titre">
     <input type="text" id="titre" class="fs-1 fw-bold" :value="TitreForm" />
-    <textarea type="text" placeholder="description"></textarea>
+    <textarea type="text" id="descrption" placeholder="description"></textarea>
   </div>
 </template>
 <style lang="scss" scoped>

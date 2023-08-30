@@ -6,6 +6,7 @@ import Stagiaire from "@/views/page/StagiaireView.vue";
 import Formulaire from "@/views/page/FormulaireView.vue";
 import Demande from "@/views/page/DemandeView.vue";
 import AdminProfil from "@/components/admin/AdminProfil.vue";
+import Offer from "@/components/offer/AjouterOffer.vue";
 const routes = [
   {
     path: "/",
@@ -41,6 +42,11 @@ const routes = [
     path: "/adminProfil",
     name: "adminProfil",
     component: AdminProfil,
+  },
+  {
+    path: "/offer",
+    name: "offer",
+    component: Offer,
   },
   {
     path: "/about",

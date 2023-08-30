@@ -20,12 +20,12 @@ export default {
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Ajouter Offer</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Present</a>
-          </li>
+          <router-link to="offer" class="nav-item nav-link">
+            <li>Ajouter Offer</li>
+          </router-link>
+          <!-- <router-link to="" class="nav-item nav-link">
+            <li>Present</li>
+          </router-link> -->
         </ul>
         <Profil />
       </div>
