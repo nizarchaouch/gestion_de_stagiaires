@@ -41,21 +41,21 @@ export default {
               <input
                 type="text"
                 class="form-control"
-                id="floatingInput"
+                id="nom"
                 placeholder="Nom"
                 :value="data.nom"
               />
-              <label for="floatingInput">Nom</label>
+              <label for="nom">Nom</label>
             </div>
             <div class="form-floating col-md-6 col-6">
               <input
                 type="text"
                 class="form-control"
-                id="floatingInput"
+                id="prenom"
                 placeholder="Prenom"
                 :value="data.prenom"
               />
-              <label for="floatingInput">Prenom</label>
+              <label for="prenom">Prenom</label>
             </div>
           </div>
           <div class="row">
@@ -63,22 +63,22 @@ export default {
               <input
                 type="mail"
                 class="form-control"
-                id="floatingInput"
+                id="mail"
                 placeholder="E-mail"
                 :value="data.mail"
                 disabled
               />
-              <label for="floatingInput">E-mail</label>
+              <label for="mail">E-mail</label>
             </div>
             <div class="form-floating col-md-6 col-6">
               <input
                 type="number"
                 class="form-control"
-                id="floatingInput"
+                id="tel"
                 placeholder="Telephone"
                 :value="data.tel"
               />
-              <label for="floatingInput">Telephone</label>
+              <label for="tel">Telephone</label>
             </div>
           </div>
           <div class="row">
@@ -86,41 +86,21 @@ export default {
               <input
                 type="password"
                 class="form-control"
-                id="floatingInput"
+                id="mdp"
                 placeholder="Mot de passe"
               />
-              <label for="floatingInput">Mot de passe</label>
+              <label for="mdp">Mot de passe</label>
             </div>
             <div class="form-floating col-md-6 col-6">
               <input
                 type="password"
                 class="form-control"
-                id="floatingInput"
+                id="cmdp"
                 placeholder="Confirme mot de passe"
               />
-              <label for="floatingInput">Confirme mot de passe</label>
+              <label for="cmdp">Confirme mot de passe</label>
             </div>
           </div>
-          <!-- <div class="row">
-            <div class="form-floating col-md-6 col-6">
-              <input
-                type="email"
-                class="form-control"
-                id="floatingInput"
-                placeholder="Gmail"
-              />
-              <label for="floatingInput">Mot de passe</label>
-            </div>
-            <div class="form-floating col-md-6 col-6">
-              <input
-                type="numero"
-                class="form-control"
-                id="floatingInput"
-                placeholder="Telephone"
-              />
-              <label for="floatingInput">Confirme mot de passe</label>
-            </div>
-          </div> -->
         </div>
       </div>
       <div class="modal-footer">
