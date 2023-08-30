@@ -1,18 +1,4 @@
 export const data = [
-  // {
-  //   img: "https://2cm.es/sujL",
-  //   nom: "Eya triki",
-  //   projet: "Back-end",
-  //   mail: "eya@gmail.com",
-  //   tel: 52641659,
-  //   dated: "1/07/2023",
-  //   datef: "5/09/2023",
-  //   dureestage: "deux mois",
-  //   encadrant: "Loulou",
-  //   type: "type de stage",
-  //   status: "desactive",
-  //   niveau: "4eme genie logiciel",
-  // },
   {
     id: 1,
     img: "https://2cm.es/tPEt",
@@ -27,6 +13,7 @@ export const data = [
     type: "type de stage",
     status: "desactive",
     niveau: "4eme genie logiciel",
+    isChecked: true,
   },
   {
     id: 2,
@@ -42,6 +29,7 @@ export const data = [
     type: "type de stage",
     status: "active",
     niveau: "4eme genie logiciel",
+    isChecked: false,
   },
   {
     id: 3,
@@ -57,6 +45,7 @@ export const data = [
     type: "type de stage",
     status: "active",
     niveau: "4eme genie logiciel",
+    isChecked: true,
   },
   {
     id: 4,
@@ -72,6 +61,7 @@ export const data = [
     type: "type de stage",
     status: "active",
     niveau: "4eme genie logiciel",
+    isChecked: false,
   },
   {
     id: 5,
@@ -87,5 +77,6 @@ export const data = [
     type: "type de stage",
     status: "desactive",
     niveau: "4eme genie logiciel",
+    isChecked: true,
   },
 ];

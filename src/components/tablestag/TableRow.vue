@@ -11,6 +11,17 @@ export default {
       selectedOBJ: "null",
     };
   },
+  watch: {
+    isChecked(newValue) {
+      if (newValue) {
+        console.log("La case à cocher est cochée.");
+        // Faites quelque chose lorsque la case est cochée
+      } else {
+        console.log("La case à cocher est décochée.");
+        // Faites quelque chose lorsque la case est décochée
+      }
+    },
+  },
   methods: {
     setSelectedOBJ(obj) {
       console.log(this.selectedOBJ);
@@ -75,7 +86,7 @@ export default {
           class="form-check-input"
           type="checkbox"
           :id="'ActiveDesactive-' + data.id"
-          checked
+          v-model="data.isChecked"
         />
       </div>
     </td>
