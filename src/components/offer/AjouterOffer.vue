@@ -5,7 +5,7 @@ export default {
 };
 </script>
 <template>
-  <div class="col-lg-7 col-1">
+  <div class="col-lg-5">
     <div class="titre">
       <input type="text" id="titre" class="fs-1 fw-bold" value="Titre" />
       <textarea
@@ -32,7 +32,7 @@ export default {
 <style lang="scss" scoped>
 .titre {
   height: auto;
-  width: 500px;
+  width: 800px;
   border-radius: 8px;
   margin-top: 20px;
   margin-left: 50%;
