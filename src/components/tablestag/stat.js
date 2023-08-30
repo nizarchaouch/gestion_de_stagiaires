@@ -14,6 +14,7 @@ export const data = [
   //   niveau: "4eme genie logiciel",
   // },
   {
+    id: 1,
     img: "https://2cm.es/tPEt",
     nom: "chaouch nizar",
     projet: "web",
@@ -28,6 +29,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
+    id: 2,
     img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "web",
@@ -42,6 +44,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
+    id: 3,
     img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "mobile",
@@ -56,6 +59,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
+    id: 4,
     img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "mobile",
@@ -70,6 +74,7 @@ export const data = [
     niveau: "4eme genie logiciel",
   },
   {
+    id: 5,
     img: "https://2cm.es/tPEt",
     nom: "nizar",
     projet: "web",

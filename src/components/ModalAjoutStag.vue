@@ -74,20 +74,20 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
+                  id="nom"
                   placeholder="Nom"
                 />
-                <label for="floatingInput">Nom et Prenom</label>
+                <label for="nom">Nom et Prenom</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="tel"
                   class="form-control"
-                  id="floatingInput"
+                  id="tel"
                   placeholder="telephone"
                   pattern="[0-9]{2}[0-9]{3}[0-9]{3}"
                 />
-                <label for="floatingInput">Telephone</label>
+                <label for="tel">Telephone</label>
               </div>
             </div>
             <div class="row">
@@ -95,19 +95,19 @@ export default {
                 <input
                   type="email"
                   class="form-control"
-                  id="floatingInput"
+                  id="mail"
                   placeholder="e-mail"
                 />
-                <label for="floatingInput">E-mail</label>
+                <label for="mail">E-mail</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
+                  id="dureestage"
                   placeholder="dureestage"
                 />
-                <label for="floatingInput">Durée du stage</label>
+                <label for="dureestage">Durée du stage</label>
               </div>
             </div>
             <div class="row">
@@ -115,19 +115,19 @@ export default {
                 <input
                   type="date"
                   class="form-control"
-                  id="floatingInput"
+                  id="dated"
                   placeholder="date debuit"
                 />
-                <label for="floatingInput">Date de debuit</label>
+                <label for="dated">Date de debuit</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="date"
                   class="form-control"
-                  id="floatingInput"
+                  id="datef"
                   placeholder="date de fin"
                 />
-                <label for="floatingInput">Date de fin</label>
+                <label for="datef">Date de fin</label>
               </div>
             </div>
             <div class="row">
@@ -135,21 +135,21 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
-                  placeholder="encadrant"
+                  id="etablissement"
+                  placeholder="etablissement"
                 />
-                <label for="floatingInput"
-                  >Nom de l'établissement d'enseignement</label
+                <label for="etablissement"
+                  >l'établissement d'enseignement</label
                 >
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
-                  placeholder="type de stage"
+                  id="niveau"
+                  placeholder="Niveau"
                 />
-                <label for="floatingInput">Niveau</label>
+                <label for="niveau">Niveau</label>
               </div>
             </div>
             <div class="row">
@@ -157,19 +157,19 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
+                  id="encadrant"
                   placeholder="encadrant"
                 />
-                <label for="floatingInput">Encadrant</label>
+                <label for="encadrant">Encadrant</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
-                  id="floatingInput"
+                  id="typestage"
                   placeholder="type de stage"
                 />
-                <label for="floatingInput">Type de stage</label>
+                <label for="typestage">Type de stage</label>
               </div>
             </div>
           </div>

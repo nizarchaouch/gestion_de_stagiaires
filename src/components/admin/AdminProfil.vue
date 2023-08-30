@@ -18,14 +18,14 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="col-lg-7 position-absolute top-50 start-50 translate-middle">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title title ms-3">Profil</h5>
       </div>
       <div class="modal-body">
         <div class="container">
-          <div class="row">
+          <div class="row me-1j">
             <label for="file">
               <img :src="imageUrl" alt="Image" />
             </label>
@@ -79,6 +79,26 @@ export default {
                 :value="data.tel"
               />
               <label for="floatingInput">Telephone</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-floating col-md-6 col-6">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Mot de passe"
+              />
+              <label for="floatingInput">Mot de passe</label>
+            </div>
+            <div class="form-floating col-md-6 col-6">
+              <input
+                type="password"
+                class="form-control"
+                id="floatingInput"
+                placeholder="Confirme mot de passe"
+              />
+              <label for="floatingInput">Confirme mot de passe</label>
             </div>
           </div>
           <!-- <div class="row">

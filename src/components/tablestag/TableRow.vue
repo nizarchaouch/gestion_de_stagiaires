@@ -23,12 +23,13 @@ export default {
 <!-- "../../assets/logo.png" -->
 <template>
   <ToggleOffcanvas :obj="selectedOBJ" />
-  <tr v-for="(data, i) in data" :key="i">
+  <tr v-for="data in data" :key="data.id">
     <th
       @click="setSelectedOBJ(data)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
+      :id="data.id"
     >
       <img :src="data.img" alt="image" />
     </th>
@@ -37,6 +38,7 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
+      :id="data.id"
     >
       {{ data.nom }}
     </td>
@@ -45,6 +47,7 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
+      :id="data.id"
     >
       {{ data.projet }}
     </td>
@@ -53,6 +56,7 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
+      :id="data.id"
     >
       {{ data.dureestage }}
     </td>
@@ -61,6 +65,7 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
+      :id="data.id"
     >
       {{ data.encadrant }}
     </td>
@@ -69,7 +74,7 @@ export default {
         <input
           class="form-check-input"
           type="checkbox"
-          id="ActiveDesactive"
+          :id="'ActiveDesactive-' + data.id"
           checked
         />
       </div>
@@ -79,7 +84,7 @@ export default {
         <button
           class="btn dropdown"
           type="button"
-          id="dropdownMenuButton"
+          :id="data.id"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >

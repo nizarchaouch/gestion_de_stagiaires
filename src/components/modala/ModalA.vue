@@ -115,7 +115,7 @@ export default {
                   type="email"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="Gmail"
+                  placeholder="Mot de passe"
                 />
                 <label for="floatingInput">Mot de passe</label>
               </div>
@@ -124,7 +124,7 @@ export default {
                   type="numero"
                   class="form-control"
                   id="floatingInput"
-                  placeholder="Telephone"
+                  placeholder="Confirme mot de passe"
                 />
                 <label for="floatingInput">Confirme mot de passe</label>
               </div>
