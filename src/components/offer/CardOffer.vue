@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title">Offer Titre</h5>
       <p class="card-text">Offer description</p>
-      <button type="button" class="btn btn-danger">Supprime</button>
+      <button type="button" class="btn btn-outline-danger">Supprime</button>
     </div>
   </div>
 </template>

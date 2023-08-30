@@ -13,12 +13,14 @@ export default {
 </script>
 <template>
   <div class="sidebar" :style="{ width: sidebarWidth }">
-    <h1>
-      <span v-if="collapsed">
-        <img id="logocoll" alt="SW logo" src="../../assets/logo.png" />
-      </span>
-      <span v-else> <img alt="SW logo" src="../../assets/logo.png" /></span>
-    </h1>
+    <router-link to="/">
+      <h1>
+        <span v-if="collapsed">
+          <img id="logocoll" alt="SW logo" src="../../assets/logo.png" />
+        </span>
+        <span v-else> <img alt="SW logo" src="../../assets/logo.png" /></span>
+      </h1>
+    </router-link>
     <hr />
     <SidebarLink to="/" icon="fas fa-chart-column">Statistiques</SidebarLink>
     <SidebarLink to="/demande" icon="fa-solid fa-id-card">Demandes</SidebarLink>

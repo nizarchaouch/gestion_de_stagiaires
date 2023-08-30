@@ -5,7 +5,7 @@ export default {
 };
 </script>
 <template>
-  <div class="col-lg-5">
+  <div class="col-lg-7 col-1">
     <div class="titre">
       <input type="text" id="titre" class="fs-1 fw-bold" value="Titre" />
       <textarea
@@ -27,13 +27,12 @@ export default {
     <CardOffer />
     <CardOffer />
     <CardOffer />
-    <CardOffer />
   </div>
 </template>
 <style lang="scss" scoped>
 .titre {
   height: auto;
-  width: 800px;
+  width: 500px;
   border-radius: 8px;
   margin-top: 20px;
   margin-left: 50%;
