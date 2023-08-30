@@ -1,12 +1,17 @@
 <template>
-  <div class="card">
-    <div class="card-header">Featured</div>
+  <div class="card col-lg-3">
+    <div class="card-header">Offer</div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">
-        With supporting text below as a natural lead-in to additional content.
-      </p>
+      <h5 class="card-title">Offer Titre</h5>
+      <p class="card-text">Offer description</p>
       <button type="button" class="btn btn-danger">Supprime</button>
     </div>
   </div>
 </template>
+<style scoped>
+.card {
+  margin: 40px;
+  position: relative;
+  float: left;
+}
+</style>

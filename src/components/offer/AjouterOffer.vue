@@ -1,5 +1,5 @@
 <script>
-import CardOffer from "./Cardoffer.vue";
+import CardOffer from "./CardOffer.vue";
 export default {
   components: { CardOffer },
 };
@@ -20,8 +20,15 @@ export default {
     </div>
   </div>
   <hr style="border: solid 2px" />
-  <h5 class="ms-3 title position-absolute">Liste d'offer</h5>
-  <CardOffer />
+  <div class="conatainer">
+    <h5 class="ms-3 title position-absolute">Liste d'offer</h5>
+  </div>
+  <div class="container">
+    <CardOffer />
+    <CardOffer />
+    <CardOffer />
+    <CardOffer />
+  </div>
 </template>
 <style lang="scss" scoped>
 .titre {
