@@ -1,11 +1,10 @@
 <script>
 import Card from "@/components/carddash/CardDash";
 import ChartsD from "@/components/charts/ChartsD.vue";
-import ChartsP from "@/components/charts/ChartsD.vue";
 export default {
   name: "HomeView",
 
-  components: { Card, ChartsD, ChartsP },
+  components: { Card, ChartsD },
 };
 </script>
 
@@ -15,16 +14,13 @@ export default {
       <div class="row">
         <Card title="Demande stage" number="25" />
         <Card title="Stagiares en cours" number="15" />
-        <Card title="STAGIAIRES REFUSES" number="5" />
+        <Card title="NOMBRE DE PROJETS" number="5" />
         <Card title="DEMANDE EN ATTENTES" number="5" />
       </div>
     </div>
   </div>
-  <div style="width: 400px" class="float-end">
+  <div>
     <ChartsD />
-  </div>
-  <div style="width: 400px" class="float-start">
-    <ChartsP />
   </div>
 </template>
 

@@ -2,7 +2,7 @@
 export default {
   props: {
     title: String,
-    number: Int8Array,
+    number: String,
   },
 };
 </script>
@@ -25,7 +25,6 @@ export default {
 
     <div class="row">
       <p class="card-text col-md-6 col-6">{{ number }}</p>
-      <a href="#" class="col-md-6 col-6">Voir Plus</a>
     </div>
   </div>
 </template>
@@ -44,7 +43,9 @@ export default {
   border-radius: 20px;
   margin-bottom: 2%;
   .row {
-    margin-top: 10%;
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
   }
 }
 .card-title {
