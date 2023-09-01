@@ -1,1 +1,1 @@
-export const not = 10;
+export const not = 0;

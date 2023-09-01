@@ -1,9 +1,11 @@
 <script>
 import Card from "@/components/carddash/CardDash";
+import ChartsD from "@/components/charts/ChartsD.vue";
+import ChartsP from "@/components/charts/ChartsD.vue";
 export default {
   name: "HomeView",
 
-  components: { Card },
+  components: { Card, ChartsD, ChartsP },
 };
 </script>
 
@@ -18,6 +20,12 @@ export default {
       </div>
     </div>
   </div>
+  <div style="width: 400px" class="float-end">
+    <ChartsD />
+  </div>
+  <div style="width: 400px" class="float-start">
+    <ChartsP />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -28,3 +36,4 @@ export default {
   }
 }
 </style>
+-
