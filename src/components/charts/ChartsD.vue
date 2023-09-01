@@ -18,10 +18,10 @@ export default {
     };
 
     const data2 = {
-      labels: ["A", "B", "c", "d"],
+      labels: ["Stagiaire", "Encadrant", "Projet", "Stage"],
       datasets: [
         {
-          label: "Données 2",
+          label: "",
           data: [30, 40, 30, 30],
           backgroundColor: [
             "rgb(255, 206, 86)",
@@ -57,10 +57,12 @@ export default {
   <div class="container">
     <div class="row">
       <div class="card col-md-7 col-12 col-sm-12 ms-1">
+        <h4>Graphique à barres</h4>
         <canvas id="myChart2"></canvas>
       </div>
       <div class="card col-md-4 col-12 col-sm-12 ms-1">
         <div class="row">
+          <h4>Sexe des stagiaires</h4>
           <canvas id="myChart1"></canvas>
         </div>
       </div>
@@ -71,5 +73,10 @@ export default {
 .row {
   display: flex;
   justify-content: center;
+}
+h4 {
+  color: #797d8c;
+  font-family: Nunito;
+  font-weight: 600;
 }
 </style>
