@@ -38,8 +38,8 @@ export default {
         <MM h="Ecolé : EPI" />
         <MM :h="'Niveau : ' + obj.niveau" />
         <MM :h="'Duree de stage : ' + obj.dureestage" />
-        <MM :h="'Duree de debuit : ' + obj.dated" />
-        <MM :h="'Duree de Fin : ' + obj.datef" />
+        <MM :h="'Date de debuit : ' + obj.dated" />
+        <MM :h="'Date de Fin : ' + obj.datef" />
         <MM :h="'Type de stage : ' + obj.type" />
         <MM :h="'Encadrant : ' + obj.encadrant" />
       </div>
