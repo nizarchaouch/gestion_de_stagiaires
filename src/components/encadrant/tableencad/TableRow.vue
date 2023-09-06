@@ -19,6 +19,16 @@ export default {
     <td>{{ data.Specialite }}</td>
     <td>{{ data.stagiaire }}</td>
     <td>
+      <div class="form-check form-switch" style="margin-left: 35%">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          :id="'ActiveDesactive-' + data.id"
+          v-model="data.isChecked"
+        />
+      </div>
+    </td>
+    <td>
       <div class="dropdown dropstart profil">
         <button
           class="btn dropdown"
@@ -51,5 +61,12 @@ img {
 }
 a {
   margin-right: 15px;
+}
+.form-check-input {
+  --bs-form-check-bg: #f81111a1;
+}
+.form-check-input:checked {
+  background-color: green;
+  border-color: green;
 }
 </style>

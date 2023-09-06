@@ -7,6 +7,7 @@ export const data = [
     tel: "superadmin",
     Specialite: "spc",
     stagiaire: "liste stagiaire",
+    isChecked: true,
   },
   {
     img: "https://2cm.es/tPEt",
@@ -16,6 +17,7 @@ export const data = [
     tel: "admin",
     Specialite: "spc",
     stagiaire: "liste stagiaire",
+    isChecked: true,
   },
   {
     img: "https://2cm.es/tPEt",
@@ -25,5 +27,6 @@ export const data = [
     tel: "superadmin",
     Specialite: "spc",
     stagiaire: "liste stagiaire",
+    isChecked: true,
   },
 ];

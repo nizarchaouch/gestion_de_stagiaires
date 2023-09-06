@@ -19,6 +19,7 @@ export default {
         <th>Telephone</th>
         <th>Spécialité</th>
         <th>Stagiaire</th>
+        <th>status</th>
         <th>Action</th>
       </tr>
     </thead>
