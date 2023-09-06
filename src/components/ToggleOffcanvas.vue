@@ -41,7 +41,7 @@ export default {
         <MM :h="'Date de debuit : ' + obj.dated" />
         <MM :h="'Date de Fin : ' + obj.datef" />
         <MM :h="'Type de stage : ' + obj.type" />
-        <MM :h="'Encadrant : ' + obj.encadrant" />
+        <MM :h="'Encadreur : ' + obj.encadrant" />
       </div>
     </div>
   </div>

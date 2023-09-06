@@ -18,7 +18,7 @@ export default {
     };
 
     const data2 = {
-      labels: ["Stagiaire", "Encadrant", "Projet", "Stage"],
+      labels: ["Stagiaire", "Encadreur", "Projet", "Stage"],
       datasets: [
         {
           label: "",

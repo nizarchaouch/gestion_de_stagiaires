@@ -16,7 +16,7 @@ export default {
         <th>Nom et Prenom</th>
         <th>Projet</th>
         <th>Durée du stage</th>
-        <th>Encadrant</th>
+        <th>Encadreur</th>
         <th>status</th>
         <th>Action</th>
       </tr>
