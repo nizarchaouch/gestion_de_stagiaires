@@ -5,6 +5,9 @@ export default {
       imageUrl: "https://2cm.es/tLVi",
     };
   },
+  props: {
+    obj: String,
+  },
   methods: {
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
@@ -16,26 +19,12 @@ export default {
 <template>
   <button
     type="button"
-    class="btn btn-primary"
+    class="but ms-4"
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
     data-bs-whatever="@getbootstrap"
   >
-    Ajouter
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="20"
-      viewBox="0 0 24 23"
-      fill="none"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M19 12.3158H13V18H11V12.3158H5V10.421H11V4.73682H13V10.421H19V12.3158Z"
-        fill="white"
-      />
-    </svg>
+    <i class="fa-solid fa-sliders fa-lg"></i>
   </button>
 
   <div
@@ -48,7 +37,7 @@ export default {
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title title">Ajouter Encadreur</h5>
+          <h5 class="modal-title title">Modifier Encadreur</h5>
           <button
             type="button"
             class="btn-close"
@@ -76,6 +65,7 @@ export default {
                   class="form-control"
                   id="nom"
                   placeholder="Nom"
+                  value="obj"
                 />
                 <label for="nom">Nom</label>
               </div>
@@ -132,34 +122,19 @@ export default {
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Ajouter</button>
+          <button type="button" class="btn btn-primary">Modifier</button>
         </div>
       </div>
     </div>
   </div>
+  <a class="dropdown-item d-inline p-1 m-4"
+    ><i class="fa-solid fa-trash fa-lg" style="color: #de1b1b"></i>
+  </a>
 </template>
 <style scoped>
-.btn {
-  color: aliceblue;
-  display: inline-flex;
-  padding: 7px 15px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 20px;
-  background: #233eae;
-  width: 134px;
-  height: 36px;
-  float: left;
-  margin-left: 30px;
-
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+.but {
+  border: none;
+  background-color: transparent;
 }
 .title::before {
   content: " ";

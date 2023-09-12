@@ -1,8 +1,22 @@
 <script>
 import { data } from "../stat";
+import ModalM from "@/components/encadrant/MdalModifEncad.vue";
 export default {
   setup() {
     return { data };
+  },
+  data() {
+    return {
+      selectedOBJ: "null",
+    };
+  },
+  components: { ModalM },
+  methods: {
+    setSelectedOBJ(obj) {
+      console.log(this.selectedOBJ);
+      this.selectedOBJ = obj;
+      console.log("new", this.selectedOBJ);
+    },
   },
 };
 </script>
@@ -39,14 +53,12 @@ export default {
         >
           <i class="fa-solid fa-ellipsis"></i>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <a class="dropdown-item d-inline p-1 m-4" href="#"
-            ><i class="fa-solid fa-sliders fa-lg"></i
-          ></a>
-
-          <a class="dropdown-item d-inline p-1 m-4" href="#"
-            ><i class="fa-solid fa-trash fa-lg" style="color: #de1b1b"></i
-          ></a>
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton1"
+          @click="setSelectedOBJ(data)"
+        >
+          <ModalM />
         </ul>
       </div>
     </td>
