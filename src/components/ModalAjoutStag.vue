@@ -92,12 +92,32 @@ export default {
             <div class="row">
               <div class="form-floating col-md-6 col-6">
                 <input
+                  type="Date"
+                  class="form-control"
+                  id="datenaiss"
+                  placeholder="Date de naissance"
+                />
+                <label for="datenaiss">Date de naissance</label>
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
                   type="text"
                   class="form-control"
-                  id="projet"
-                  placeholder="projet"
+                  id="address"
+                  placeholder="Address"
                 />
-                <label for="projet">Projet</label>
+                <label for="address">Address</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="sexe"
+                  placeholder="sexe"
+                />
+                <label for="sexe">Sexe</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
@@ -170,6 +190,26 @@ export default {
                   placeholder="Niveau"
                 />
                 <label for="niveau">Niveau</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="specialite"
+                  placeholder="specialite"
+                />
+                <label for="specialite">Spécialité</label>
+              </div>
+              <div class="form-floating col-md-6 col-6">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="projet"
+                  placeholder="projet"
+                />
+                <label for="projet">Projet</label>
               </div>
             </div>
             <div class="row">

@@ -45,7 +45,7 @@ export default {
                   <p>{{ obj.nom }}</p>
                   <hr />
                 </div>
-                <MM h="Gmail" :s="obj.gmail" />
+                <MM h="E-mail" :s="obj.gmail" />
                 <MM h="Téléphone" :s="obj.tel" />
                 <MM h="Date de naissance" s="20/06/1999" />
                 <MM h="Address" s="Tarek ben zied,Moknine" />
@@ -64,7 +64,6 @@ export default {
                   h="Intitulé de la formation / spécialité"
                   s="Génie Logiciel"
                 />
-                <MM h="Date de naissance" s="20/06/1999" />
                 <MM h="Niveau d'études / année en cours" s="4eme année" />
                 <MM h="Durée du stage prévue" s="deux mois" />
               </div>
