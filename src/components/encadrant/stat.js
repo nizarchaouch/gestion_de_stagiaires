@@ -1,5 +1,7 @@
+let id = 1;
 export const data = [
   {
+    id: id++,
     img: "https://2cm.es/tPEt",
     nom: "nizar",
     prenom: "chaouch",
@@ -10,6 +12,7 @@ export const data = [
     isChecked: true,
   },
   {
+    id: id++,
     img: "https://2cm.es/tPEt",
     nom: "mouhamed",
     prenom: "chaouch",
@@ -20,6 +23,7 @@ export const data = [
     isChecked: true,
   },
   {
+    id: id++,
     img: "https://2cm.es/tPEt",
     nom: "aymen",
     prenom: "chaouch",

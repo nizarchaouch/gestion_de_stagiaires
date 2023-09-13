@@ -47,7 +47,7 @@ export default {
         <button
           class="btn dropdown"
           type="button"
-          id="dropdownMenuButton"
+          :id="'MenuButton-' + data.id"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -55,7 +55,7 @@ export default {
         </button>
         <ul
           class="dropdown-menu"
-          aria-labelledby="dropdownMenuButton1"
+          :aria-labelledby="'MenuButton-' + data.id"
           @click="setSelectedOBJ(data)"
         >
           <ModalM />

@@ -18,7 +18,7 @@ export default {
     type="button"
     class="btn btn-primary"
     data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
+    data-bs-target="#modal"
     data-bs-whatever="@getbootstrap"
   >
     Ajouter
@@ -40,9 +40,9 @@ export default {
 
   <div
     class="modal fade"
-    id="exampleModal"
+    id="modal"
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
+    aria-labelledby="modalLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
