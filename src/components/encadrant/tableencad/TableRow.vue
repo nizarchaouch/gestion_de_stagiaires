@@ -1,14 +1,15 @@
 <script>
-import { data } from "../stat";
+import axios from "axios";
 import ModalM from "@/components/encadrant/MdalModifEncad.vue";
 export default {
-  setup() {
-    return { data };
-  },
   data() {
     return {
       selectedOBJ: "null",
+      encadruers: [],
     };
+  },
+  mounted() {
+    this.fetchEncadreurs();
   },
   components: { ModalM },
   methods: {
@@ -17,28 +18,38 @@ export default {
       this.selectedOBJ = obj;
       console.log("new", this.selectedOBJ);
     },
+    async fetchEncadreurs() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/encadreur/showEncad"
+        );
+        this.encadruers = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
 <!-- "../../assets/logo.png" -->
 <template>
-  <tr v-for="(data, i) in data" :key="i">
+  <tr v-for="encadruer in encadruers" :key="encadruer.id">
     <td>
-      <img :src="data.img" alt="image" />
+      <img :src="encadruers.img" alt="image" />
     </td>
-    <td>{{ data.nom }}</td>
-    <td>{{ data.prenom }}</td>
-    <td>{{ data.mail }}</td>
-    <td>{{ data.tel }}</td>
-    <td>{{ data.Specialite }}</td>
-    <td>{{ data.stagiaire }}</td>
+    <td>{{ encadruers.nom }}</td>
+    <td>{{ encadruers.prenom }}</td>
+    <td>{{ encadruers.mail }}</td>
+    <td>{{ encadruers.tel }}</td>
+    <td>{{ encadruers.Specialite }}</td>
+    <td>{{ encadruers.stagiaire }}</td>
     <td>
       <div class="form-check form-switch" style="margin-left: 35%">
         <input
           class="form-check-input"
           type="checkbox"
-          :id="'ActiveDesactive-' + data.id"
-          v-model="data.isChecked"
+          :id="'ActiveDesactive-' + encadruers.id"
+          v-model="encadruers.isChecked"
         />
       </div>
     </td>
@@ -47,7 +58,7 @@ export default {
         <button
           class="btn dropdown"
           type="button"
-          :id="'MenuButton-' + data.id"
+          :id="'MenuButton-' + encadruers.id"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -55,8 +66,8 @@ export default {
         </button>
         <ul
           class="dropdown-menu"
-          :aria-labelledby="'MenuButton-' + data.id"
-          @click="setSelectedOBJ(data)"
+          :aria-labelledby="'MenuButton-' + encadruers.id"
+          @click="setSelectedOBJ(encadruers)"
         >
           <ModalM />
         </ul>

@@ -1,26 +1,16 @@
 <script>
-import { data } from "./stat";
+import axios from "axios";
 import ToggleOffcanvas from "../ToggleOffcanvas.vue";
 export default {
   components: { ToggleOffcanvas },
-  setup() {
-    return { data };
-  },
   data() {
     return {
       selectedOBJ: "null",
+      stagiaires: [],
     };
   },
-  watch: {
-    isChecked(newValue) {
-      if (newValue) {
-        console.log("La case à cocher est cochée.");
-        // Faites quelque chose lorsque la case est cochée
-      } else {
-        console.log("La case à cocher est décochée.");
-        // Faites quelque chose lorsque la case est décochée
-      }
-    },
+  mounted() {
+    this.fetchStagiaires();
   },
   methods: {
     setSelectedOBJ(obj) {
@@ -28,74 +18,83 @@ export default {
       this.selectedOBJ = obj;
       console.log("new", this.selectedOBJ);
     },
+
+    async fetchStagiaires() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/stagiaire/showStagi"
+        );
+        this.stagiaires = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
-<!-- "../../assets/logo.png" -->
 <template>
   <ToggleOffcanvas :obj="selectedOBJ" />
-  <tr v-for="data in data" :key="data.id">
+  {{ console.log(stagiaires) }}
+  <tr v-for="stagiaire in stagiaires" :key="stagiaire.id">
     <th
-      @click="setSelectedOBJ(data)"
+      @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="data.id"
+      :id="stagiaires.id"
     >
-      <img :src="data.img" alt="image" />
+      <img :src="stagiaires.img" alt="image" />
     </th>
     <td
-      @click="setSelectedOBJ(data)"
+      @click="setSelectedOBJ(stagiaires)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="data.id"
+      :id="stagiaires.id"
     >
-      {{ data.nom }}
+      {{ stagiaire.nom }} {{ stagiaires.prenom }}
     </td>
     <td
-      @click="setSelectedOBJ(data)"
+      @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="data.id"
+      :id="stagiaire.id"
     >
-      {{ data.projet }}
+      {{ stagiaire.projet }}
     </td>
     <td
-      @click="setSelectedOBJ(data)"
+      @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="data.id"
+      :id="stagiaire.id"
     >
-      {{ data.dureestage }}
+      {{ stagiaire.dureestage }}
     </td>
     <td
-      @click="setSelectedOBJ(data)"
+      @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="data.id"
+      :id="stagiaire.id"
     >
-      {{ data.encadrant }}
+      {{ stagiaire.encadrant }}
     </td>
-    <td>
+    <td :id="'ActiveDesactive-' + stagiaire.id">
       <div class="form-check form-switch" style="margin-left: 35%">
         <input
           class="form-check-input"
           type="checkbox"
-          :id="'ActiveDesactive-' + data.id"
-          v-model="data.isChecked"
+          v-model="stagiaire.statut"
         />
       </div>
     </td>
-    <td>
+    <td :id="stagiaire.id">
       <div class="dropdown dropstart profil">
         <button
           class="btn dropdown"
           type="button"
-          :id="data.id"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -119,7 +118,6 @@ img {
   width: 37.6px;
   height: 37.6px;
   border-radius: 60px;
-  background-color: black;
 }
 a {
   margin-right: 15px;

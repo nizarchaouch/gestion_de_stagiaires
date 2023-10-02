@@ -1,14 +1,63 @@
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       imageUrl: "https://2cm.es/tLVi",
+      id: "1",
+      nom: "",
+      prenom: "",
+      mail: "",
+      tel: "",
+      datenaissance: "",
+      adrress: "",
+      sexe: "",
+      projet: "",
+      ecole: "",
+      specialite: "",
+      niveau: "",
+      dureestage: "",
+      dated: "",
+      datef: "",
+      typestage: "",
+      encadrant: "",
     };
   },
   methods: {
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
       this.imageUrl = URL.createObjectURL(selectedFile);
+    },
+
+    async ajouterStagiaire() {
+      const stagiaireData = {
+        nom: this.nom,
+        prenom: this.prenom,
+        mail: this.mail,
+        tel: this.tel,
+        datenaissance: this.datenaissance,
+        adrress: this.adrress,
+        sexe: this.sexe,
+        projet: this.projet,
+        ecole: this.ecole,
+        specialite: this.specialite,
+        niveau: this.niveau,
+        dureestage: this.dureestage,
+        dated: this.dated,
+        datef: this.datef,
+        typestage: this.typestage,
+        encadrant: this.encadrant,
+      };
+
+      try {
+        const response = await axios.post(
+          "http://localhost:8081/stagiaire/addStagi",
+          stagiaireData
+        );
+        console.log("Stagiaire ajouté avec succès !", response.data);
+      } catch (error) {
+        console.error("Erreur lors de l'ajout du stagiaire :", error);
+      }
     },
   },
 };
@@ -76,6 +125,7 @@ export default {
                   class="form-control"
                   id="nom"
                   placeholder="Nom"
+                  v-model="this.nom"
                 />
                 <label for="nom">Nom</label>
               </div>
@@ -85,6 +135,7 @@ export default {
                   class="form-control"
                   id="prenom"
                   placeholder="prenom"
+                  v-model="this.prenom"
                 />
                 <label for="prenom">Prenom</label>
               </div>
@@ -96,6 +147,7 @@ export default {
                   class="form-control"
                   id="datenaiss"
                   placeholder="Date de naissance"
+                  v-model="this.datenaissance"
                 />
                 <label for="datenaiss">Date de naissance</label>
               </div>
@@ -105,6 +157,7 @@ export default {
                   class="form-control"
                   id="address"
                   placeholder="Address"
+                  v-model="this.adrress"
                 />
                 <label for="address">Address</label>
               </div>
@@ -116,6 +169,7 @@ export default {
                   class="form-control"
                   id="sexe"
                   placeholder="sexe"
+                  v-model="this.sexe"
                 />
                 <label for="sexe">Sexe</label>
               </div>
@@ -126,6 +180,7 @@ export default {
                   id="tel"
                   placeholder="telephone"
                   pattern="[0-9]{2}[0-9]{3}[0-9]{3}"
+                  v-model="this.tel"
                 />
                 <label for="tel">Telephone</label>
               </div>
@@ -137,6 +192,7 @@ export default {
                   class="form-control"
                   id="mail"
                   placeholder="e-mail"
+                  v-model="this.mail"
                 />
                 <label for="mail">E-mail</label>
               </div>
@@ -146,6 +202,7 @@ export default {
                   class="form-control"
                   id="dureestage"
                   placeholder="dureestage"
+                  v-model="this.dureestage"
                 />
                 <label for="dureestage">Durée du stage</label>
               </div>
@@ -157,6 +214,7 @@ export default {
                   class="form-control"
                   id="dated"
                   placeholder="date debuit"
+                  v-model="this.dated"
                 />
                 <label for="dated">Date de debuit</label>
               </div>
@@ -166,6 +224,7 @@ export default {
                   class="form-control"
                   id="datef"
                   placeholder="date de fin"
+                  v-model="this.datef"
                 />
                 <label for="datef">Date de fin</label>
               </div>
@@ -177,6 +236,7 @@ export default {
                   class="form-control"
                   id="etablissement"
                   placeholder="etablissement"
+                  v-model="this.ecole"
                 />
                 <label for="etablissement"
                   >l'établissement d'enseignement</label
@@ -188,6 +248,7 @@ export default {
                   class="form-control"
                   id="niveau"
                   placeholder="Niveau"
+                  v-model="this.niveau"
                 />
                 <label for="niveau">Niveau</label>
               </div>
@@ -199,6 +260,7 @@ export default {
                   class="form-control"
                   id="specialite"
                   placeholder="specialite"
+                  v-model="this.specialite"
                 />
                 <label for="specialite">Spécialité</label>
               </div>
@@ -208,6 +270,7 @@ export default {
                   class="form-control"
                   id="projet"
                   placeholder="projet"
+                  v-model="this.projet"
                 />
                 <label for="projet">Projet</label>
               </div>
@@ -219,6 +282,7 @@ export default {
                   class="form-control"
                   id="encadrant"
                   placeholder="encadrant"
+                  v-model="this.encadrant"
                 />
                 <label for="encadrant">Encadrant</label>
               </div>
@@ -228,6 +292,7 @@ export default {
                   class="form-control"
                   id="typestage"
                   placeholder="type de stage"
+                  v-model="this.typestage"
                 />
                 <label for="typestage">Type de stage</label>
               </div>
@@ -235,7 +300,14 @@ export default {
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Ajouter</button>
+          <button
+            type="submit"
+            value="submit"
+            class="btn btn-primary"
+            @click="ajouterStagiaire()"
+          >
+            Ajouter
+          </button>
         </div>
       </div>
     </div>

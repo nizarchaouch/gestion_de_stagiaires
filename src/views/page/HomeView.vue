@@ -15,7 +15,7 @@ export default {
         <Card title="Demande stage" number="25" />
         <Card title="DEMANDE EN ATTENTES" number="15" />
         <Card title="Taux de présence" number="75%" />
-        <Card title="taux de déroulement" number="25%" />
+        <Card title="taux de déroulement" number="45%" />
       </div>
     </div>
   </div>

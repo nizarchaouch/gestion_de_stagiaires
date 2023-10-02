@@ -24,12 +24,12 @@ const routes = [
     component: Demande,
   },
   {
-    path: "/encadrant",
+    path: "/encadrant/showEncad",
     name: "encadrant",
     component: Encadrant,
   },
   {
-    path: "/stagiaire",
+    path: "/stagiaire/showStagi",
     name: "stagiaire",
     component: Stagiaire,
   },

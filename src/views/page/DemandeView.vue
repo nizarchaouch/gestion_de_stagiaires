@@ -1,14 +1,14 @@
 <script>
 import Card from "@/components/carddemande/CardDemande.vue";
-import Pagination from "@/components/pagination/PaginationC.vue";
+// import Pagination from "@/components/pagination/PaginationC.vue";
 export default {
   components: {
     Card,
-    Pagination,
+    // Pagination,
   },
 };
 </script>
 <template>
   <Card />
-  <Pagination />
+  <!-- <Pagination /> -->
 </template>

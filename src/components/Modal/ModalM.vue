@@ -103,12 +103,19 @@ export default {
           <div class="modal-footer" style="margin-right: 70px">
             <button
               type="button"
-              class="btn btn-success rounded-pill"
+              class="btn btn-success rounded-pill close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
               style="margin-right: 60px"
             >
               Accepter
             </button>
-            <button type="button" class="btn btn-danger rounded-pill">
+            <button
+              type="button"
+              class="btn btn-danger rounded-pill close[]"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
               Refuser
             </button>
           </div>
