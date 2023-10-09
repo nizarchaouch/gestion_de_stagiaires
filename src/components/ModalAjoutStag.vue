@@ -3,8 +3,12 @@ import axios from "axios";
 export default {
   data() {
     return {
-      successMessage: "",
-      errorMessage: "",
+      alert: {
+        message: "",
+        color: "",
+        visible: false,
+      },
+
       imageUrl: "https://2cm.es/tLVi",
       id: 1,
       nom: "",
@@ -26,6 +30,17 @@ export default {
     };
   },
   methods: {
+    showAlert(message) {
+      this.alert.message = message;
+      this.alert.visible = true;
+
+      setTimeout(() => {
+        this.hideAlert();
+      }, 1500);
+    },
+    hideAlert() {
+      this.alert.visible = false;
+    },
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
       this.imageUrl = URL.createObjectURL(selectedFile);
@@ -33,7 +48,7 @@ export default {
 
     async ajouterStagiaire() {
       const stagiaireData = {
-        id: id++,
+        id: this.id++,
         nom: this.nom,
         prenom: this.prenom,
         mail: this.mail,
@@ -58,12 +73,12 @@ export default {
           stagiaireData
         );
         console.log("Stagiaire ajouté avec succès !", response.data);
-        this.successMessage = "Stagiaire ajouté avec succès !";
-        this.errorMessage = "";
+        this.showAlert("Stagiaire ajouté avec succès !");
+        this.alert.color = "success";
       } catch (error) {
         console.error("Erreur lors de l'ajout du stagiaire :", error);
-        this.errorMessage = "Erreur lors de l'ajout du stagiaire : ";
-        this.successMessage = "";
+        this.showAlert("Erreur lors de l'ajout du stagiaire :");
+        this.alert.color = "danger";
       }
     },
   },
@@ -103,13 +118,8 @@ export default {
   >
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <!-- Alerte pour success -->
-      <div class="alert alert-success" v-if="successMessage">
-        {{ successMessage }}
-      </div>
-
-      <!-- Alerte pour l'erreur -->
-      <div class="alert alert-danger" v-if="errorMessage">
-        {{ errorMessage }}
+      <div v-if="alert.visible" :class="'alert alert-' + alert.color">
+        {{ alert.message }}
       </div>
       <div class="modal-content">
         <div class="modal-header">
@@ -317,8 +327,6 @@ export default {
         </div>
         <div class="modal-footer">
           <button
-            type="submit"
-            value="submit"
             class="btn btn-primary"
             @click="ajouterStagiaire()"
           >
