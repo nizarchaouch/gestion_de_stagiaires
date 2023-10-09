@@ -37,19 +37,19 @@ export default {
     <td>
       <img :src="encadruers.img" alt="image" />
     </td>
-    <td>{{ encadruers.nom }}</td>
-    <td>{{ encadruers.prenom }}</td>
-    <td>{{ encadruers.mail }}</td>
-    <td>{{ encadruers.tel }}</td>
-    <td>{{ encadruers.Specialite }}</td>
-    <td>{{ encadruers.stagiaire }}</td>
+    <td>{{ encadruer.nom }}</td>
+    <td>{{ encadruer.prenom }}</td>
+    <td>{{ encadruer.mail }}</td>
+    <td>{{ encadruer.tel }}</td>
+    <td>{{ encadruer.Specialite }}</td>
+    <td>{{ encadruer.stagiaire }}</td>
     <td>
       <div class="form-check form-switch" style="margin-left: 35%">
         <input
           class="form-check-input"
           type="checkbox"
-          :id="'ActiveDesactive-' + encadruers.id"
-          v-model="encadruers.isChecked"
+          :id="'ActiveDesactive-' + encadruer.id"
+          v-model="encadruer.statut"
         />
       </div>
     </td>
@@ -58,7 +58,7 @@ export default {
         <button
           class="btn dropdown"
           type="button"
-          :id="'MenuButton-' + encadruers.id"
+          :id="'MenuButton-' + encadruer.id"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
@@ -66,8 +66,8 @@ export default {
         </button>
         <ul
           class="dropdown-menu"
-          :aria-labelledby="'MenuButton-' + encadruers.id"
-          @click="setSelectedOBJ(encadruers)"
+          :aria-labelledby="'MenuButton-' + encadruer.id"
+          @click="setSelectedOBJ(encadruer)"
         >
           <ModalM />
         </ul>

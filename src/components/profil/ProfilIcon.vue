@@ -58,10 +58,10 @@ export default {
         />
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <router-link to="adminProfil" class="dropdown-item">
+        <router-link to="/adminProfil" class="dropdown-item">
           <li>Profil</li>
         </router-link>
-        <router-link to="admin" class="dropdown-item">
+        <router-link to="/admin" class="dropdown-item">
           <li>Gere Admin</li>
         </router-link>
         <li><a class="dropdown-item" href="#">Déconnexion</a></li>

@@ -10,7 +10,6 @@ export default {
       },
 
       imageUrl: "https://2cm.es/tLVi",
-      id: 1,
       nom: "",
       prenom: "",
       mail: "",
@@ -48,7 +47,6 @@ export default {
 
     async ajouterStagiaire() {
       const stagiaireData = {
-        id: this.id++,
         nom: this.nom,
         prenom: this.prenom,
         mail: this.mail,

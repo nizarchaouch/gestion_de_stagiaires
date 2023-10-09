@@ -3,11 +3,32 @@ import axios from "axios";
 export default {
   data() {
     return {
+      alert: {
+        message: "",
+        color: "",
+        visible: false,
+      },
       imageUrl: "https://2cm.es/tLVi",
+      nom: "",
+      prenom: "",
+      mail: "",
+      tel: "",
+      specialite: "",
       Stagiaire: "",
     };
   },
   methods: {
+    showAlert(message) {
+      this.alert.message = message;
+      this.alert.visible = true;
+
+      setTimeout(() => {
+        this.hideAlert();
+      }, 1500);
+    },
+    hideAlert() {
+      this.alert.visible = false;
+    },
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
       this.imageUrl = URL.createObjectURL(selectedFile);
@@ -29,8 +50,12 @@ export default {
           data
         );
         console.log("Encadreur ajouté avec succès !", response.data);
+        this.showAlert("Encadreur ajouté avec succès !");
+        this.alert.color = "success";
       } catch (error) {
         console.error("Erreur lors de l'ajout de l'encadreur :", error);
+        this.showAlert("Erreur lors de l'ajout de l'encadreur :");
+        this.alert.color = "danger";
       }
     },
   },
@@ -69,6 +94,9 @@ export default {
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div v-if="alert.visible" :class="'alert alert-' + alert.color">
+        {{ alert.message }}
+      </div>
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title title">Ajouter Encadreur</h5>
@@ -162,7 +190,9 @@ export default {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <button @click="ajouterEncadreur()" class="btn btn-primary">
+              Ajouter
+            </button>
           </div>
         </form>
       </div>
