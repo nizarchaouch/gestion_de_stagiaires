@@ -35,7 +35,7 @@ export default {
       <div class="row">
         <MM :h="'E-mail : ' + obj.mail" />
         <MM :h="'Téléphone : ' + obj.tel" />
-        <MM h="Ecolé : EPI" />
+        <MM :h="'Ecolé : ' + obj.ecole" />
         <MM :h="'Niveau : ' + obj.niveau" />
         <MM :h="'Duree de stage : ' + obj.dureestage" />
         <MM :h="'Date de debuit : ' + obj.dated" />

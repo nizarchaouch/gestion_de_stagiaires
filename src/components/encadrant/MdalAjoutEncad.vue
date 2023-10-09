@@ -1,14 +1,37 @@
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       imageUrl: "https://2cm.es/tLVi",
+      Stagiaire: "",
     };
   },
   methods: {
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
       this.imageUrl = URL.createObjectURL(selectedFile);
+    },
+
+    async ajouterEncadreur() {
+      const data = {
+        nom: this.nom,
+        prenom: this.prenom,
+        mail: this.mail,
+        tel: this.tel,
+        specialite: this.specialite,
+        Stagiaire: this.Stagiaire,
+      };
+
+      try {
+        const response = await axios.post(
+          "http://localhost:8081/encadreur/addEncad",
+          data
+        );
+        console.log("Encadreur ajouté avec succès !", response.data);
+      } catch (error) {
+        console.error("Erreur lors de l'ajout de l'encadreur :", error);
+      }
     },
   },
 };
@@ -56,84 +79,92 @@ export default {
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="row">
-              <label for="file">
-                <img :src="imageUrl" alt="Image" />
-              </label>
-              <input
-                type="file"
-                id="file"
-                @change="handleFileChange"
-                style="display: none"
-              />
-            </div>
-            <div class="row">
-              <div class="form-floating col-md-6 col-6">
+        <form @submit.prevent="ajouterEncadreur()">
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row">
+                <label for="file">
+                  <img :src="imageUrl" alt="Image" />
+                </label>
                 <input
-                  type="text"
-                  class="form-control"
-                  id="nom"
-                  placeholder="Nom"
+                  type="file"
+                  id="file"
+                  @change="handleFileChange"
+                  style="display: none"
                 />
-                <label for="nom">Nom</label>
               </div>
-              <div class="form-floating col-md-6 col-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="prenom"
-                  placeholder="Prenom"
-                />
-                <label for="prenom">Prenom</label>
+              <div class="row">
+                <div class="form-floating col-md-6 col-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nom"
+                    placeholder="Nom"
+                    v-model="this.nom"
+                  />
+                  <label for="nom">Nom</label>
+                </div>
+                <div class="form-floating col-md-6 col-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="prenom"
+                    placeholder="Prenom"
+                    v-model="this.prenom"
+                  />
+                  <label for="prenom">Prenom</label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="form-floating col-md-6 col-6">
-                <input
-                  type="mail"
-                  class="form-control"
-                  id="mail"
-                  placeholder="E-mail"
-                />
-                <label for="mail">E-mail</label>
+              <div class="row">
+                <div class="form-floating col-md-6 col-6">
+                  <input
+                    type="mail"
+                    class="form-control"
+                    id="mail"
+                    placeholder="E-mail"
+                    v-model="this.mail"
+                  />
+                  <label for="mail">E-mail</label>
+                </div>
+                <div class="form-floating col-md-6 col-6">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="tel"
+                    placeholder="Telephone"
+                    v-model="this.tel"
+                  />
+                  <label for="tel">Telephone</label>
+                </div>
               </div>
-              <div class="form-floating col-md-6 col-6">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="tel"
-                  placeholder="Telephone"
-                />
-                <label for="tel">Telephone</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-floating col-md-6 col-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="specialite"
-                  placeholder="spécialité"
-                />
-                <label for="specialite">Spécialité</label>
-              </div>
-              <div class="form-floating col-md-6 col-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="stagiaire"
-                  placeholder="Telephone"
-                />
-                <label for="stagiaire">Stagiaire</label>
+              <div class="row">
+                <div class="form-floating col-md-6 col-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="specialite"
+                    placeholder="spécialité"
+                    v-model="this.specialite"
+                  />
+                  <label for="specialite">Spécialité</label>
+                </div>
+                <div class="form-floating col-md-6 col-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="stagiaire"
+                    placeholder="stagiaire"
+                    v-model="this.Stagiaire"
+                  />
+                  <label for="stagiaire">Stagiaire</label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Ajouter</button>
-        </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

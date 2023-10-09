@@ -3,8 +3,10 @@ import axios from "axios";
 export default {
   data() {
     return {
+      successMessage: "",
+      errorMessage: "",
       imageUrl: "https://2cm.es/tLVi",
-      id: "1",
+      id: 1,
       nom: "",
       prenom: "",
       mail: "",
@@ -31,6 +33,7 @@ export default {
 
     async ajouterStagiaire() {
       const stagiaireData = {
+        id: id++,
         nom: this.nom,
         prenom: this.prenom,
         mail: this.mail,
@@ -55,8 +58,12 @@ export default {
           stagiaireData
         );
         console.log("Stagiaire ajouté avec succès !", response.data);
+        this.successMessage = "Stagiaire ajouté avec succès !";
+        this.errorMessage = "";
       } catch (error) {
         console.error("Erreur lors de l'ajout du stagiaire :", error);
+        this.errorMessage = "Erreur lors de l'ajout du stagiaire : ";
+        this.successMessage = "";
       }
     },
   },
@@ -95,6 +102,15 @@ export default {
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <!-- Alerte pour success -->
+      <div class="alert alert-success" v-if="successMessage">
+        {{ successMessage }}
+      </div>
+
+      <!-- Alerte pour l'erreur -->
+      <div class="alert alert-danger" v-if="errorMessage">
+        {{ errorMessage }}
+      </div>
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title title">Ajouter Stagiaire</h5>
