@@ -29,19 +29,30 @@ export default {
         console.error("Internal Server Error:", error);
       }
     },
+
+    async delStagiaire(stagiaireId) {
+      try {
+        await axios.delete(
+          `http://localhost:8081/stagiaire/delStagi/${stagiaireId}`
+        );
+        this.fetchStagiaires();
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+        console.log(this.stagiaire._id);
+      }
+    },
   },
 };
 </script>
 <template>
   <ToggleOffcanvas :obj="selectedOBJ" />
-  {{ console.log(stagiaires) }}
-  <tr v-for="stagiaire in stagiaires" :key="stagiaire.id">
+  <tr v-for="stagiaire in stagiaires" :key="stagiaire._id">
     <th
       @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="stagiaires.id"
+      :id="stagiaires._id"
     >
       <img :src="stagiaires.img" alt="image" />
     </th>
@@ -50,7 +61,7 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="stagiaires.id"
+      :id="stagiaires._id"
     >
       {{ stagiaire.nom }} {{ stagiaires.prenom }}
     </td>
@@ -59,7 +70,7 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="stagiaire.id"
+      :id="stagiaire._id"
     >
       {{ stagiaire.projet }}
     </td>
@@ -68,7 +79,7 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="stagiaire.id"
+      :id="stagiaire._id"
     >
       {{ stagiaire.dureestage }}
     </td>
@@ -77,11 +88,11 @@ export default {
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
-      :id="stagiaire.id"
+      :id="stagiaire._id"
     >
       {{ stagiaire.encadrant }}
     </td>
-    <td :id="'ActiveDesactive-' + stagiaire.id">
+    <td :id="'ActiveDesactive-' + stagiaire._id">
       <div class="form-check form-switch" style="margin-left: 35%">
         <input
           class="form-check-input"
@@ -90,7 +101,7 @@ export default {
         />
       </div>
     </td>
-    <td :id="stagiaire.id">
+    <td :id="stagiaire._id">
       <div class="dropdown dropstart profil">
         <button
           class="btn dropdown"
@@ -101,11 +112,13 @@ export default {
           <i class="fa-solid fa-ellipsis"></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <a class="dropdown-item d-inline p-1 m-4" href="#"
+          <a class="dropdown-item d-inline p-1 m-4"
             ><i class="fa-solid fa-sliders fa-lg"></i
           ></a>
 
-          <a class="dropdown-item d-inline p-1 m-4" href="#"
+          <a
+            class="dropdown-item d-inline p-1 m-4"
+            @click="delStagiaire(stagiaire._id)"
             ><i class="fa-solid fa-trash fa-lg" style="color: #de1b1b"></i
           ></a>
         </ul>
@@ -121,6 +134,7 @@ img {
 }
 a {
   margin-right: 15px;
+  cursor: pointer;
 }
 .status {
   display: inline-flex;

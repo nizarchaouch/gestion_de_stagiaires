@@ -326,10 +326,7 @@ export default {
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            class="btn btn-primary"
-            @click="ajouterStagiaire()"
-          >
+          <button class="btn btn-primary" @click="ajouterStagiaire()">
             Ajouter
           </button>
         </div>
