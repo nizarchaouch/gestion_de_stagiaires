@@ -14,7 +14,7 @@ export default {
       mail: "",
       tel: "",
       specialite: "",
-      Stagiaire: "",
+      stagiaire: "",
     };
   },
   methods: {
@@ -41,7 +41,7 @@ export default {
         mail: this.mail,
         tel: this.tel,
         specialite: this.specialite,
-        Stagiaire: this.Stagiaire,
+        stagiaire: this.stagiaire,
       };
 
       try {
@@ -171,7 +171,7 @@ export default {
                     type="text"
                     class="form-control"
                     id="specialite"
-                    placeholder="spécialité"
+                    placeholder="specialite"
                     v-model="this.specialite"
                   />
                   <label for="specialite">Spécialité</label>
@@ -182,7 +182,7 @@ export default {
                     class="form-control"
                     id="stagiaire"
                     placeholder="stagiaire"
-                    v-model="this.Stagiaire"
+                    v-model="this.stagiaire"
                   />
                   <label for="stagiaire">Stagiaire</label>
                 </div>

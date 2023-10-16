@@ -1,6 +1,5 @@
 <script>
 import axios from "axios";
-import ModalM from "@/components/encadrant/MdalModifEncad.vue";
 export default {
   data() {
     return {
@@ -11,7 +10,6 @@ export default {
   mounted() {
     this.fetchEncadreurs();
   },
-  components: { ModalM },
   methods: {
     setSelectedOBJ(obj) {
       console.log(this.selectedOBJ);
@@ -28,27 +26,38 @@ export default {
         console.error("Internal Server Error:", error);
       }
     },
+
+    async delEncadreur(encadreurId) {
+      try {
+        await axios.delete(
+          `http://localhost:8081/encadreur/delEncad/${encadreurId}`
+        );
+        this.fetchEncadreurs();
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
 <!-- "../../assets/logo.png" -->
 <template>
-  <tr v-for="encadruer in encadruers" :key="encadruer.id">
+  <tr v-for="encadruer in encadruers" :key="encadruer._id">
     <td>
-      <img :src="encadruers.img" alt="image" />
+      <img :src="encadruer.img" alt="image" />
     </td>
     <td>{{ encadruer.nom }}</td>
     <td>{{ encadruer.prenom }}</td>
     <td>{{ encadruer.mail }}</td>
     <td>{{ encadruer.tel }}</td>
-    <td>{{ encadruer.Specialite }}</td>
+    <td>{{ encadruer.specialite }}</td>
     <td>{{ encadruer.stagiaire }}</td>
     <td>
       <div class="form-check form-switch" style="margin-left: 35%">
         <input
           class="form-check-input"
           type="checkbox"
-          :id="'ActiveDesactive-' + encadruer.id"
+          :id="'ActiveDesactive-' + encadruer._id"
           v-model="encadruer.statut"
         />
       </div>
@@ -58,18 +67,22 @@ export default {
         <button
           class="btn dropdown"
           type="button"
-          :id="'MenuButton-' + encadruer.id"
+          :id="'MenuButton-' + encadruer._id"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           <i class="fa-solid fa-ellipsis"></i>
         </button>
-        <ul
-          class="dropdown-menu"
-          :aria-labelledby="'MenuButton-' + encadruer.id"
-          @click="setSelectedOBJ(encadruer)"
-        >
-          <ModalM />
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <a class="dropdown-item d-inline p-1 m-4"
+            ><i class="fa-solid fa-sliders fa-lg"></i
+          ></a>
+
+          <a
+            class="dropdown-item d-inline p-1 m-4"
+            @click="delEncadreur(encadruer._id)"
+            ><i class="fa-solid fa-trash fa-lg" style="color: #de1b1b"></i
+          ></a>
         </ul>
       </div>
     </td>
@@ -84,6 +97,7 @@ img {
 }
 a {
   margin-right: 15px;
+  cursor: pointer;
 }
 .form-check-input {
   --bs-form-check-bg: #f81111a1;

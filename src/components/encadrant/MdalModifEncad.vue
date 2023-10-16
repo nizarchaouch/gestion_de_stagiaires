@@ -1,4 +1,5 @@
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -12,6 +13,17 @@ export default {
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
       this.imageUrl = URL.createObjectURL(selectedFile);
+    },
+    async delEncadreurs(encadreurId) {
+      try {
+        await axios.delete(
+          `http://localhost:8081/stagiaire/delStagi/${encadreurId}`
+        );
+        this.fetchEncadreurs();
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+        console.log(this.encadreur._id);
+      }
     },
   },
 };
@@ -127,7 +139,9 @@ export default {
       </div>
     </div>
   </div>
-  <a class="dropdown-item d-inline p-1 m-4"
+  <a
+    class="dropdown-item d-inline p-1 m-4"
+    @click="delEncadreurs(encadruer._id)"
     ><i class="fa-solid fa-trash fa-lg" style="color: #de1b1b"></i>
   </a>
 </template>
