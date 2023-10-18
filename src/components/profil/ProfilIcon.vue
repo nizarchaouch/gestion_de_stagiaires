@@ -51,11 +51,7 @@ export default {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        <img
-          src="../../assets/logo.png"
-          style="background-color: black"
-          alt=""
-        />
+        <img src="https://2cm.es/tPEt" alt="Photo Profil" />
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <router-link to="/adminProfil" class="dropdown-item">
