@@ -54,7 +54,7 @@ export default {
         this.alert.color = "success";
         setTimeout(() => {
           window.location.reload();
-        }, 1400);
+        }, 700);
       } catch (error) {
         console.error("Erreur lors de l'ajout de l'encadreur :", error);
         this.showAlert("Erreur lors de l'ajout de l'encadreur :");

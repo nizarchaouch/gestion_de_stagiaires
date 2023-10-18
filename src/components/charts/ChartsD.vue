@@ -1,5 +1,6 @@
 <script>
 import Chart from "chart.js/auto";
+import { data } from "./data";
 export default {
   mounted() {
     const ctx1 = document.getElementById("myChart1");
@@ -10,7 +11,7 @@ export default {
       datasets: [
         {
           label: "Stagiaires",
-          data: [60, 50],
+          data: [data.homme, data.femme],
           backgroundColor: ["rgb(54, 162, 235)", "rgb(255, 99, 132)"],
           hoverOffset: 2,
         },

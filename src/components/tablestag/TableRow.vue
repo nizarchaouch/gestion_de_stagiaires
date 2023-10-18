@@ -7,6 +7,8 @@ export default {
     return {
       selectedOBJ: "null",
       stagiaires: [],
+      hommes: 0,
+      femmes: 0,
     };
   },
   mounted() {
@@ -39,6 +41,16 @@ export default {
       } catch (error) {
         console.error("Internal Server Error:", error);
         console.log(this.stagiaire._id);
+      }
+    },
+
+    async changeStatut(stagiaireId) {
+      try {
+        await axios.put(
+          `http://localhost:8081/stagiaire/statut/${stagiaireId}`
+        );
+      } catch (error) {
+        console.error("Internal Server Error:", error);
       }
     },
   },
@@ -98,6 +110,7 @@ export default {
           class="form-check-input"
           type="checkbox"
           v-model="stagiaire.statut"
+          @click="changeStatut(stagiaire._id)"
         />
       </div>
     </td>

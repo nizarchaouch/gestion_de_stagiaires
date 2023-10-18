@@ -35,7 +35,7 @@ export default {
 
       setTimeout(() => {
         this.hideAlert();
-      }, 1500);
+      }, 1200);
     },
     hideAlert() {
       this.alert.visible = false;
@@ -73,7 +73,9 @@ export default {
         console.log("Stagiaire ajouté avec succès !", response.data);
         this.showAlert("Stagiaire ajouté avec succès !");
         this.alert.color = "success";
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
       } catch (error) {
         console.error("Erreur lors de l'ajout du stagiaire :", error);
         this.showAlert("Erreur lors de l'ajout du stagiaire :");
