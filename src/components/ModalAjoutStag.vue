@@ -73,6 +73,7 @@ export default {
         console.log("Stagiaire ajouté avec succès !", response.data);
         this.showAlert("Stagiaire ajouté avec succès !");
         this.alert.color = "success";
+        window.location.reload();
       } catch (error) {
         console.error("Erreur lors de l'ajout du stagiaire :", error);
         this.showAlert("Erreur lors de l'ajout du stagiaire :");

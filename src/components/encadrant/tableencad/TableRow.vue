@@ -37,6 +37,16 @@ export default {
         console.error("Internal Server Error:", error);
       }
     },
+
+    async changeStatut(encadreurId) {
+      try {
+        await axios.put(
+          `http://localhost:8081/encadreur/statut/${encadreurId}`
+        );
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
@@ -59,6 +69,7 @@ export default {
           type="checkbox"
           :id="'ActiveDesactive-' + encadruer._id"
           v-model="encadruer.statut"
+          @click="changeStatut(encadruer._id)"
         />
       </div>
     </td>
@@ -93,7 +104,6 @@ img {
   width: 60px;
   height: 60px;
   border-radius: 60px;
-  background-color: black;
 }
 a {
   margin-right: 15px;

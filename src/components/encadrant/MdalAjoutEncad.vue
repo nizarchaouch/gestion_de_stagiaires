@@ -35,7 +35,7 @@ export default {
     },
 
     async ajouterEncadreur() {
-      const data = {
+      const dataEncad = {
         nom: this.nom,
         prenom: this.prenom,
         mail: this.mail,
@@ -47,11 +47,14 @@ export default {
       try {
         const response = await axios.post(
           "http://localhost:8081/encadreur/addEncad",
-          data
+          dataEncad
         );
         console.log("Encadreur ajouté avec succès !", response.data);
         this.showAlert("Encadreur ajouté avec succès !");
         this.alert.color = "success";
+        setTimeout(() => {
+          window.location.reload();
+        }, 1400);
       } catch (error) {
         console.error("Erreur lors de l'ajout de l'encadreur :", error);
         this.showAlert("Erreur lors de l'ajout de l'encadreur :");
@@ -107,7 +110,7 @@ export default {
             aria-label="Close"
           ></button>
         </div>
-        <form @submit.prevent="ajouterEncadreur()">
+        <form>
           <div class="modal-body">
             <div class="container-fluid">
               <div class="row">
