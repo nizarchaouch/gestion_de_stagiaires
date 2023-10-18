@@ -66,16 +66,24 @@ export default {
       aria-controls="offcanvasRight"
       :id="stagiaires._id"
     >
-      <img :src="stagiaires.img" alt="image" />
+      <img :src="stagiaire.img" alt="image" />
     </th>
+    <td v-if="stagiaire.sexe === 'homme'" style="display: none">
+      {{ (hommes = (hommes + 1) % 100) }}
+      {{ console.log(hommes) }}
+    </td>
+    <td v-if="stagiaire.sexe === 'femme'" style="display: none">
+      {{ (femmes = (femmes + 1) % 100) }}
+      {{ console.log(femmes) }}
+    </td>
     <td
-      @click="setSelectedOBJ(stagiaires)"
+      @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasRight"
       aria-controls="offcanvasRight"
       :id="stagiaires._id"
     >
-      {{ stagiaire.nom }} {{ stagiaires.prenom }}
+      {{ stagiaire.nom }} {{ stagiaire.prenom }}
     </td>
     <td
       @click="setSelectedOBJ(stagiaire)"
