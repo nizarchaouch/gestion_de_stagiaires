@@ -10,6 +10,9 @@ export default {
     async accept(IdCard) {
       try {
         await axios.put(`http://localhost:8081/demande/accept/${IdCard}`);
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
       } catch (error) {
         console.log("Internal Server Error:", error);
       }
@@ -18,6 +21,9 @@ export default {
     async refuse(IdCard) {
       try {
         await axios.delete(`http://localhost:8081/demande/refuse/${IdCard}`);
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
       } catch (error) {
         console.log("Internal Server Error:", error);
       }

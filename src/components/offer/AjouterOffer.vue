@@ -1,19 +1,66 @@
 <script>
 import CardOffer from "./CardOffer.vue";
+import axios from "axios";
 export default {
+  data() {
+    return {
+      alert: {
+        message: "",
+        color: "",
+        visible: false,
+      },
+      titre: "",
+      description: "",
+    };
+  },
   components: { CardOffer },
+  methods: {
+    showAlert(message) {
+      this.alert.message = message;
+      this.alert.visible = true;
+
+      setTimeout(() => {
+        this.hideAlert();
+      }, 1200);
+    },
+    hideAlert() {
+      this.alert.visible = false;
+    },
+    async AjouterOffer() {
+      const offerData = {
+        titre: this.titre,
+        description: this.description,
+      };
+      try {
+        await axios.post("http://localhost:8081/offer/addOffer", offerData);
+      } catch (error) {
+        console.log("Internal Server Error:", error);
+      }
+    },
+  },
 };
 </script>
 <template>
   <div class="col-lg-5">
     <div class="titre">
-      <input type="text" id="titre" class="fs-1 fw-bold" value="Titre" />
+      <input
+        type="text"
+        id="titre"
+        class="fs-1 fw-bold"
+        v-model="this.titre"
+        placeholder="Titre"
+      />
       <textarea
         type="text"
         placeholder="description"
         id="description"
+        v-model="this.description"
       ></textarea>
-      <button type="button" class="btn btn-outline-success float-end">
+      <button
+        type="button"
+        class="btn btn-outline-success float-end"
+        @click="AjouterOffer()"
+      >
         Sauvegarder
       </button>
       <p>&thinsp;</p>
