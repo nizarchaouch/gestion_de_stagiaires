@@ -1,10 +1,28 @@
 <script>
+import axios from "axios";
 import MM from "./MM.vue";
 export default {
   props: {
     obj: String,
   },
   components: { MM },
+  methods: {
+    async accept(IdCard) {
+      try {
+        await axios.put(`http://localhost:8081/demande/accept/${IdCard}`);
+      } catch (error) {
+        console.log("Internal Server Error:", error);
+      }
+    },
+
+    async refuse(IdCard) {
+      try {
+        await axios.delete(`http://localhost:8081/demande/refuse/${IdCard}`);
+      } catch (error) {
+        console.log("Internal Server Error:", error);
+      }
+    },
+  },
 };
 </script>
 <template>
@@ -45,27 +63,24 @@ export default {
                   <p>{{ obj.nom }}</p>
                   <hr />
                 </div>
-                <MM h="E-mail" :s="obj.gmail" />
+                <MM h="E-mail" :s="obj.mail" />
                 <MM h="Téléphone" :s="obj.tel" />
-                <MM h="Date de naissance" s="20/06/1999" />
-                <MM h="Address" s="Tarek ben zied,Moknine" />
-                <MM h="Sexe" s="Homme" />
+                <MM h="Date de naissance" :s="obj.datenaissance" />
+                <MM h="Address" :s="obj.adrress" />
+                <MM h="Sexe" :s="obj.sexe" />
               </div>
               <div class="container col-lg-4">
                 <div class="row">
                   <p>Informations universitaires</p>
                   <hr />
                 </div>
-                <MM
-                  h="Nom de l'établissement d'enseignement"
-                  s="EPI DIGITAL SCHOOL"
-                />
+                <MM h="Nom de l'établissement d'enseignement" :s="obj.ecole" />
                 <MM
                   h="Intitulé de la formation / spécialité"
-                  s="Génie Logiciel"
+                  :s="obj.specialite"
                 />
-                <MM h="Niveau d'études / année en cours" s="4eme année" />
-                <MM h="Durée du stage prévue" s="deux mois" />
+                <MM h="Niveau d'études / année en cours" :s="obj.niveau" />
+                <MM h="Durée du stage prévue" :s="obj.dureestage" />
               </div>
               <div class="container col-lg-4">
                 <div class="row">
@@ -107,6 +122,7 @@ export default {
               data-bs-dismiss="modal"
               aria-label="Close"
               style="margin-right: 60px"
+              @click="accept(obj._id)"
             >
               Accepter
             </button>
@@ -115,6 +131,7 @@ export default {
               class="btn btn-danger rounded-pill close[]"
               data-bs-dismiss="modal"
               aria-label="Close"
+              @click="refuse(obj._id)"
             >
               Refuser
             </button>

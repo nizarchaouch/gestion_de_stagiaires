@@ -23,7 +23,9 @@ export default {
     </router-link>
     <hr />
     <SidebarLink to="/" icon="fas fa-chart-column">Statistiques</SidebarLink>
-    <SidebarLink to="/demande" icon="fa-solid fa-id-card">Demandes</SidebarLink>
+    <SidebarLink to="/demande/showDemande" icon="fa-solid fa-id-card"
+      >Demandes</SidebarLink
+    >
     <SidebarLink to="/encadrant/showEncad" icon="fas fa-users"
       >Encadrants</SidebarLink
     >
