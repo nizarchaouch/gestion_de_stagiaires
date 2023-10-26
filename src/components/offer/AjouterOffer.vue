@@ -21,7 +21,7 @@ export default {
 
       setTimeout(() => {
         this.hideAlert();
-      }, 1200);
+      }, 1700);
     },
     hideAlert() {
       this.alert.visible = false;
@@ -33,8 +33,15 @@ export default {
       };
       try {
         await axios.post("http://localhost:8081/offer/addOffer", offerData);
+        this.showAlert("Offer ajouté avec succès !");
+        this.alert.color = "success";
+        setTimeout(() => {
+          window.location.reload();
+        }, 1700);
       } catch (error) {
         console.log("Internal Server Error:", error);
+        this.showAlert("Erreur lors de l'ajout Offer :");
+        this.alert.color = "danger";
       }
     },
   },
@@ -43,6 +50,9 @@ export default {
 <template>
   <div class="col-lg-5">
     <div class="titre">
+      <div v-if="alert.visible" :class="'alert alert-' + alert.color">
+        {{ alert.message }}
+      </div>
       <input
         type="text"
         id="titre"
@@ -70,8 +80,8 @@ export default {
   <div class="conatainer">
     <h5 class="ms-3 title position-absolute">Liste d'offer</h5>
   </div>
-  <div class="container">
-    <CardOffer />
+  <div class="container" v-for="offer in offers" :key="offer._id">
+    <CardOffer :titre="offer.titre" :description="offer.description" />
     <CardOffer />
     <CardOffer />
   </div>
