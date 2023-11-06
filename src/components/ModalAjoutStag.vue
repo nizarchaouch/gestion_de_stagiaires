@@ -16,7 +16,7 @@ export default {
       tel: "",
       datenaissance: "",
       adrress: "",
-      sexe: "",
+      sexe: "homme",
       projet: "",
       ecole: "",
       specialite: "",
@@ -191,14 +191,10 @@ export default {
             </div>
             <div class="row">
               <div class="form-floating col-md-6 col-6">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="sexe"
-                  placeholder="sexe"
-                  v-model="this.sexe"
-                />
-                <label for="sexe">Sexe</label>
+                <select class="form-select" aria-label="sexe" v-model="sexe">
+                  <option value="homme" selected>Homme</option>
+                  <option value="femme">Femme</option>
+                </select>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
