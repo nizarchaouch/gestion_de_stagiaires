@@ -67,7 +67,8 @@ export default {
 </template>
 <style>
 img {
-  height: 30px;
+  height: 50px;
+  width: 50px;
   border-radius: 50em;
 }
 .profil {

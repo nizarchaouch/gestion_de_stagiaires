@@ -1,20 +1,16 @@
 <script>
 import axios from "axios";
 export default {
-  data() {
-    return { offers: [] };
-  },
   props: {
     titre: String,
     description: String,
+    id: Object,
   },
   methods: {
-    async fetchOffer() {
+    async deleteOffer(IdOffer) {
       try {
-        const response = await axios.get(
-          "http://localhost:8081/offer/showOffer"
-        );
-        this.offers = response.data;
+        await axios.delete(`http://localhost:8081/offer/delOffer/${IdOffer}`);
+        window.location.reload();
       } catch (error) {
         console.error("Internal Server Error:", error);
       }
@@ -29,7 +25,11 @@ export default {
     <div class="card-body">
       <h5 class="card-title">{{ titre }}</h5>
       <p class="card-text">{{ description }}</p>
-      <button type="button" class="btn btn-outline-danger me-2">
+      <button
+        type="button"
+        class="btn btn-outline-danger me-2"
+        @click="deleteOffer(id)"
+      >
         Supprime
       </button>
       <button type="button" class="btn btn-outline-secondary">Modifier</button>
@@ -39,7 +39,6 @@ export default {
 <style scoped>
 .card {
   margin: 40px;
-  position: relative;
   float: left;
 }
 </style>

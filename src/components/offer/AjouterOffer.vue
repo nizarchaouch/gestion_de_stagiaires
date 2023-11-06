@@ -9,9 +9,13 @@ export default {
         color: "",
         visible: false,
       },
+      offers: [],
       titre: "",
       description: "",
     };
+  },
+  mounted() {
+    this.fetchOffer();
   },
   components: { CardOffer },
   methods: {
@@ -43,6 +47,18 @@ export default {
         this.showAlert("Erreur lors de l'ajout Offer :");
         this.alert.color = "danger";
       }
+    },
+
+    async fetchOffer() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/offer/showOffer"
+        );
+        this.offers = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+      console.log("test:" + this.offers);
     },
   },
 };
@@ -77,13 +93,15 @@ export default {
     </div>
   </div>
   <hr style="border: solid 2px" />
-  <div class="conatainer">
+  <div>
     <h5 class="ms-3 title position-absolute">Liste d'offer</h5>
   </div>
-  <div class="container" v-for="offer in offers" :key="offer._id">
-    <CardOffer :titre="offer.titre" :description="offer.description" />
-    <CardOffer />
-    <CardOffer />
+  <div class="container-fluid" v-for="offer in offers" :key="offer._id">
+    <CardOffer
+      :titre="offer.titre"
+      :description="offer.description"
+      :id="offer._id"
+    />
   </div>
 </template>
 <style lang="scss" scoped>
