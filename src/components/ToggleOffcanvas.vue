@@ -5,6 +5,52 @@ export default {
     obj: String,
   },
   components: { MM },
+  methods: {
+    printPage() {
+      let today = new Date();
+      let date = `${today.getDate()}/${
+        today.getMonth() + 1
+      }/${today.getFullYear()}`;
+
+      let content = `<div style="font-weight: bold; font-size: 20px; padding-left: 6%; text-align: center">
+    <h1 style="text-decoration: underline; color: darkblue">
+      ATTESTATION DE STAGE
+    </h1>
+    <br />
+    <p>
+      Je soussigné Seifeddine BEN AICHA Gérant de la
+    </p>
+    <p>sociéte SWConsulting,atteste par la présent</p>
+    <p>que</p>
+    <br />
+    <h3 style="text-decoration: underline; color: darkblue">${this.obj.nom}</h3>
+    <br />
+    <p>A effectué un stage Développeur au sein de </p>
+    <p>notre entreprise du</p>
+    <br />
+    <h3 style="text-decoration: underline; color: darkblue">
+      ${this.obj.dated} au ${this.obj.datef}
+    </h3>
+    <br />
+    <p>
+      Cette attestation est délivrée a l'intéressé(e) pour
+    </p>
+    <p>servir et valoir ce que de droit.</P>
+    <p>Fait a Monastir, Bouhjar le ${date}</p>
+    <br />
+    <p style="text-decoration: underline; color: darkblue; text-align: left">
+      BEN AICHA Seifeddine
+    </p>
+  </div>`;
+
+      const printWindow = window.open("", "_blank");
+      printWindow.document.open();
+      printWindow.document.write(content);
+      printWindow.document.close();
+
+      printWindow.print();
+    },
+  },
 };
 </script>
 <template>
@@ -26,7 +72,7 @@ export default {
     <div class="offcanvas-body">
       <div class="row">
         <div class="col-lg-4">
-          <img src="https://l8.nu/sk0V" alt="image" />
+          <img src="https://shorter.me/pW1kn" alt="image" />
         </div>
         <div class="col-lg-6 m-4">
           <p>{{ obj.nom }}</p>
@@ -43,6 +89,9 @@ export default {
         <MM :h="'Type de stage : ' + obj.typestage" />
         <MM :h="'Encadreur : ' + obj.encadrant" />
       </div>
+      <button class="btn btn-outline-success" @click="printPage()">
+        Générer Attestation
+      </button>
     </div>
   </div>
 </template>
