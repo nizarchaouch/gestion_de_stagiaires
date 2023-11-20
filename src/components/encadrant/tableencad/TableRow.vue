@@ -54,7 +54,7 @@ export default {
 <template>
   <tr v-for="encadruer in encadruers" :key="encadruer._id">
     <td>
-      <img :src="encadruer.img" alt="image" />
+      <img src="https://shorter.me/pW1kn" alt="image" />
     </td>
     <td>{{ encadruer.nom }}</td>
     <td>{{ encadruer.prenom }}</td>

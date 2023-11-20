@@ -6,7 +6,7 @@ export default {
   },
   data() {
     return {
-      imageUrl: "https://2cm.es/tLVi",
+      imageUrl: "https://shorter.me/pW1kn",
     };
   },
   methods: {
