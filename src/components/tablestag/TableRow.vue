@@ -7,12 +7,14 @@ export default {
     return {
       selectedOBJ: "null",
       stagiaires: [],
+      encadruer: this.fetchEncadreurs(),
       // hommes: 0,
       // femmes: 0,
     };
   },
   mounted() {
     this.fetchStagiaires();
+    this.fetchEncadreurs();
   },
   methods: {
     setSelectedOBJ(obj) {
@@ -49,6 +51,17 @@ export default {
         await axios.put(
           `http://localhost:8081/stagiaire/statut/${stagiaireId}`
         );
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
+
+    async fetchEncadreurs() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/encadreur/showEncad"
+        );
+        this.encadruers = response.data;
       } catch (error) {
         console.error("Internal Server Error:", error);
       }
@@ -103,14 +116,29 @@ export default {
     >
       {{ stagiaire.dureestage }}
     </td>
-    <td
-      @click="setSelectedOBJ(stagiaire)"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasRight"
-      aria-controls="offcanvasRight"
-      :id="stagiaire._id"
-    >
-      {{ stagiaire.encadrant }}
+    <td>
+      <ul
+        class="list-group"
+        v-for="encadruer in encadruers"
+        :key="encadruer._id"
+      >
+        <li class="list-group-item">
+          <input
+            class="form-check-input me-1"
+            type="checkbox"
+            value=""
+            aria-label="...:"
+            :id="encadruer._id"
+          />
+          {{
+            encadruer.nom +
+            " " +
+            encadruer.prenom +
+            " / " +
+            encadruer.specialite
+          }}
+        </li>
+      </ul>
     </td>
     <td :id="'ActiveDesactive-' + stagiaire._id">
       <div class="form-check form-switch" style="margin-left: 35%">

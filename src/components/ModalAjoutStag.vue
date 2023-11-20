@@ -82,6 +82,17 @@ export default {
         this.alert.color = "danger";
       }
     },
+
+    async fetchEncadreurs() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/encadreur/showEncad"
+        );
+        this.encadruers = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
@@ -191,7 +202,11 @@ export default {
             </div>
             <div class="row">
               <div class="form-floating col-md-6 col-6">
-                <select class="form-select" aria-label="sexe" v-model="sexe">
+                <select
+                  class="form-select"
+                  aria-label="sexe"
+                  v-model="this.sexe"
+                >
                   <option value="homme" selected>Homme</option>
                   <option value="femme">Femme</option>
                 </select>
@@ -202,7 +217,6 @@ export default {
                   class="form-control"
                   id="tel"
                   placeholder="telephone"
-                  pattern="[0-9]{2}[0-9]{3}[0-9]{3}"
                   v-model="this.tel"
                 />
                 <label for="tel">Telephone</label>

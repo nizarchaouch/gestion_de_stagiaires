@@ -8,7 +8,7 @@ export default {
 </script>
 <template>
   <div class="pos col-4 col-lg-1 col-md-2">
-    <div class="dropdown dropstart profil">
+    <!-- <div class="dropdown dropstart profil">
       <button
         class="position-relative"
         type="button"
@@ -42,7 +42,7 @@ export default {
         <li><hr class="dropdown-divider" /></li>
         <li><a class="dropdown-item" href="#">Notification</a></li>
       </ul>
-    </div>
+    </div> -->
     <div class="dropdown dropstart profil">
       <button
         class="btn dropdown-toggle"
