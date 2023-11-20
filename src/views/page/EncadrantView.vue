@@ -1,6 +1,7 @@
 <template>
   <div class="float-start ms-5"><h4>Liste Encadreur</h4></div>
   <div class="float-end me-5"><ModalA /></div>
+  <div class="float-end me-5"><ModalA /></div>
   <TableE />
 </template>
 

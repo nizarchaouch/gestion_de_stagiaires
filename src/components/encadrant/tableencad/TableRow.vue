@@ -50,7 +50,6 @@ export default {
   },
 };
 </script>
-<!-- "../../assets/logo.png" -->
 <template>
   <tr v-for="encadruer in encadruers" :key="encadruer._id">
     <td>
