@@ -1,5 +1,5 @@
 <template>
-  <div
+  <!-- <div
     class="btn-group"
     role="group"
     aria-label="Basic radio toggle button group"
@@ -29,7 +29,7 @@
     <label class="btn btn-outline-primary" for="btnradio2"
       >Formulaire de stage
     </label>
-  </div>
+  </div> -->
   <FormDemande v-if="selectedRadio === 'radio1'" />
   <FormStage v-if="selectedRadio === 'radio2'" />
 </template>

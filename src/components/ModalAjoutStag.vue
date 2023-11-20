@@ -9,7 +9,7 @@ export default {
         visible: false,
       },
 
-      imageUrl: "https://2cm.es/tLVi",
+      imageUrl: "https://shorter.me/pW1kn",
       nom: "",
       prenom: "",
       mail: "",

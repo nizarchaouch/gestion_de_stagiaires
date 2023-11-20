@@ -5,7 +5,7 @@ export default {
   },
   data() {
     return {
-      imageUrl: "https://2cm.es/stay",
+      imageUrl: "https://short-link.me/vriC",
     };
   },
   methods: {

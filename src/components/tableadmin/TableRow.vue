@@ -45,7 +45,6 @@ img {
   width: 60px;
   height: 60px;
   border-radius: 60px;
-  background-color: black;
 }
 a {
   margin-right: 15px;

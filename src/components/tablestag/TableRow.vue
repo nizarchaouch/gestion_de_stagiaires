@@ -79,7 +79,7 @@ export default {
       aria-controls="offcanvasRight"
       :id="stagiaires._id"
     >
-      <img :src="stagiaire.img" alt="image" />
+      <img src="https://shorter.me/pW1kn" alt="image" />
     </th>
     <!-- <td v-if="stagiaire.sexe === 'homme'" style="display: none">
       {{ (hommes = (hommes + 1) % 100) }}
@@ -177,8 +177,8 @@ export default {
 </template>
 <style scoped>
 img {
-  width: 37.6px;
-  height: 37.6px;
+  width: 60px;
+  height: 60px;
   border-radius: 60px;
 }
 a {
