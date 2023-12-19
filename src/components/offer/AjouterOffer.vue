@@ -96,15 +96,22 @@ export default {
   <div>
     <h5 class="ms-3 title position-absolute">Liste d'offer</h5>
   </div>
-  <div class="container-fluid" v-for="offer in offers" :key="offer._id">
-    <CardOffer
-      :titre="offer.titre"
-      :description="offer.description"
-      :id="offer._id"
-    />
+  <div class="con">
+    <div class="container-fluid" v-for="offer in offers" :key="offer._id">
+      <CardOffer
+        :titre="offer.titre"
+        :description="offer.description"
+        :id="offer._id"
+      />
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
+.con {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+}
 .titre {
   height: auto;
   width: 800px;
@@ -132,5 +139,17 @@ export default {
   position: absolute;
   left: -8px;
   border-radius: 15px;
+}
+@media screen and (max-width: 1200px) {
+  .con {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+  .titre {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 </style>

@@ -38,7 +38,7 @@ export default {
 </template>
 <style scoped>
 .card {
+  width: 80%;
   margin: 40px;
-  float: left;
 }
 </style>

@@ -45,7 +45,7 @@ export default {
       data-bs-toggle="modal"
       data-bs-target="#modaldemande"
     >
-      <img class="card-title" :src="demande.img" alt="image" />
+      <img class="card-title" src="https://shorter.me/pW1kn" alt="image" />
       <h6 class="card-text">{{ demande.nom }}</h6>
       <h6 class="card-subtitle m-2 text-muted">{{ demande.ecole }}</h6>
       <hr />

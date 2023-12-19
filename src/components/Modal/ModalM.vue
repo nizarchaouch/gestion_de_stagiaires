@@ -56,7 +56,7 @@ export default {
           <div class="modal-body">
             <div class="row">
               <div class="col-md-2">
-                <img src="https://l8.nu/sk0V" alt="image" />
+                <img src="https://shorter.me/pW1kn" alt="image" />
               </div>
               <div class="col-md-2">
                 <p class="profil">Profil</p>

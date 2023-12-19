@@ -60,7 +60,7 @@ export default {
           <div class="container-fluid">
             <div class="row">
               <label for="file">
-                <img :src="imageUrl" alt="Image" />
+                <img src="https://shorter.me/pW1kn" alt="Image" />
               </label>
               <input
                 type="file"
