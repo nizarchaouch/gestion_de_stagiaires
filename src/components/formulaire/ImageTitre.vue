@@ -1,11 +1,12 @@
 <script>
+import img from "@/assets/informatique.jpg";
 export default {
   props: {
     TitreForm: String,
   },
   data() {
     return {
-      imageUrl: "https://short-link.me/vriC",
+      imageUrl: img,
     };
   },
   methods: {

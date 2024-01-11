@@ -51,12 +51,13 @@ export default {
   padding: 0.2em;
   border-radius: 0.25em;
   height: 2em;
+  margin-top: 30px;
 
   color: white;
   text-decoration: none;
 
   width: 97%;
-  height: 50px;
+  height: 60px;
   flex-shrink: 0;
 }
 .link:hover {
@@ -65,7 +66,7 @@ export default {
   font-family: Nunito;
   font-size: 16px;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 600;
   line-height: normal;
   border-radius: 10px;
 }
