@@ -5,12 +5,12 @@ export default {
   },
   data() {
     return {
-      choixMultiples: [{ inputText: "" }],
+      choixMultiples: [{ selectedValue: "reponse", inputChoix: "" }],
     };
   },
   methods: {
     addChoixMultiple() {
-      this.choixMultiples.push({ inputText: "" });
+      this.choixMultiples.push({ inputChoix: "" });
       console.log(this.choixMultiples);
     },
     handelSelectDelete(index) {
