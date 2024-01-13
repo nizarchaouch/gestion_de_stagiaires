@@ -16,6 +16,7 @@ export default {
     this.fetchStagiaires();
     this.fetchEncadreurs();
   },
+
   methods: {
     setSelectedOBJ(obj) {
       console.log(this.selectedOBJ);
@@ -71,6 +72,7 @@ export default {
 </script>
 <template>
   <ToggleOffcanvas :obj="selectedOBJ" />
+
   <tr v-for="stagiaire in stagiaires" :key="stagiaire._id">
     <th
       @click="setSelectedOBJ(stagiaire)"
@@ -117,19 +119,13 @@ export default {
       {{ stagiaire.dureestage }}
     </td>
     <td>
-      <ul
-        class="list-group"
-        v-for="encadruer in encadruers"
-        :key="encadruer._id"
+      <select
+        class="form-select"
+        id="multiple-select-field"
+        data-placeholder="Choose anything"
+        multiple
       >
-        <li class="list-group-item">
-          <input
-            class="form-check-input me-1"
-            type="checkbox"
-            value=""
-            aria-label="...:"
-            :id="encadruer._id"
-          />
+        <option v-for="encadruer in encadruers" :key="encadruer._id">
           {{
             encadruer.nom +
             " " +
@@ -137,8 +133,8 @@ export default {
             " / " +
             encadruer.specialite
           }}
-        </li>
-      </ul>
+        </option>
+      </select>
     </td>
     <td :id="'ActiveDesactive-' + stagiaire._id">
       <div class="form-check form-switch" style="margin-left: 35%">
