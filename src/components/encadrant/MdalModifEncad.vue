@@ -35,9 +35,7 @@ export default {
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
     data-bs-whatever="@getbootstrap"
-  >
-    <i class="fa-solid fa-sliders fa-lg"></i>
-  </button>
+  ></button>
 
   <div
     class="modal fade"
@@ -139,16 +137,33 @@ export default {
       </div>
     </div>
   </div>
-  <a
-    class="dropdown-item d-inline p-1 m-4"
-    @click="delEncadreurs(encadruer._id)"
-    ><i class="fa-solid fa-trash fa-lg" style="color: #de1b1b"></i>
-  </a>
 </template>
 <style scoped>
 .but {
   border: none;
   background-color: transparent;
+}
+.btn {
+  color: aliceblue;
+  display: inline-flex;
+  padding: 7px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: #233eae;
+  width: 134px;
+  height: 36px;
+  float: left;
+  margin-left: 30px;
+
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
 }
 .title::before {
   content: " ";
