@@ -100,6 +100,7 @@ export default {
     >
       {{ stagiaire.nom }} {{ stagiaire.prenom }}
     </td>
+
     <td
       @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
