@@ -1,6 +1,8 @@
 <script>
 import axios from "axios";
+import MM from "../MdalModifEncad.vue";
 export default {
+  components: { MM },
   data() {
     return {
       selectedOBJ: "null",
@@ -51,6 +53,7 @@ export default {
 };
 </script>
 <template>
+  <MM :obj="selectedOBJ" />
   <tr v-for="encadruer in encadruers" :key="encadruer._id">
     <td>
       <img src="https://shorter.me/pW1kn" alt="image" />
@@ -85,16 +88,15 @@ export default {
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <button
-            type="button"
-            class="but ms-4"
+            @click="setSelectedOBJ(encadruer)"
+            class="ms-4"
             data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            data-bs-target="#modifierModal"
             data-bs-whatever="@getbootstrap"
             id="btnset"
           >
             <i class="fa-solid fa-sliders fa-lg"></i>
           </button>
-
           <a
             class="dropdown-item d-inline p-1 m-4"
             @click="delEncadreur(encadruer._id)"

@@ -3,48 +3,84 @@ import axios from "axios";
 export default {
   data() {
     return {
+      localObj: this.obj,
+      alert: {
+        message: "",
+        color: "",
+        visible: false,
+      },
       imageUrl: "https://2cm.es/tLVi",
     };
+  },
+  watch: {
+    obj(newVal) {
+      this.localObj = newVal; // Mettre à jour la donnée locale lorsque la prop change
+    },
   },
   props: {
     obj: String,
   },
   methods: {
+    showAlert(message) {
+      this.alert.message = message;
+      this.alert.visible = true;
+
+      setTimeout(() => {
+        this.hideAlert();
+      }, 1500);
+    },
+    hideAlert() {
+      this.alert.visible = false;
+    },
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
       this.imageUrl = URL.createObjectURL(selectedFile);
     },
-    async delEncadreurs(encadreurId) {
+    handleInputChange() {
+      this.$emit("update:obj", this.localObj); // Émettre un événement lorsque la donnée locale change
+    },
+    async updatedEncadreurs(encadreurId) {
+      const dataEncad = {
+        nom: this.obj.nom,
+        prenom: this.obj.prenom,
+        mail: this.obj.mail,
+        tel: this.obj.tel,
+        specialite: this.obj.specialite,
+        stagiaire: this.obj.stagiaire,
+      };
+
       try {
-        await axios.delete(
-          `http://localhost:8081/stagiaire/delStagi/${encadreurId}`
+        const response = await axios.put(
+          `http://localhost:8081/encadreur/updateEncad/${encadreurId}`,
+          dataEncad
         );
-        this.fetchEncadreurs();
+        console.log("Encadreur modifier avec succès !", response.data);
+        this.showAlert("Encadreur modifier avec succès !");
+        this.alert.color = "success";
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
       } catch (error) {
-        console.error("Internal Server Error:", error);
-        console.log(this.encadreur._id);
+        console.error("Erreur lors de modifier de l'encadreur :", error);
+        this.showAlert("Erreur lors de modifier de l'encadreur :");
+        this.alert.color = "danger";
       }
     },
   },
 };
 </script>
 <template>
-  <button
-    type="button"
-    class="but ms-4"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-    data-bs-whatever="@getbootstrap"
-  ></button>
-
   <div
     class="modal fade"
-    id="exampleModal"
+    id="modifierModal"
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
+    aria-labelledby="modifierModalLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
+      <div v-if="alert.visible" :class="'alert alert-' + alert.color">
+        {{ alert.message }}
+      </div>
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title title">Modifier Encadreur</h5>
@@ -73,9 +109,10 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="nom"
+                  :id="'nom_' + obj._id"
                   placeholder="Nom"
-                  value="obj"
+                  v-model="localObj.nom"
+                  @input="handleInputChange"
                 />
                 <label for="nom">Nom</label>
               </div>
@@ -83,8 +120,10 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="prenom"
+                  :id="'prenom_' + obj._id"
                   placeholder="Prenom"
+                  v-model="localObj.prenom"
+                  @input="handleInputChange"
                 />
                 <label for="prenom">Prenom</label>
               </div>
@@ -94,8 +133,10 @@ export default {
                 <input
                   type="mail"
                   class="form-control"
-                  id="mail"
+                  :id="'mail_' + obj._id"
                   placeholder="E-mail"
+                  v-model="localObj.mail"
+                  @input="handleInputChange"
                 />
                 <label for="mail">E-mail</label>
               </div>
@@ -103,8 +144,10 @@ export default {
                 <input
                   type="number"
                   class="form-control"
-                  id="tel"
+                  :id="'tel_' + obj._id"
                   placeholder="Telephone"
+                  v-model="localObj.tel"
+                  @input="handleInputChange"
                 />
                 <label for="tel">Telephone</label>
               </div>
@@ -114,8 +157,10 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="specialite"
+                  :id="'specialite_' + obj._id"
                   placeholder="spécialité"
+                  v-model="localObj.specialite"
+                  @input="handleInputChange"
                 />
                 <label for="specialite">Spécialité</label>
               </div>
@@ -123,8 +168,10 @@ export default {
                 <input
                   type="text"
                   class="form-control"
-                  id="stagiaire"
-                  placeholder="Telephone"
+                  :id="'stagiaire_' + obj._id"
+                  placeholder="Stagiaire"
+                  v-model="localObj.stagiaire"
+                  @input="handleInputChange"
                 />
                 <label for="stagiaire">Stagiaire</label>
               </div>
@@ -132,17 +179,19 @@ export default {
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Modifier</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="updatedEncadreurs(obj._id)"
+          >
+            Modifier
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <style scoped>
-.but {
-  border: none;
-  background-color: transparent;
-}
 .btn {
   color: aliceblue;
   display: inline-flex;
