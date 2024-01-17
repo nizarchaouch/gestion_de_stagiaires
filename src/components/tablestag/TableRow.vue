@@ -8,8 +8,6 @@ export default {
       selectedOBJ: "null",
       stagiaires: [],
       encadruer: this.fetchEncadreurs(),
-      // hommes: 0,
-      // femmes: 0,
     };
   },
   mounted() {
@@ -83,14 +81,6 @@ export default {
     >
       <img src="https://shorter.me/pW1kn" alt="image" />
     </th>
-    <!-- <td v-if="stagiaire.sexe === 'homme'" style="display: none">
-      {{ (hommes = (hommes + 1) % 100) }}
-      {{ console.log(hommes) }}
-    </td>
-    <td v-if="stagiaire.sexe === 'femme'" style="display: none">
-      {{ (femmes = (femmes + 1) % 100) }}
-      {{ console.log(femmes) }}
-    </td> -->
     <td
       @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
