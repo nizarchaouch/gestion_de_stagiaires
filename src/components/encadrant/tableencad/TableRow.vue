@@ -63,7 +63,24 @@ export default {
     <td>{{ encadruer.mail }}</td>
     <td>{{ encadruer.tel }}</td>
     <td>{{ encadruer.specialite }}</td>
-    <td>{{ encadruer.stagiaire }}</td>
+    <td>
+      <select
+        class="form-select"
+        id="multiple-select-field"
+        data-placeholder="Choose anything"
+        multiple
+      >
+        <option v-for="encadruer in encadruers" :key="encadruer._id">
+          {{
+            encadruer.nom +
+            " " +
+            encadruer.prenom +
+            " // " +
+            encadruer.specialite
+          }}
+        </option>
+      </select>
+    </td>
     <td>
       <div class="form-check form-switch" style="margin-left: 35%">
         <input
