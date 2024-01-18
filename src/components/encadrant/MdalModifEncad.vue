@@ -114,7 +114,7 @@ export default {
                   v-model="localObj.nom"
                   @input="handleInputChange"
                 />
-                <label for="nom">Nom</label>
+                <label :for="'nom_' + obj._id">Nom</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
@@ -125,7 +125,7 @@ export default {
                   v-model="localObj.prenom"
                   @input="handleInputChange"
                 />
-                <label for="prenom">Prenom</label>
+                <label :for="'prenom_' + obj._id">Prenom</label>
               </div>
             </div>
             <div class="row">
@@ -138,7 +138,7 @@ export default {
                   v-model="localObj.mail"
                   @input="handleInputChange"
                 />
-                <label for="mail">E-mail</label>
+                <label :for="'mail_' + obj._id">E-mail</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
@@ -149,7 +149,7 @@ export default {
                   v-model="localObj.tel"
                   @input="handleInputChange"
                 />
-                <label for="tel">Telephone</label>
+                <label :for="'tel_' + obj._id">Telephone</label>
               </div>
             </div>
             <div class="row">
@@ -162,7 +162,7 @@ export default {
                   v-model="localObj.specialite"
                   @input="handleInputChange"
                 />
-                <label for="specialite">Spécialité</label>
+                <label :for="'specialite_' + obj._id">Spécialité</label>
               </div>
               <div class="form-floating col-md-6 col-6">
                 <input
@@ -173,7 +173,7 @@ export default {
                   v-model="localObj.stagiaire"
                   @input="handleInputChange"
                 />
-                <label for="stagiaire">Stagiaire</label>
+                <label :for="'stagiaire_' + obj._id">Stagiaire</label>
               </div>
             </div>
           </div>

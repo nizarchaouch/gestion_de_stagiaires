@@ -1,8 +1,9 @@
 <script>
 import axios from "axios";
 import ToggleOffcanvas from "../ToggleOffcanvas.vue";
+import MM from "./ModalModifStag.vue";
 export default {
-  components: { ToggleOffcanvas },
+  components: { ToggleOffcanvas, MM },
   data() {
     return {
       selectedOBJ: "null",
@@ -70,6 +71,7 @@ export default {
 </script>
 <template>
   <ToggleOffcanvas :obj="selectedOBJ" />
+  <MM :obj="selectedOBJ" />
 
   <tr v-for="stagiaire in stagiaires" :key="stagiaire._id">
     <th
@@ -148,9 +150,16 @@ export default {
           <i class="fa-solid fa-ellipsis"></i>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <a class="dropdown-item d-inline p-1 m-4"
-            ><i class="fa-solid fa-sliders fa-lg"></i
-          ></a>
+          <button
+            @click="setSelectedOBJ(stagiaire)"
+            class="ms-4"
+            data-bs-toggle="modal"
+            data-bs-target="#modifierModalStag"
+            data-bs-whatever="@getbootstrap"
+            id="btnset"
+          >
+            <i class="fa-solid fa-sliders fa-lg"></i>
+          </button>
 
           <a
             class="dropdown-item d-inline p-1 m-4"
@@ -163,6 +172,10 @@ export default {
   </tr>
 </template>
 <style scoped>
+#btnset {
+  background-color: transparent;
+  border: none;
+}
 img {
   width: 60px;
   height: 60px;
