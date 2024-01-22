@@ -75,19 +75,20 @@ export default {
           <img src="https://shorter.me/pW1kn" alt="image" />
         </div>
         <div class="col-lg-6 m-4">
-          <p>{{ obj.nom }}</p>
+          <p>{{ obj.prenom }} {{ obj.nom }}</p>
         </div>
       </div>
       <div class="row">
         <MM :h="'E-mail : ' + obj.mail" />
+        <MM :h="'Date de naissance : ' + obj.datenaissance" />
         <MM :h="'Téléphone : ' + obj.tel" />
         <MM :h="'Ecolé : ' + obj.ecole" />
         <MM :h="'Niveau : ' + obj.niveau" />
-        <MM :h="'Duree de stage : ' + obj.dureestage" />
+        <!-- <MM :h="'Duree de stage : ' + obj.dureestage" /> -->
         <MM :h="'Date de debuit : ' + obj.dated" />
         <MM :h="'Date de Fin : ' + obj.datef" />
         <MM :h="'Type de stage : ' + obj.typestage" />
-        <MM :h="'Encadreur : ' + obj.encadrant" />
+        <!-- <MM :h="'Encadreur : ' + obj.encadrant" /> -->
       </div>
       <button class="btn btn-outline-success" @click="printPage()">
         Générer Attestation

@@ -13,7 +13,8 @@ export default {
     <thead>
       <tr>
         <th>Image</th>
-        <th>Nom et Prenom</th>
+        <th>Nom</th>
+        <th>Prenom</th>
         <th>Projet</th>
         <th>Durée du stage</th>
         <th>Encadreur</th>

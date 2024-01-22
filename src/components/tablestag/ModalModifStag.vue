@@ -39,29 +39,30 @@ export default {
     handleInputChange() {
       this.$emit("update:obj", this.localObj); // Émettre un événement lorsque la donnée locale change
     },
-    async updatedstagiaires(stagiaireId) {
-      const dataStag = {
-        nom: this.nom,
-        prenom: this.prenom,
-        mail: this.mail,
-        tel: this.tel,
-        datenaissance: this.datenaissance,
-        adrress: this.adrress,
-        sexe: this.sexe,
-        projet: this.projet,
-        ecole: this.ecole,
-        specialite: this.specialite,
-        niveau: this.niveau,
-        dureestage: this.dureestage,
-        dated: this.dated,
-        datef: this.datef,
-        typestage: this.typestage,
+    async updatedStagi(stagiId) {
+      const stagiaireData = {
+        nom: this.obj.nom,
+        prenom: this.obj.prenom,
+        mail: this.obj.mail,
+        tel: this.obj.tel,
+        datenaissance: this.obj.datenaissance,
+        adrress: this.obj.adrress,
+        sexe: this.obj.sexe,
+        projet: this.obj.projet,
+        ecole: this.obj.ecole,
+        specialite: this.obj.specialite,
+        niveau: this.obj.niveau,
+        dureestage: this.obj.dureestage,
+        dated: this.obj.dated,
+        datef: this.obj.datef,
+        typestage: this.obj.typestage,
+        encadrant: this.obj.encadrant,
       };
 
       try {
         const response = await axios.put(
-          `http://localhost:8081/stagiaire/updateStagi/${stagiaireId}`,
-          dataStag
+          `http://localhost:8081/stagiaire/updateStagi/${stagiId}`,
+          stagiaireData
         );
         console.log("Stagiaire modifier avec succès !", response.data);
         this.showAlert("Stagiaire modifier avec succès !");
@@ -70,8 +71,8 @@ export default {
           window.location.reload();
         }, 700);
       } catch (error) {
-        console.error("Erreur lors de la modification du stagiaire :", error);
-        this.showAlert("Erreur lors de la modification du stagiaire");
+        console.error("Erreur lors de modifier stagiaire :", error);
+        this.showAlert("Erreur lors de modifier stagiaire :");
         this.alert.color = "danger";
       }
     },
@@ -108,13 +109,13 @@ export default {
               </label>
               <input
                 type="file"
-                :id="file_ + obj._id"
-                @change="handleFileChange()"
+                id="file"
+                @change="handleFileChange"
                 style="display: none"
               />
             </div>
             <div class="row">
-              <div class="form-floating col-md-12 col-12">
+              <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
@@ -123,19 +124,19 @@ export default {
                   v-model="localObj.nom"
                   @input="handleInputChange"
                 />
-                <label :for="'nom_' + obj._id">Nom et Prenom</label>
+                <label :for="'nom_' + obj._id">Nom</label>
               </div>
-              <!-- <div class="form-floating col-md-6 col-6">
+              <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
                   :id="'prenom_' + obj._id"
-                  placeholder="Prenom"
+                  placeholder="prenom"
                   v-model="localObj.prenom"
                   @input="handleInputChange"
                 />
                 <label :for="'prenom_' + obj._id">Prenom</label>
-              </div> -->
+              </div>
             </div>
             <div class="row">
               <div class="form-floating col-md-6 col-6">
@@ -169,7 +170,7 @@ export default {
                   v-model="localObj.sexe"
                   @input="handleInputChange"
                 >
-                  <option value="homme">Homme</option>
+                  <option value="homme" selected>Homme</option>
                   <option value="femme">Femme</option>
                 </select>
               </div>
@@ -284,16 +285,17 @@ export default {
               </div>
             </div>
             <div class="row">
-              <!-- <div class="form-floating col-md-6 col-6" >
+              <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
-                  id="encadrant"
+                  :id="'encadrant_' + obj._id"
                   placeholder="encadrant"
-                  v-model="this.encadrant"
+                  v-model="localObj.encadrant"
+                  @input="handleInputChange"
                 />
-                <label for="encadrant">Encadrant</label>
-              </div> -->
+                <label :for="'encadrant_' + obj._id">Encadrant</label>
+              </div>
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
@@ -312,7 +314,7 @@ export default {
           <button
             type="button"
             class="btn btn-primary"
-            @click="updatedstagiaires(obj._id)"
+            @click="updatedStagi(obj._id)"
           >
             Modifier
           </button>

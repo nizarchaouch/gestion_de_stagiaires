@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import modalA from "@/components/ModalAjoutStag.vue";
+import modalA from "@/components/tablestag/ModalAjoutStag.vue";
 import tableS from "@/components/tablestag/TableStag.vue";
 // import pagination from "@/components/pagination/PaginationD.vue";
 export default {

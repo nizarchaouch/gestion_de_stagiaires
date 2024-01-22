@@ -18,9 +18,9 @@ export default {
 
   methods: {
     setSelectedOBJ(obj) {
-      console.log(this.selectedOBJ);
+      //console.log(this.selectedOBJ);
       this.selectedOBJ = obj;
-      console.log("new", this.selectedOBJ);
+      //console.log("new", this.selectedOBJ);
     },
 
     async fetchStagiaires() {
@@ -90,7 +90,16 @@ export default {
       aria-controls="offcanvasRight"
       :id="stagiaires._id"
     >
-      {{ stagiaire.nom }} {{ stagiaire.prenom }}
+      {{ stagiaire.nom }}
+    </td>
+    <td
+      @click="setSelectedOBJ(stagiaire)"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight"
+      :id="stagiaires._id"
+    >
+      {{ stagiaire.prenom }}
     </td>
 
     <td
