@@ -1,4 +1,5 @@
 <script>
+/* eslint-disable */
 import axios from "axios";
 export default {
   data() {
@@ -10,11 +11,16 @@ export default {
       },
       encadruers: [],
       stagiaires: [],
+      selectedStagiaire: null,
+      selectedEncadreurs: null,
     };
   },
   mounted() {
     this.fetchEncadreurs();
     this.fetchStagiaires();
+  },
+  props: {
+    obj: String,
   },
   methods: {
     showAlert(message) {
@@ -54,40 +60,21 @@ export default {
         console.error("Internal Server Error:", error);
       }
     },
+
+    async submitForm() {
+      console.log("Stagiaire ID:", this.selectedStagiaire);
+      console.log("Encadreurs IDs:", this.selectedEncadreurs);
+    },
   },
 };
 </script>
 
 <template>
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#modalAss"
-    data-bs-whatever="@getbootstrap"
-  >
-    Stagiaire
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="22"
-      height="20"
-      viewBox="0 0 24 23"
-      fill="none"
-    >
-      <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        d="M19 12.3158H13V18H11V12.3158H5V10.421H11V4.73682H13V10.421H19V12.3158Z"
-        fill="white"
-      />
-    </svg>
-  </button>
-
   <div
     class="modal fade"
-    id="modalAss"
+    id="modalAssS"
     tabindex="-1"
-    aria-labelledby="modalAssLabel"
+    aria-labelledby="modalAssSLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -108,35 +95,45 @@ export default {
           <div class="modal-body">
             <div class="container-fluid">
               <div class="input-group mb-3">
-                <div class="input-group-text">Encadreurs</div>
+                <div class="input-group-text">Stagiaires</div>
                 <select
                   class="form-select"
                   id="prepend-text-single-field"
                   data-placeholder="Choose one thing"
+                  v-model="selectedStagiaire"
                 >
-                  <option v-for="encadruer in encadruers" :key="encadruer._id">
-                    {{ encadruer.nom }} {{ encadruer.prenom }}
+                  <option
+                    v-for="stagiaire in stagiaires"
+                    :key="stagiaire._id"
+                    :value="stagiaire._id"
+                  >
+                    {{ stagiaire.nom }} {{ stagiaire.prenom }}
                   </option>
                 </select>
               </div>
 
               <div class="input-group mb-3">
-                <div class="input-group-text">Stagiaires</div>
+                <div class="input-group-text">Encadreurs</div>
                 <select
                   class="form-select"
                   data-placeholder="Choose anything"
                   id="prepend-text-multiple-field"
                   multiple
+                  v-model="selectedEncadreurs"
                 >
-                  <option v-for="stagiaire in stagiaires" :key="stagiaire._id">
-                    {{ stagiaire.nom }} {{ stagiaire.prenom }}
+                  <option
+                    v-for="encadruer in encadruers"
+                    :key="encadruer._id"
+                    :value="encadruer._id"
+                  >
+                    {{ encadruer.nom }} {{ encadruer.prenom }}
                   </option>
                 </select>
               </div>
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary">Ajouter</button>
+            <button @click="submitForm" class="btn btn-primary">Ajouter</button>
           </div>
         </form>
       </div>

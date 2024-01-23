@@ -1,10 +1,12 @@
 <script>
+/* eslint-disable */
 import MM from "./Modal/MM.vue";
+import MS from "./tablestag/assigner/ModalAssig.vue";
 export default {
   props: {
     obj: String,
   },
-  components: { MM },
+  components: { MM, MS },
   methods: {
     printPage() {
       let today = new Date();
@@ -54,6 +56,7 @@ export default {
 };
 </script>
 <template>
+  <MS :obj="obj" />
   <div
     class="offcanvas offcanvas-end"
     tabindex="-1"
@@ -90,8 +93,18 @@ export default {
         <MM :h="'Type de stage : ' + obj.typestage" />
         <!-- <MM :h="'Encadreur : ' + obj.encadrant" /> -->
       </div>
-      <button class="btn btn-outline-success" @click="printPage()">
+      <button class="btn btn-outline-success me-1" @click="printPage()">
         Générer Attestation
+      </button>
+      <button
+        class="btn btn-outline-success"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#modalAssS"
+        data-bs-whatever="@getbootstrap"
+        @click=""
+      >
+        Encadrant +
       </button>
     </div>
   </div>
