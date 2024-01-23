@@ -62,8 +62,22 @@ export default {
     },
 
     async submitForm() {
+      try {
+        const response = await axios.post(
+          "http://localhost:8081/assigner/AddAssg",
+          {
+            idStag: this.selectedStagiaire,
+            idEencad: this.selectedEncadreurs[0],
+          }
+        );
+        const { message, assg } = response.data;
+        console.log(message);
+        console.log("Assignment:", assg);
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
       console.log("Stagiaire ID:", this.selectedStagiaire);
-      console.log("Encadreurs IDs:", this.selectedEncadreurs);
+      console.log("Encadreurs IDs:", this.selectedEncadreurs[0]);
     },
   },
 };

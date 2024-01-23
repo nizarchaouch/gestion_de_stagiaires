@@ -1,5 +1,4 @@
 <script>
-/* eslint-disable */
 import MM from "./Modal/MM.vue";
 import MS from "./tablestag/assigner/ModalAssig.vue";
 export default {
@@ -102,7 +101,6 @@ export default {
         data-bs-toggle="modal"
         data-bs-target="#modalAssS"
         data-bs-whatever="@getbootstrap"
-        @click=""
       >
         Encadrant +
       </button>
