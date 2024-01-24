@@ -1,4 +1,5 @@
 <script>
+/* eslint-disable */
 import axios from "axios";
 export default {
   data() {
@@ -10,11 +11,16 @@ export default {
       },
       encadruers: [],
       stagiaires: [],
+      selectedStagiaire: null,
+      selectedEncadreurs: null,
     };
   },
   mounted() {
     this.fetchEncadreurs();
     this.fetchStagiaires();
+  },
+  props: {
+    obj: String,
   },
   methods: {
     showAlert(message) {
@@ -52,6 +58,29 @@ export default {
         this.stagiaires = response.data;
       } catch (error) {
         console.error("Internal Server Error:", error);
+      }
+    },
+
+    async assignment() {
+      try {
+        const response = await axios.post(
+          "http://localhost:8081/assigner/AddAssg",
+          {
+            idStag: this.selectedStagiaire[0],
+            idEencad: this.selectedEncadreurs,
+          }
+        );
+        const { message, assg } = response.data;
+        console.log(message);
+        this.showAlert("Assignment ajouté avec succès !");
+        this.alert.color = "success";
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+        this.showAlert("Erreur lors de l'ajout assignment :");
+        this.alert.color = "danger";
       }
     },
   },
@@ -111,10 +140,15 @@ export default {
                 <div class="input-group-text">Encadreurs</div>
                 <select
                   class="form-select"
-                  id="prepend-text-single-field"
-                  data-placeholder="Choose one thing"
+                  data-placeholder="Choose anything"
+                  id="prepend-text-multiple-field"
+                  v-model="selectedEncadreurs"
                 >
-                  <option v-for="encadruer in encadruers" :key="encadruer._id">
+                  <option
+                    v-for="encadruer in encadruers"
+                    :key="encadruer._id"
+                    :value="encadruer._id"
+                  >
                     {{ encadruer.nom }} {{ encadruer.prenom }}
                   </option>
                 </select>
@@ -124,11 +158,15 @@ export default {
                 <div class="input-group-text">Stagiaires</div>
                 <select
                   class="form-select"
-                  data-placeholder="Choose anything"
-                  id="prepend-text-multiple-field"
+                  id="prepend-text-single-field"
                   multiple
+                  v-model="selectedStagiaire"
                 >
-                  <option v-for="stagiaire in stagiaires" :key="stagiaire._id">
+                  <option
+                    v-for="stagiaire in stagiaires"
+                    :key="stagiaire._id"
+                    :value="stagiaire._id"
+                  >
                     {{ stagiaire.nom }} {{ stagiaire.prenom }}
                   </option>
                 </select>
@@ -136,7 +174,9 @@ export default {
             </div>
           </div>
           <div class="modal-footer">
-            <button class="btn btn-primary">Ajouter</button>
+            <button @click="assignment()" class="btn btn-primary">
+              Ajouter
+            </button>
           </div>
         </form>
       </div>
