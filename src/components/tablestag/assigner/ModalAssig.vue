@@ -61,7 +61,7 @@ export default {
       }
     },
 
-    async submitForm() {
+    async assignment() {
       try {
         const response = await axios.post(
           "http://localhost:8081/assigner/AddAssg",
@@ -72,12 +72,16 @@ export default {
         );
         const { message, assg } = response.data;
         console.log(message);
-        console.log("Assignment:", assg);
+        this.showAlert("Assignment ajouté avec succès !");
+        this.alert.color = "success";
+        setTimeout(() => {
+          window.location.reload();
+        }, 700);
       } catch (error) {
         console.error("Internal Server Error:", error);
+        this.showAlert("Erreur lors de l'ajout assignment :");
+        this.alert.color = "danger";
       }
-      console.log("Stagiaire ID:", this.selectedStagiaire);
-      console.log("Encadreurs IDs:", this.selectedEncadreurs[0]);
     },
   },
 };
@@ -147,7 +151,7 @@ export default {
             </div>
           </div>
           <div class="modal-footer">
-            <button @click="submitForm" class="btn btn-primary">Ajouter</button>
+            <button @click="assignment()" class="btn btn-primary">Ajouter</button>
           </div>
         </form>
       </div>

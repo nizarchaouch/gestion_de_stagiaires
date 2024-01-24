@@ -1,4 +1,5 @@
 <script>
+/* eslint-disable */
 import axios from "axios";
 import ToggleOffcanvas from "../ToggleOffcanvas.vue";
 import MM from "./ModalModifStag.vue";
@@ -8,12 +9,14 @@ export default {
     return {
       selectedOBJ: "null",
       stagiaires: [],
-      encadruer: this.fetchEncadreurs(),
+      encadruer: [],
+      assg: [],
     };
   },
   mounted() {
     this.fetchStagiaires();
     this.fetchEncadreurs();
+    this.fetchAssg();
   },
 
   methods: {
@@ -66,13 +69,24 @@ export default {
         console.error("Internal Server Error:", error);
       }
     },
+
+    async fetchAssg() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/assigner/ShowAssg"
+        );
+        this.assg = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
 <template>
+  <!-- {{ console.log("assg:", assg[0]) }} -->
   <ToggleOffcanvas :obj="selectedOBJ" />
   <MM :obj="selectedOBJ" />
-
   <tr v-for="stagiaire in stagiaires" :key="stagiaire._id">
     <th
       @click="setSelectedOBJ(stagiaire)"
@@ -101,7 +115,6 @@ export default {
     >
       {{ stagiaire.prenom }}
     </td>
-
     <td
       @click="setSelectedOBJ(stagiaire)"
       data-bs-toggle="offcanvas"
@@ -121,21 +134,26 @@ export default {
       {{ stagiaire.dureestage }}
     </td>
     <td>
-      <select
-        class="form-select"
-        id="multiple-select-field"
-        data-placeholder="Choose anything"
-        multiple
-      >
-        <option v-for="encadruer in encadruers" :key="encadruer._id">
-          {{
-            encadruer.nom +
-            " " +
-            encadruer.prenom +
-            " / " +
-            encadruer.specialite
-          }}
-        </option>
+      <select class="form-select" id="multiple-select-field" multiple>
+        <template v-for="ass in assg" :key="encadruer._id">
+          <template v-for="encadruer in encadruers" :key="encadruer._id">
+            <option
+              v-if="
+                ass.idStag === stagiaire._id && ass.idEencad === encadruer._id
+              "
+              :key="ass._id"
+            >
+              {{
+                encadruer.nom +
+                " " +
+                encadruer.prenom +
+                " / " +
+                encadruer.specialite
+              }}
+            </option>
+            <p v-else></p>
+          </template>
+        </template>
       </select>
     </td>
     <td :id="'ActiveDesactive-' + stagiaire._id">
