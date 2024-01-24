@@ -80,6 +80,17 @@ export default {
         console.error("Internal Server Error:", error);
       }
     },
+
+    async delAssignment(assignmentId) {
+      try {
+        await axios.delete(
+          `http://localhost:8081/assigner/DelAssg/${assignmentId}`
+        );
+        this.fetchAssg();
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
@@ -135,9 +146,10 @@ export default {
     </td>
     <td>
       <select class="form-select" id="multiple-select-field" multiple>
-        <template v-for="ass in assg" :key="encadruer._id">
+        <template v-for="ass in assg" :key="assg._id">
           <template v-for="encadruer in encadruers" :key="encadruer._id">
             <option
+              @dblclick="delAssignment(ass._id)"
               v-if="
                 ass.idStag === stagiaire._id && ass.idEencad === encadruer._id
               "
