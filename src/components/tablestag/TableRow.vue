@@ -147,7 +147,7 @@ export default {
                 encadruer.nom +
                 " " +
                 encadruer.prenom +
-                " / " +
+                " // specialite: " +
                 encadruer.specialite
               }}
             </option>

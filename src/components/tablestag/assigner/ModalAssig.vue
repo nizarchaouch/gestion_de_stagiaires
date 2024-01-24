@@ -117,7 +117,6 @@ export default {
                 <select
                   class="form-select"
                   id="prepend-text-single-field"
-                  data-placeholder="Choose one thing"
                   v-model="selectedStagiaire"
                 >
                   <option
