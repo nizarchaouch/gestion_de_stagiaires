@@ -23,7 +23,7 @@ export default {
       datasets: [
         {
           label: "",
-          data: [30, 40, 30, 30],
+          data: [12, 18, 20, 10],
           backgroundColor: [
             "rgb(255, 206, 86)",
             "rgb(75, 192, 192)",

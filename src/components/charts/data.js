@@ -1,4 +1,4 @@
 export let data = {
-  homme: 10,
-  femme: 12,
+  homme: 8,
+  femme: 5,
 };

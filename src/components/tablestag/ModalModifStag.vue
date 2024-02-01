@@ -285,7 +285,7 @@ export default {
               </div>
             </div>
             <div class="row">
-              <div class="form-floating col-md-6 col-6">
+              <!-- <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"
                   class="form-control"
@@ -295,7 +295,7 @@ export default {
                   @input="handleInputChange"
                 />
                 <label :for="'encadrant_' + obj._id">Encadrant</label>
-              </div>
+              </div> -->
               <div class="form-floating col-md-6 col-6">
                 <input
                   type="text"

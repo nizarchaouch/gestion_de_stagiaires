@@ -1,4 +1,5 @@
 <script>
+/* eslint-disable */
 import axios from "axios";
 import MM from "../MdalModifEncad.vue";
 export default {
@@ -7,10 +8,14 @@ export default {
     return {
       selectedOBJ: "null",
       encadruers: [],
+      stagiaires: [],
+      assg: [],
     };
   },
   mounted() {
     this.fetchEncadreurs();
+    this.fetchStagiaires();
+    this.fetchAssg();
   },
   methods: {
     setSelectedOBJ(obj) {
@@ -49,6 +54,39 @@ export default {
         console.error("Internal Server Error:", error);
       }
     },
+
+    async fetchStagiaires() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/stagiaire/showStagi"
+        );
+        this.stagiaires = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
+
+    async fetchAssg() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/assigner/ShowAssg"
+        );
+        this.assg = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
+
+    async delAssignment(assignmentId) {
+      try {
+        await axios.delete(
+          `http://localhost:8081/assigner/DelAssg/${assignmentId}`
+        );
+        this.fetchAssg();
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>
@@ -70,15 +108,26 @@ export default {
         data-placeholder="Choose anything"
         multiple
       >
-        <option v-for="encadruer in encadruers" :key="encadruer._id">
-          {{
-            encadruer.nom +
-            " " +
-            encadruer.prenom +
-            " // " +
-            encadruer.specialite
-          }}
-        </option>
+        <template v-for="ass in assg" :key="assg._id">
+          <template v-for="stagiaire in stagiaires" :key="stagiaire._id">
+            <option
+              @dblclick="delAssignment(ass._id)"
+              v-if="
+                ass.idStag === stagiaire._id && ass.idEencad === encadruer._id
+              "
+              :key="ass._id"
+            >
+              {{
+                stagiaire.nom +
+                " " +
+                stagiaire.prenom +
+                " // projet: " +
+                stagiaire.projet
+              }}
+            </option>
+            <p v-else></p>
+          </template>
+        </template>
       </select>
     </td>
     <td>

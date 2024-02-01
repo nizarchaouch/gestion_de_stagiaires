@@ -12,8 +12,8 @@ export default {
   <div class="contianer">
     <div class="container-fluid">
       <div class="row">
-        <Card title="Demande stage" number="25" />
-        <Card title="DEMANDE EN ATTENTES" number="15" />
+        <Card title="Demande stage" number="15" />
+        <Card title="DEMANDE EN ATTENTES" number="3" />
         <Card title="Taux de présence" number="75%" />
         <Card title="taux de déroulement" number="45%" />
       </div>
