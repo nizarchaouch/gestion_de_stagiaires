@@ -19,9 +19,9 @@ export default {
   },
   methods: {
     setSelectedOBJ(obj) {
-      console.log(this.selectedOBJ);
+      // console.log(this.selectedOBJ);
       this.selectedOBJ = obj;
-      console.log("new", this.selectedOBJ);
+      // console.log("new", this.selectedOBJ);
     },
     async fetchEncadreurs() {
       try {

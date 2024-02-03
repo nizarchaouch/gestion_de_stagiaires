@@ -1,57 +1,22 @@
-<script>
-import Chart from "chart.js/auto";
-import { data } from "./data";
-export default {
-  mounted() {
-    const ctx1 = document.getElementById("myChart1");
-    const ctx2 = document.getElementById("myChart2");
+<script setup>
+/* eslint-disable */
+import { onMounted } from "vue";
+import { getEncadStore } from "@/stores/encadreur";
+import { getStagiStore } from "@/stores/stagiaire";
+import { getOfferStore } from "@/stores/offer";
 
-    const data1 = {
-      labels: ["Hommes", "Femmes"],
-      datasets: [
-        {
-          label: "Stagiaires",
-          data: [data.homme, data.femme],
-          backgroundColor: ["rgb(54, 162, 235)", "rgb(255, 99, 132)"],
-          hoverOffset: 2,
-        },
-      ],
-    };
 
-    const data2 = {
-      labels: ["Stagiaire", "Encadreur", "Projet", "Stage"],
-      datasets: [
-        {
-          label: "",
-          data: [12, 18, 20, 10],
-          backgroundColor: [
-            "rgb(255, 206, 86)",
-            "rgb(75, 192, 192)",
-            "rgb(75, 300, 192)",
-            "rgb(75, 250, 250)",
-          ],
-          hoverOffset: 4,
-        },
-      ],
-    };
+const storeEncad = getEncadStore();
+const storeStag = getStagiStore();
+const storeOffer = getOfferStore();
 
-    // Vérifiez si un graphique existe déjà et détruisez-le
-    if (ctx1.chart) {
-      ctx1.chart.destroy();
-    }
 
-    if (ctx2.chart) {
-      ctx2.chart.destroy();
-    }
+onMounted(async () => {
+  await storeEncad.fetchEncadreurs();
+  await storeOffer.fetchOffer();
+  await storeStag.fetchStagiaires();
 
-    const myChart1 = new Chart(ctx1, { type: "doughnut", data: data1 });
-    const myChart2 = new Chart(ctx2, { type: "bar", data: data2 });
-
-    // Stockez les instances de graphique sur les éléments canvas
-    ctx1.chart = myChart1;
-    ctx2.chart = myChart2;
-  },
-};
+});
 </script>
 
 <template>
