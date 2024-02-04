@@ -1,8 +1,30 @@
 <script>
 import { data } from "./stat";
+import axios from "axios";
 export default {
   setup() {
     return { data };
+  },
+  data() {
+    return {
+      selectedOBJ: "null",
+      admins: [],
+    };
+  },
+  mounted() {
+    this.fetchAdmin();
+  },
+  methods: {
+    async fetchAdmin() {
+      try {
+        const response = await axios.get(
+          "http://localhost:8081/admin/showAdmin"
+        );
+        this.admins = response.data;
+      } catch (error) {
+        console.error("Internal Server Error:", error);
+      }
+    },
   },
 };
 </script>

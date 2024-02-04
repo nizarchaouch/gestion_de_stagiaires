@@ -54,7 +54,7 @@ export const getStagiStore = defineStore("stagi", {
       };
 
       const data2 = {
-        labels: ["Stagiaire", "Encadreur", "Projet", "Stage"],
+        labels: ["Stagiaire", "Encadreur", "Projet" /* , "Stage" */],
         datasets: [
           {
             label: "",
@@ -62,13 +62,13 @@ export const getStagiStore = defineStore("stagi", {
               this.hf,
               getEncadStore().countEncad,
               getOfferStore().countOffer,
-              6,
+              // 6,
             ],
             backgroundColor: [
               "rgb(255, 206, 86)",
               "rgb(75, 192, 192)",
               "rgb(75, 300, 192)",
-              "rgb(75, 250, 250)",
+              // "rgb(75, 250, 250)",
             ],
             hoverOffset: 4,
           },
