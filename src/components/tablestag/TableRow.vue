@@ -3,6 +3,9 @@
 import axios from "axios";
 import ToggleOffcanvas from "../ToggleOffcanvas.vue";
 import MM from "./ModalModifStag.vue";
+import { getStagiStore } from '@/stores/stagiaire';
+import { mapState } from 'pinia'
+
 export default {
   components: { ToggleOffcanvas, MM },
   data() {
@@ -12,6 +15,9 @@ export default {
       encadruer: [],
       assg: [],
     };
+  },
+  computed: {
+    ...mapState(getStagiStore, ['apiUrl'])
   },
   mounted() {
     this.fetchStagiaires();
@@ -106,7 +112,7 @@ export default {
       aria-controls="offcanvasRight"
       :id="stagiaires._id"
     >
-      <img src="https://shorter.me/pW1kn" alt="image" />
+      <img :src="this.apiUrl + stagiaire.imagePath" alt="image" />
     </th>
     <td
       @click="setSelectedOBJ(stagiaire)"

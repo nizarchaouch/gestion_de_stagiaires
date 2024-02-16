@@ -5,7 +5,7 @@ import { getEncadStore } from "@/stores/encadreur";
 import { getOfferStore } from "@/stores/offer";
 
 export const getStagiStore = defineStore("stagi", {
-  state: () => ({ homme: 0, femme: 0, hf: 0 }),
+  state: () => ({ homme: 0, femme: 0, hf: 0, apiUrl: "http://localhost:8081" }),
   getters: {
     stagHomme: (state) => state.homme,
     stagFemme: (state) => state.femme,

@@ -1,4 +1,5 @@
 <script>
+/* eslint-disable */ 
 import axios from "axios";
 export default {
   data() {
@@ -8,7 +9,7 @@ export default {
         color: "",
         visible: false,
       },
-
+      fileForUpload: null,
       imageUrl: "https://shorter.me/pW1kn",
       nom: "",
       prenom: "",
@@ -42,6 +43,7 @@ export default {
     },
     handleFileChange(event) {
       const selectedFile = event.target.files[0];
+      this.fileForUpload = selectedFile;
       this.imageUrl = URL.createObjectURL(selectedFile);
     },
 
@@ -63,19 +65,39 @@ export default {
         datef: this.datef,
         typestage: this.typestage,
         encadrant: this.encadrant,
+        imagePath : '',
       };
 
       try {
-        const response = await axios.post(
-          "http://localhost:8081/stagiaire/addStagi",
-          stagiaireData
+
+        let data = new FormData();
+
+        data.append('image', this.fileForUpload);
+
+        const res = await axios.post(
+          "http://localhost:8081/upload", data
         );
-        console.log("Stagiaire ajouté avec succès !", response.data);
-        this.showAlert("Stagiaire ajouté avec succès !");
-        this.alert.color = "success";
-        setTimeout(() => {
-          window.location.reload();
-        }, 700);
+
+        console.log('my upload data', res);
+
+        if(res.data.imagepath) {
+
+          stagiaireData.imagePath = res.data.imagepath;
+
+          const response = await axios.post(
+            "http://localhost:8081/stagiaire/addStagi",
+            stagiaireData
+          );
+          console.log("Stagiaire ajouté avec succès !", response.data);
+          this.showAlert("Stagiaire ajouté avec succès !");
+          this.alert.color = "success";
+          setTimeout(() => {
+            window.location.reload();
+          }, 700);
+        }else {
+          console.log('herrrrreee');
+        }
+
       } catch (error) {
         console.error("Erreur lors de l'ajout du stagiaire :", error);
         this.showAlert("Erreur lors de l'ajout du stagiaire :");
